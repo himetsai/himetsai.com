@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 type Props = {};
@@ -6,8 +7,8 @@ type Props = {};
 export default function Header({}: Props) {
   return (
     <header
-      className="sticky top-0 md:top-4 flex items-start justify-between max-w-7xl 
-    mx-auto p-4"
+      className="top-0 md:top-4 flex items-start justify-between max-w-7xl 
+    mx-auto px-10 py-5"
     >
       <motion.div
         initial={{
@@ -23,9 +24,12 @@ export default function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center"
       >
-        <h3 className="font-bold text-rose-400 text-xl md:text-2xl">
+        <Link
+          href="/"
+          className="font-bold text-rose-400 text-xl md:text-2xl cursor-pointer hover:animate-pulse"
+        >
           himetsai
-        </h3>
+        </Link>
       </motion.div>
 
       <motion.div
@@ -42,8 +46,15 @@ export default function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row space-x-7 items-center mt-1 mr-0 md:mr-10"
       >
-        <h4 className="font-medium">home</h4>
-        <h4 className="font-medium">blog</h4>
+        <Link
+          href="/"
+          className="font-medium cursor-point"
+        >
+          home
+        </Link>
+        <Link href="/blog" className="font-medium cursor-point">
+          blog
+        </Link>
       </motion.div>
     </header>
   );

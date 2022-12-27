@@ -1,18 +1,24 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+import { visionTool } from "@sanity/vision";
+import { schemaTypes } from "./schemas";
+import { myTheme } from "./theme";
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
-  name: 'default',
-  title: 'himetsai.com',
+  basePath: "/studio",
+  name: "Himesama_Content_Studio",
+  title: "Himesama Content Studio",
 
-  projectId: '3al0kmm8',
-  dataset: 'production',
+  projectId,
+  dataset,
 
   plugins: [deskTool(), visionTool()],
 
   schema: {
     types: schemaTypes,
   },
-})
+  theme: myTheme,
+});

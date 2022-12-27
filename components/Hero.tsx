@@ -8,10 +8,8 @@ export default function Hero({}: Props) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{
-        duration: 1.5,
-      }}
-      className="flex flex-col max-w-7xl md:flex-row relative h-screen items-center text-center md:text-left justify-evenly mx-auto px-10"
+      transition={{ duration: 1.5 }}
+      className="bg-red-500 flex flex-col max-w-7xl md:flex-row relative items-center text-center md:text-left justify-evenly mx-auto px-10 py-5"
     >
       <motion.img
         initial={{
@@ -25,7 +23,7 @@ export default function Hero({}: Props) {
           x: 0,
           opacity: 1,
         }}
-        className="mt-10 md:mt-0 h-48 w-48 rounded-full object-cover md:w-96 md:h-80 xl:w-[33vw] xl:h-[27.5vw] md:rounded-lg"
+        className="mb-10 md:mb-0 mt-5 md:mt-0 h-48 w-48 rounded-full object-cover md:w-96 md:h-80 xl:w-[33vw] xl:h-[27.5vw] md:rounded-lg z-0"
         src="https://cdn.discordapp.com/attachments/668720947036946442/1055393249537302578/IMG_1315.jpg"
         alt=""
       />

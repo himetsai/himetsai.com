@@ -7,8 +7,8 @@ type Props = {};
 export default function Header({}: Props) {
   return (
     <header
-      className="top-0 md:top-4 flex items-start justify-between max-w-7xl 
-    mx-auto px-10 py-5"
+      className="z-30 sticky top-0 md:top-4 flex items-start justify-between max-w-7xl 
+    mx-auto px-10 py-5 bg-zinc-50"
     >
       <motion.div
         initial={{
@@ -46,10 +46,7 @@ export default function Header({}: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row space-x-7 items-center mt-1 mr-0 md:mr-10"
       >
-        <Link
-          href="/"
-          className="font-medium cursor-point"
-        >
+        <Link href="/" className="font-medium cursor-point">
           home
         </Link>
         <Link href="/blog" className="font-medium cursor-point">

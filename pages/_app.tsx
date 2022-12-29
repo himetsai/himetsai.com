@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import Header from "../components/Header";
+import { useRouter } from "next/router";
 import { Montserrat } from "@next/font/google";
 
 const montserrat = Montserrat({
@@ -8,9 +10,15 @@ const montserrat = Montserrat({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const showHeader = router.pathname.startsWith("/studio") ? false : true;
+
   return (
-    <main className={`${montserrat.variable} font-montserrat`}>
-      <Component {...pageProps} />
-    </main>
+    <div>
+      <main className={`${montserrat.variable} font-montserrat h-screen`}>
+        {showHeader && <Header />}
+        <Component {...pageProps} />
+      </main>
+    </div>
   );
 }

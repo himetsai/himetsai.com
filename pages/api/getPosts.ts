@@ -10,7 +10,7 @@ const query = groq`
   *[_type=='post'] {
     ...,
     author->,
-    catagories[]->
+    category->
   } | order(_createdAt desc)
 `;
 

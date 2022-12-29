@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 
 const Home = () => {
@@ -16,9 +15,6 @@ const Home = () => {
         <title>himetsai</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/* Header */}
-      <Header />
 
       {/* Hero */}
       <section id="hero">

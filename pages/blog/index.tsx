@@ -9,7 +9,7 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
   return (
-    <div>
+    <div className="bg-zinc-50 pt-5">
       <BlogList posts={posts} />
     </div>
   );

@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", "cdn.sanity.io"],
   },
   env: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,

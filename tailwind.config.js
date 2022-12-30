@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
+        glowSans: ["var(--font-glowSans)"],
       },
     },
   },

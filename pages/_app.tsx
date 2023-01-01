@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main
         className={`${glowSans.variable} ${montserrat.variable} font-montserrat h-screen bg-zinc-50`}
       >
-        {showHeader && <Header />}
+        {/* {showHeader && <Header />} */}
         <Component {...pageProps} />
       </main>
     </div>

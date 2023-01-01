@@ -28,7 +28,7 @@ export default function Post({ post }: Props) {
 
         <section className="p-5 bg-red-400 w-full">
           <div className="flex flex-col justify-between gap-y-5">
-            <h1 className="text-4xl font-extrabold">{post.title}</h1>
+            <h1 className="text-3xl font-glowSans font-bold">{post.title}</h1>
             <p>
               {new Date(post._createdAt).toLocaleDateString("en-US", {
                 day: "numeric",

@@ -1,67 +1,54 @@
-import React from "react";
-import Image from "next/image";
+import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
 import Link from "next/link";
-import post from "../schemas/post";
-import { urlFor } from "../lib/sanity.client";
+import ResizeObserver from "resize-observer-polyfill";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 type Props = {
   posts: Post[];
 };
 
 export default function BlogList({ posts }: Props) {
-  console.log(posts);
+  const scrollRef = useRef(null);
+  const ghostRef = useRef(null);
+  const [scrollRange, setScrollRange] = useState(0);
+  const [viewportW, setViewportW] = useState(0);
+
+  useLayoutEffect(() => {
+    scrollRef && setScrollRange(scrollRef.current.scrollWidth);
+  }, [scrollRef]);
+
+  const onResize = useCallback((entries) => {
+    for (let entry of entries) {
+      setViewportW(entry.contentRect.width);
+    }
+  }, []);
+  
+  useLayoutEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => onResize(entries));
+    resizeObserver.observe(ghostRef.current);
+    return () => resizeObserver.disconnect();
+  }, [onResize]);
+
   return (
-    <div
-      className="flex flex-col relative px-10 justify-evenly mx-auto items-center
-    overflow-y-scroll md:overflow-y-hidden md:overflow-x-scroll pb-24"
+    <motion.section
+      ref={scrollRef}
+      className="flex flex-col md:flex-row-reverse w-full h-full items-center justify-start px-10 pt-10"
     >
-      <div
-        className="flex flex-col md:flex-row items-center w-full relative space-y-10 
-      space-x-0 md:space-y-0 md:space-x-[300px] px-10"
-      >
-        {posts.map((post) => (
+      {posts.map((post) => (
+        <div key={post._id} className="group">
           <Link
-            key={post._id}
             href={`/blog/post/${post.slug.current}`}
-            className="flex flex-col group cursor-pointer w-full"
+            className="relative flex flex-col cursor-pointer mt-4 md:ml-5 md:mt-0 w-[90vw] p-5 md:w-28 md:p-10 md:h-[70vh] border
+          border-zinc-900 rounded-md shrink-0 bg-zinc-100 group-hover:bg-[#ff7777]"
           >
-            <div
-              className="relative w-full h-80 drop-shadow-xl group-hover:scale-105
-          transition-transform duration-200 ease-out"
-            >
-              <Image
-                className="object-cover object-center"
-                src={urlFor(post.mainImage).url()}
-                alt={post.author.name}
-                fill
-              />
-              <div
-                className="absolute bottom-0 w-full bg-opacity-20 bg-black 
-            backdrop-blur-lg text-white p-5 flex justify-between"
-              >
-                <div>
-                  <p className="font-bold">{post.title}</p>
-
-                  <p>
-                    {new Date(post._createdAt).toLocaleDateString("en-US", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                </div>
-
-                <div
-                  className="bg-red-400 flex items-center text-center text-black px-3 py-1 
-              rounded-full text-sm font-semibold my-auto"
-                >
-                  <p>{post.category.title}</p>
-                </div>
-              </div>
+            <div className="h-full flex flex-col justify-center items-center">
+              <h2 className="text-3xl font-bold text-start md:vertical-title">
+                {post.title}
+              </h2>
             </div>
           </Link>
-        ))}
-      </div>
-    </div>
+        </div>
+      ))}
+    </motion.section>
   );
 }

@@ -49,7 +49,7 @@ export default function Blog({ posts }: Props) {
         <motion.section
           ref={scrollRef}
           style={
-            isMedium && scrollRange > viewportW ? { x: transform } : { x: 0 }
+            isMedium && scrollRange >= viewportW ? { x: transform } : { x: 0 }
           }
           className="relative flex flex-col md:flex-row-reverse max-w-max h-[100vh] items-center justify-end px-10 pt-5"
         >
@@ -62,8 +62,7 @@ export default function Blog({ posts }: Props) {
               >
                 <div className="h-full flex flex-col justify-center items-center">
                   <h2 className="text-3xl font-bold text-start md:vertical-title">
-                    {/* {post.title} */}
-                    {transform.get()}
+                    {post.title}
                   </h2>
                 </div>
               </Link>
@@ -73,7 +72,11 @@ export default function Blog({ posts }: Props) {
       </div>
       <div
         ref={ghostRef}
-        style={isMedium ? { height: scrollRange } : { height: 0 }}
+        style={
+          isMedium && scrollRange >= viewportW
+            ? { height: scrollRange }
+            : { height: 0 }
+        }
         className="w-full"
       />
     </>

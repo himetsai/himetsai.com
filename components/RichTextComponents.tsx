@@ -27,31 +27,31 @@ export const RichTextComponent = {
   },
   block: {
     normal: ({ children }: any) => (
-      <p className="font-glowSans font-normal tracking-wider">{children}</p>
+      <p className="font-normal leading-7 tracking-wider mb-5">{children}</p>
     ),
     h1: ({ children }: any) => (
-      <h1 className="text-5xl py-10 font-glowSans font-semibold tracking-wider">
+      <h1 className="text-5xl py-10 font-bold tracking-wider">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-4xl py-10 font-glowSans font-semibold tracking-wider">
+      <h2 className="text-3xl py-10 font-bold tracking-wider">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-3xl py-10 font-glowSans font-semibold tracking-wider">
+      <h3 className="text-3xl py-10 font-bold tracking-wider">
         {children}
       </h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-2xl py-10 font-glowSans font-semibold tracking-wider">
+      <h4 className="text-2xl py-10 font-bold tracking-wider">
         {children}
       </h4>
     ),
 
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-red-400 border-l-4 pl-5 py-5 my-5 font-glowSans font-normal tracking-wider">
+      <blockquote className="border-l-red-400 border-l-4 pl-5 py-5 my-5 font-normal tracking-wider">
         {children}
       </blockquote>
     ),
@@ -66,7 +66,7 @@ export const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="underline decoration-red-400 hover:decoration-red-100 font-glowSans font-normal tracking-wider"
+          className="underline decoration-red-400 hover:decoration-red-100 font-normal tracking-wider"
         >
           {children}
         </Link>

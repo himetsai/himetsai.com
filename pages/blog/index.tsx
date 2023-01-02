@@ -46,7 +46,7 @@ export default function Blog({ posts }: Props) {
   return (
     <>
       <div
-        className="flex w-full bg-zinc-50
+        className="flex w-full bg-zinc-50 pt-5
         md:fixed md:w-auto md:left-0 md:right-0 md:flex-row-reverse md:will-change-transform"
       >
         <motion.section
@@ -54,11 +54,9 @@ export default function Blog({ posts }: Props) {
           style={
             isMedium && scrollRange >= viewportW ? { x: transform } : { x: 0 }
           }
-          className="relative flex flex-col w-full h-[100vh] items-center py-10 gap-10
-          md:py-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-10"
+          className="relative flex flex-col w-full items-center py-[60px] gap-10
+          md:h-[100vh] md:py-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
-          {/* Artificial Padding */}
-          <div className="p-2 md:p-5" />
           {/* Posts */}
           {posts.map((post) => (
             <div key={post._id} className="group">
@@ -75,8 +73,6 @@ export default function Blog({ posts }: Props) {
               </Link>
             </div>
           ))}
-          {/* Artificial Padding */}
-          {!(isMedium && scrollRange <= viewportW) && <div className="p-5" />}
         </motion.section>
       </div>
       <div

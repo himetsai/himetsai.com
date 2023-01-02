@@ -62,7 +62,8 @@ export default function Blog({ posts }: Props) {
               >
                 <div className="h-full flex flex-col justify-center items-center">
                   <h2 className="text-3xl font-bold text-start md:vertical-title">
-                    {post.title}
+                    {/* {post.title} */}
+                    {transform.get()}
                   </h2>
                 </div>
               </Link>
@@ -70,7 +71,11 @@ export default function Blog({ posts }: Props) {
           ))}
         </motion.section>
       </div>
-      <div ref={ghostRef} style={{ height: scrollRange }} className="w-full" />
+      <div
+        ref={ghostRef}
+        style={isMedium ? { height: scrollRange } : { height: 0 }}
+        className="w-full"
+      />
     </>
   );
 }

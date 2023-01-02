@@ -8,8 +8,7 @@ const Home = () => {
 
   return (
     <div
-      className="bg-zinc-50 text-zinc-900 h-screen overflow-y-scroll
-    overflow-x-hidden z-0 scrollbar-none"
+      className="bg-zinc-50 text-zinc-900 h-screen"
     >
       <Head>
         <title>himetsai</title>

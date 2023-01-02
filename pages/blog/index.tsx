@@ -45,16 +45,23 @@ export default function Blog({ posts }: Props) {
 
   return (
     <>
-      <div className="fixed flex left-0 right-0 will-change-transform bg-zinc-50 md:flex-row-reverse">
+      <div
+        className="flex w-full bg-zinc-50
+        md:fixed md:w-auto md:left-0 md:right-0 md:flex-row-reverse md:will-change-transform"
+      >
         <motion.section
           ref={scrollRef}
           style={
             isMedium && scrollRange >= viewportW ? { x: transform } : { x: 0 }
           }
-          className="relative flex flex-col md:flex-row-reverse max-w-max h-[100vh] items-center justify-end px-10 pt-5"
+          className="relative flex flex-col w-full h-[100vh] items-center py-10 gap-10
+          md:py-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-10"
         >
+          {/* Artificial Padding */}
+          <div className="p-2 md:p-5" />
+          {/* Posts */}
           {posts.map((post) => (
-            <div key={post._id} className="group mt-4 md:ml-10 md:mt-0">
+            <div key={post._id} className="group">
               <Link
                 href={`/blog/post/${post.slug.current}`}
                 className="relative flex flex-col cursor-pointer w-[90vw] p-5 md:w-28 md:p-10 md:h-[70vh] border
@@ -68,6 +75,8 @@ export default function Blog({ posts }: Props) {
               </Link>
             </div>
           ))}
+          {/* Artificial Padding */}
+          {!(isMedium && scrollRange <= viewportW) && <div className="p-5" />}
         </motion.section>
       </div>
       <div

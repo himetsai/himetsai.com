@@ -39,7 +39,8 @@ export default function Post({ post }: Props) {
           </div>
         </section>
       </section>
-
+      
+      {/* Post Content */}
       <PortableText value={post.body} components={RichTextComponent} />
     </article>
   );

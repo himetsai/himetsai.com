@@ -48,7 +48,9 @@ export default function Blog({ posts }: Props) {
       <div className="fixed flex left-0 right-0 will-change-transform bg-zinc-50 md:flex-row-reverse">
         <motion.section
           ref={scrollRef}
-          style={isMedium ? { x: transform } : { x: 0 }}
+          style={
+            isMedium && scrollRange > viewportW ? { x: transform } : { x: 0 }
+          }
           className="relative flex flex-col md:flex-row-reverse max-w-max h-[100vh] items-center justify-end px-10 pt-5"
         >
           {posts.map((post) => (

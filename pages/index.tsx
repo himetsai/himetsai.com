@@ -7,9 +7,7 @@ const Home = () => {
   // console.log(posts);
 
   return (
-    <div
-      className="bg-zinc-50 text-zinc-900 h-screen"
-    >
+    <div className="bg-[#faeee7] text-[#33272a] h-screen">
       <Head>
         <title>himetsai</title>
         <link rel="icon" href="/favicon.ico" />

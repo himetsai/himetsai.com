@@ -7,8 +7,8 @@ type Props = {};
 export default function Header({}: Props) {
   return (
     <header
-      className="z-30 sticky top-0 md:top-4 flex items-start justify-between max-w-7xl 
-    mx-auto px-10 py-5 bg-zinc-50"
+      className="z-30 top-0 md:top-4 flex items-start justify-between max-w-7xl 
+    mx-auto px-10 py-5 bg-[#faeee7]"
     >
       <motion.div
         initial={{
@@ -26,7 +26,7 @@ export default function Header({}: Props) {
       >
         <Link
           href="/"
-          className="font-bold text-rose-400 text-xl md:text-2xl cursor-pointer hover:animate-pulse"
+          className="font-bold text-[#ff7777] text-xl md:text-2xl cursor-pointer hover:animate-pulse"
         >
           himetsai
         </Link>

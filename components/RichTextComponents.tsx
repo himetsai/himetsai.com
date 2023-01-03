@@ -2,6 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import urlFor from "../lib/urlFor";
 
+export const slugify = (str: string) =>
+  str
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/ +/g, "_")
+    .replace(/_+/g, "-")
+    .replace(/(，|。|、|（|）|！|？).*$/g, "");
+
 export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
@@ -30,22 +39,34 @@ export const RichTextComponent = {
       <p className="font-normal leading-7 tracking-wider mb-5">{children}</p>
     ),
     h1: ({ children }: any) => (
-      <h1 className="text-5xl py-10 font-bold tracking-wider">
+      <h1
+        id={slugify(children)}
+        className="text-5xl py-10 font-bold tracking-wider"
+      >
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-4xl py-10 font-bold tracking-wider">
+      <h2
+        id={slugify(children)}
+        className="text-4xl py-10 font-bold tracking-wider"
+      >
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-3xl py-10 font-bold tracking-wider">
+      <h3
+        id={slugify(children)}
+        className="text-3xl py-10 font-bold tracking-wider"
+      >
         {children}
       </h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-2xl leading-5 py-6 font-bold tracking-wider">
+      <h4
+        id={slugify(children)}
+        className="text-2xl leading-5 py-6 font-bold tracking-wider"
+      >
         {children}
       </h4>
     ),

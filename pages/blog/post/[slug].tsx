@@ -6,14 +6,14 @@ import { fetchPost } from "../../../lib/fetchPost";
 import urlFor from "../../../lib/urlFor";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../../../components/RichTextComponents";
-import { useIsMedium, useIsLarge } from "../../../lib/useMediaQuery";
+import { useIsLarge } from "../../../lib/useMediaQuery";
+import TableOfContents from "../../../components/TableOfContents";
 
 type Props = {
   post: Post;
 };
 
 export default function Post({ post }: Props) {
-  const isMedium: boolean = useIsMedium();
   const isLarge: boolean = useIsLarge();
 
   return (
@@ -45,6 +45,7 @@ export default function Post({ post }: Props) {
               {`#${post.category.title}`}
             </p>
           </div>
+          <TableOfContents headings={post.headings} />
         </div>
       )}
 

@@ -70,3 +70,10 @@ interface Title {
   _type: "string";
   current: string;
 }
+
+interface Span {
+  _key: string;
+  _type: "span";
+  marks: any[];
+  text: string;
+}

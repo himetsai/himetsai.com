@@ -6,19 +6,20 @@ import { montserrat } from "../lib/loadFonts";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const showHeader: boolean =
-    router.pathname.startsWith("/studio") || router.pathname.startsWith("/blog")
-      ? false
-      : true;
+  const showHeader: boolean = router.pathname.startsWith("/studio")
+    ? false
+    : true;
+  const fixedHeader: "fixed" | "relative" = router.pathname.startsWith("/blog")
+    ? "fixed"
+    : "relative";
 
   return (
-    <div>
-      <main
-        className={`${montserrat.variable} font-montserrat h-screen bg-[#faeee7]`}
-      >
-        {showHeader && <Header />}
-        <Component {...pageProps} />
-      </main>
-    </div>
+    <main
+      className={`absolute top-0 bottom-0 left-0 right-0 ${montserrat.variable}
+        font-montserrat h-screen bg-[#faeee7]`}
+    >
+      {showHeader && <Header position={fixedHeader} />}
+      <Component {...pageProps} />
+    </main>
   );
 }

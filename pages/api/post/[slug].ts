@@ -12,7 +12,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   *[_type=='post' && slug.current == $slug][0] {
     ...,
     author->,
-    category->
+    category->,
+    "headings": body[length(style) == 2 && string::startsWith(style, "h")]
   }
 `;
   const post: Post = await client.fetch(query, { slug });

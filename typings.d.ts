@@ -15,6 +15,7 @@ interface Post extends Base {
   title: string;
   publishedAt: string;
   description: string;
+  headings: Headings[];
 }
 
 interface Author extends Base {
@@ -50,6 +51,14 @@ interface Block {
   children: Span[];
   markDefs: any[];
   style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+}
+
+interface Heading {
+  _key: string;
+  _type: "block";
+  children: Span[];
+  markDefs: any[];
+  style: "h1" | "h2" | "h3" | "h4";
 }
 
 interface MainImage {

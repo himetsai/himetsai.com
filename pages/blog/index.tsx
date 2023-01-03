@@ -5,6 +5,7 @@ import Link from "next/link";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../lib/useMediaQuery";
+import PostCard from "../../components/PostCard"
 
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
@@ -47,7 +48,7 @@ export default function Blog({ posts }: Props) {
     <>
       <div
         className="flex w-full bg-[#faeee7] pt-5
-        md:fixed md:w-auto md:left-0 md:right-0 md:flex-row-reverse md:will-change-transform"
+        md:fixed md:w-auto md:right-0 md:flex-row-reverse md:will-change-transform"
       >
         <motion.section
           ref={scrollRef}
@@ -59,34 +60,11 @@ export default function Blog({ posts }: Props) {
         >
           {/* Posts */}
           {posts.map((post) => (
-            <div key={post._id} className="group">
-              <Link
-                href={`/blog/post/${post.slug.current}`}
-                className="relative flex flex-col cursor-pointer w-[90vw] md:w-auto md:h-[70vh] border
-            border-[#33272a] rounded-md shrink-0 bg-[#fffffe] 
-            group-hover:bg-[#ff7777] group-hover:scale-105 transition duration-200 ease-in-out"
-              >
-                <div className="h-full flex flex-col justify-between items-start px-2 py-4 md:vertical-title">
-                  <p className="relative text-sm">
-                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                  <h2
-                    className="text-3xl font-bold text-start text-[#33272a]
-                  group-hover:text-[#fffffe] px-4 py-9 mb-15"
-                  >
-                    {post.title}
-                  </h2>
-                  <p className="relative self-end text-sm">{`# ${post.category.title}`}</p>
-                </div>
-              </Link>
-            </div>
+            <PostCard key={post._id} post={post} />
           ))}
         </motion.section>
       </div>
+
       <div
         ref={ghostRef}
         style={

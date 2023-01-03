@@ -6,23 +6,59 @@ import { fetchPost } from "../../../lib/fetchPost";
 import urlFor from "../../../lib/urlFor";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../../../components/RichTextComponents";
-import Link from "next/link";
+import { useIsMedium, useIsLarge } from "../../../lib/useMediaQuery";
 
 type Props = {
   post: Post;
 };
 
 export default function Post({ post }: Props) {
+  const isMedium: boolean = useIsMedium();
+  const isLarge: boolean = useIsLarge();
+
   return (
-    <div className="flex items-center justify-center py-10 bg-[#faeee7] text-[#33272a]">
-      <article className="max-w-2xl">
+    <div
+      className="flex items-center justify-center px-5 md:px-0 py-[100px]
+    bg-[#faeee7] text-[#33272a]"
+    >
+      {/* Side Info */}
+      {isLarge && (
+        <div className="fixed left-10 top-36">
+          {/* Published Date */}
+          <div className="relative tracking-wide">
+            <p className="text-xs opacity-60">Published Time</p>
+            <p className="relative text-sm font-medium">
+              {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+          </div>
+
+          {/* Category */}
+          <div className="relative tracking-wide mt-5">
+            <p className="text-xs opacity-60">Category</p>
+            <p className="relative text-sm font-medium">
+              {`#${post.category.title}`}
+            </p>
+          </div>
+        </div>
+      )}
+
+      <article
+        className="md:w-[768px] lg:ml-12 bg-[#fffffe] p-5 md:p-10 border-2
+      border-[#33272a] rounded-lg z-20"
+      >
         {/* Title */}
-        <h1 className="text-4xl py-5 font-bold tracking-wider">{post.title}</h1>
+        <h1 className="text-4xl font-bold tracking-wider">{post.title}</h1>
 
         {/* Main Image */}
         <div className="relative w-full h-72 my-10 sm:h-96 ">
           <Image
-            className="object-cover object-center mx-auto md:border-[1.5px] border-[#33272a] md:rounded-sm"
+            className="object-cover object-center mx-auto border-[1.5px] border-[#33272a] rounded-lg"
             src={urlFor(post.mainImage).url()}
             alt={post.author.name}
             fill
@@ -31,32 +67,6 @@ export default function Post({ post }: Props) {
 
         {/* Post Content */}
         <PortableText value={post.body} components={RichTextComponent} />
-
-        {/* <section className="border border-red-400 text-white">
-        <div className="relative min-h-56 flex flex-col justify-between">
-          <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10">
-            <Image
-              className="object-cover object-center mx-auto"
-              src={urlFor(post.mainImage).url()}
-              alt={post.author.name}
-              fill
-            />
-          </div>
-        </div>
-
-        <section className="p-5 bg-red-400 w-full">
-          <div className="flex flex-col justify-between gap-y-5">
-            <h1 className="text-3xl font-glowSans font-bold">{post.title}</h1>
-            <p>
-              {new Date(post._createdAt).toLocaleDateString("en-US", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
-          </div>
-        </section>
-      </section> */}
       </article>
     </div>
   );

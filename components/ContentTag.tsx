@@ -8,6 +8,9 @@ type Props = {
 
 export default function ContentTag({ title, active }: Props) {
   const [anchorTarget, setAnchorTarget] = useState<null | HTMLElement>(null);
+  const style = active
+    ? ""
+    : "opacity-60 transition ease-in-out duration-200 hover:opacity-100";
 
   useEffect(() => {
     setAnchorTarget(document.getElementById(slugify(title)));
@@ -19,8 +22,11 @@ export default function ContentTag({ title, active }: Props) {
 
   return (
     <div>
-      <p className="cursor-pointer" onClick={handleClick}>
-        {`${title}, ${active}`}
+      <p
+        className={`relative text-sm font-medium cursor-pointer leading-6 ${style}`}
+        onClick={handleClick}
+      >
+        {title}
       </p>
     </div>
   );

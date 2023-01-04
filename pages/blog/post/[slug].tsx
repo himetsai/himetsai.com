@@ -13,9 +13,11 @@ type Props = {
 export default function Post({ post }: Props) {
   const isLarge: boolean = useIsLarge();
 
+  // 
+
   return (
     <div
-      className="flex items-center justify-center px-5 md:px-0 pt-[100px] pb-[200px]
+      className="flex items-center justify-center px-5 md:px-0 pt-[100px] pb-[350px]
     bg-[#faeee7] text-[#33272a]"
     >
       {/* Side Info */}

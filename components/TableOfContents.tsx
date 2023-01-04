@@ -34,7 +34,7 @@ export default function TableOfContents({ headings }: Props) {
    * Store the active menuItem in state to force update
    * when changed
    */
-  const [activeItem, setActiveItem] = useState<string>("Top");
+  const [activeItem, setActiveItem] = useState<string>("null");
 
   /**
    * The MutationObserver watches for a few different
@@ -59,7 +59,7 @@ export default function TableOfContents({ headings }: Props) {
    * Programmatically determine where to set AnchorPoints for our Content Page
    */
   const getAnchorPoints = () => {
-    const curScroll = window.scrollY - window.innerHeight / 2;
+    const curScroll = window.scrollY - window.innerHeight / 2 + 100;
 
     for (const key of contentTags) {
       let section = document.getElementById(key.title);
@@ -77,7 +77,7 @@ export default function TableOfContents({ headings }: Props) {
    */
   const handleScroll = () => {
     const curPos: number = window.scrollY;
-    let curSection: string | null = null;
+    let curSection: string = "Top";
 
     for (const section of contentTags) {
       if (section.position! > curPos) break;
@@ -90,12 +90,17 @@ export default function TableOfContents({ headings }: Props) {
   };
 
   return (
-    <div>
-      {headings.map((heading) => {
-        const title: string = getChildrenText(heading);
-        const active: boolean = slugify(title) === activeItem;
-        return <ContentTag key={heading._key} title={title} active={active} />;
-      })}
+    <div className="relative tracking-wide">
+      <p className="text-xs opacity-60">Contents</p>
+      <div className="pt-2">
+        {headings.map((heading) => {
+          const title: string = getChildrenText(heading);
+          const active: boolean = slugify(title) === activeItem;
+          return (
+            <ContentTag key={heading._key} title={title} active={active} />
+          );
+        })}
+      </div>
     </div>
   );
 }

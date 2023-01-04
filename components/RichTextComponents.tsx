@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import urlFor from "../lib/urlFor";
-
-export const slugify = (str: string) =>
-  str
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/ +/g, "_")
-    .replace(/_+/g, "-")
-    .replace(/(，|。|、|（|）|！|？).*$/g, "");
+import { slugify } from "../lib/slugify";
 
 export const RichTextComponent = {
   types: {

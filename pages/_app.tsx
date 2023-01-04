@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <main
+      id="root"
       className={`absolute top-0 bottom-0 left-0 right-0 ${montserrat.variable}
         font-montserrat h-screen bg-[#faeee7]`}
     >

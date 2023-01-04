@@ -34,7 +34,9 @@ export default function SideInfo({ post }: Props) {
       </div>
 
       {/* Table of Contents */}
-      <TableOfContents headings={post.headings} />
+      {post.headings?.length > 0 && (
+        <TableOfContents headings={post.headings} />
+      )}
     </div>
   );
 }

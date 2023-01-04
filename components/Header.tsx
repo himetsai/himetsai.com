@@ -7,6 +7,7 @@ type Props = {
 };
 
 export default function Header({ position }: Props) {
+
   return (
     <div className={`${position} w-full z-30`}>
       <header

@@ -20,7 +20,7 @@ export default function ContentTag({ title, active }: Props) {
   return (
     <div>
       <p className="cursor-pointer" onClick={handleClick}>
-        {title}
+        {`${title}, ${active}`}
       </p>
     </div>
   );

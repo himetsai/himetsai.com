@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ContentTag from "./ContentTag";
 import { slugify } from "../lib/slugify";
-import { motion, useScroll } from "framer-motion";
 
 type Props = {
   headings: Heading[];
@@ -20,7 +19,6 @@ export default function TableOfContents({ headings }: Props) {
    * record heading positions
    */
   const contentTags: Position[] = [{ title: "Top", position: 0 }];
-  const { scrollYProgress, scrollY } = useScroll();
 
   /**
    * initializing contentTags
@@ -38,7 +36,39 @@ export default function TableOfContents({ headings }: Props) {
    */
   const [activeItem, setActiveItem] = useState<string>("Top");
 
-  useLayoutEffect(() => console.log(activeItem), [activeItem]);
+  /**
+   * The MutationObserver watches for a few different
+   * events, including page resizing when new elements might be
+   * added to the page (potentially changing the location of our
+   * anchor points)
+   * it also listens to the scroll event in order to update based
+   * on our user's scroll depth
+   */
+  useEffect(() => {
+    getAnchorPoints();
+    const observer = new MutationObserver(getAnchorPoints);
+    observer.observe(document.getElementById("root")!, {
+      childList: true,
+      subtree: true,
+    });
+    window.addEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /**
+   * Programmatically determine where to set AnchorPoints for our Content Page
+   */
+  const getAnchorPoints = () => {
+    const curScroll = window.scrollY - window.innerHeight / 2;
+
+    for (const key of contentTags) {
+      let section = document.getElementById(key.title);
+      if (!section) continue;
+      key.position = section.getBoundingClientRect()?.top + curScroll;
+    }
+
+    handleScroll();
+  };
 
   /**
    * Determine which section the user is viewing, based on their scroll-depth
@@ -55,47 +85,9 @@ export default function TableOfContents({ headings }: Props) {
     }
 
     if (curSection !== activeItem) {
-      if (scrollYProgress.get() > 0.99) {
-        setActiveItem(contentTags[contentTags.length - 1].title);
-      } else {
-        setActiveItem(curSection!);
-      }
+      setActiveItem(curSection!);
     }
   };
-
-  /**
-   * Programmatically determine where to set AnchorPoints for our Content Page
-   */
-  const getAnchorPoints = () => {
-    const curScroll = window.scrollY - 250;
-
-    for (const key of contentTags) {
-      let section = document.getElementById(key.title);
-      if (!section) continue;
-      key.position = section.getBoundingClientRect()?.top + curScroll;
-    }
-
-    handleScroll();
-  };
-
-  /**
-   * The MutationObserver watches for a few different
-   * events, including page resizing when new elements might be
-   * added to the page (potentially changing the location of our
-   * anchor points)
-   * it also listens to the scroll event in order to update based
-   * on our user's scroll depth
-   */
-  useLayoutEffect(() => {
-    getAnchorPoints();
-    const observer = new MutationObserver(getAnchorPoints);
-    observer.observe(document.getElementById("root")!, {
-      childList: true,
-      subtree: true,
-    });
-    window.addEventListener("scroll", handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div>

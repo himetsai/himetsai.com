@@ -15,7 +15,7 @@ export default function Post({ post }: Props) {
 
   return (
     <div
-      className="flex items-center justify-center px-5 md:px-0 py-[100px]
+      className="flex items-center justify-center px-5 md:px-0 pt-[100px] pb-[200px]
     bg-[#faeee7] text-[#33272a]"
     >
       {/* Side Info */}

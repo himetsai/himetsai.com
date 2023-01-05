@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import PageMenu from "./HeaderMenu";
+import PageMenu from "./PageMenu";
 
 type Props = {
   position: "fixed" | "relative";

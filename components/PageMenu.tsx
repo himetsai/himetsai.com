@@ -1,15 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 export default function PageMenu({}: Props) {
-  const menu = useRef<null | HTMLDivElement>(null);
-
+  const router = useRouter();
   return (
     <motion.div
-      ref={menu}
       initial={{
         x: 500,
         opacity: 0,
@@ -46,8 +45,8 @@ export default function PageMenu({}: Props) {
       </label>
       <ul
         tabIndex={0}
-        className="dropdown-content space-y-1 menu p-2 shadow bg-[#fffffe] border-[1.5px] border-[#33272a]
-            rounded-box w-52"
+        className="dropdown-content space-y-1 menu p-2 shadow bg-[#fffffe] border-[1.5px] 
+        border-[#33272a] rounded-box w-52"
       >
         <li>
           <Link
@@ -60,14 +59,25 @@ export default function PageMenu({}: Props) {
           </Link>
         </li>
         <li>
-          <Link
-            href="/shitpost"
-            className="font-medium cursor-point transition ease-in-out duration-200 
+          {/* putting a route check to prevent page transition glitch */}
+          {router.pathname === "/shitpost" ? (
+            <h4
+              className="font-medium cursor-point transition ease-in-out duration-200 
             hover:bg-[#ff7777] hover:text-[#fffffe] border-[1.5px] border-[#33272a]
             border-opacity-0 hover:border-opacity-100"
-          >
-            shitpost
-          </Link>
+            >
+              shitpost
+            </h4>
+          ) : (
+            <Link
+              href="/shitpost"
+              className="font-medium cursor-point transition ease-in-out duration-200 
+            hover:bg-[#ff7777] hover:text-[#fffffe] border-[1.5px] border-[#33272a]
+            border-opacity-0 hover:border-opacity-100"
+            >
+              shitpost
+            </Link>
+          )}
         </li>
       </ul>
     </motion.div>

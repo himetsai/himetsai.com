@@ -9,6 +9,11 @@ import PageComponent from "../components/PageComponent";
 import Loader from "../components/Loader";
 
 export default function App({ Component, pageProps }: AppProps) {
+  /**
+   * lets you know wya
+   */
+  const router = useRouter();
+
   const [loading, setLoading] = useState<boolean>(false);
 
   Router.events.on("routeChangeStart", (url) => {
@@ -18,11 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
   Router.events.on("routeChangeComplete", (url) => {
     setLoading(false);
   });
-
-  /**
-   * lets you know wya
-   */
-  const router = useRouter();
 
   /**
    * hide header on the sanity backend page

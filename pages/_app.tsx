@@ -1,31 +1,67 @@
 import "../styles/globals.css";
+import { useState } from "react";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { montserrat } from "../lib/loadFonts";
-import { useIsMedium, useIsLarge } from "../lib/useMediaQuery";
+import { motion, AnimatePresence } from "framer-motion";
+import PageComponent from "../components/PageComponent";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const isLarge = useIsLarge();
-  const isMedium = useIsMedium();
+  /**
+   * Lets you know wya
+   */
   const router = useRouter();
+
+  /**
+   * Hide header on the sanity backend page
+   */
   const showHeader: boolean = router.pathname.startsWith("/studio")
     ? false
     : true;
-  const fixedHeader: "fixed" | "relative" =
-    (router.pathname.endsWith("/shitpost") && isMedium) ||
-    (router.pathname.startsWith("/shitpost") && isLarge)
-      ? "fixed"
-      : "relative";
+
+  /**
+   * Header position state
+   */
+  const [fixedHeader, setFixedHeader] = useState<"fixed" | "relative">(
+    "relative"
+  );
 
   return (
     <main
       id="root"
-      className={`absolute top-0 bottom-0 left-0 right-0 ${montserrat.variable}
-        font-montserrat h-screen bg-[#faeee7]`}
+      className={`absolute top-0 bottom-0 left-0 right-0 
+      ${montserrat.variable} font-montserrat h-screen bg-[#faeee7]`}
     >
       {showHeader && <Header position={fixedHeader} />}
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={router.route}
+          initial="initialState"
+          animate="animateState"
+          exit="exitState"
+          transition={{ duration: 0.75 }}
+          variants={{
+            initialState: {
+              opacity: 0,
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+            },
+            animateState: {
+              opacity: 1,
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+            },
+            exitState: {
+              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+            },
+          }}
+        >
+          <PageComponent
+            Component={Component}
+            pageProps={pageProps}
+            setFixedHeader={setFixedHeader}
+          />
+        </motion.div>
+      </AnimatePresence>
     </main>
   );
 }

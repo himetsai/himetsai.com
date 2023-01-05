@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ContentTag from "./ContentTag";
-import { useScroll } from "framer-motion";
 import { slugify } from "../lib/slugify";
 
 type Props = {

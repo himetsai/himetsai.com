@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 type Props = {};
 
-export default function HeaderMenu({}: Props) {
+export default function PageMenu({}: Props) {
   const menu = useRef<null | HTMLDivElement>(null);
 
   return (

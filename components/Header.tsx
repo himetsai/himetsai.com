@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import HeaderMenu from "./HeaderMenu";
+import PageMenu from "./HeaderMenu";
 
 type Props = {
   position: "fixed" | "relative";
@@ -33,7 +33,7 @@ export default function Header({ position }: Props) {
           </Link>
         </motion.div>
 
-        <HeaderMenu />
+        <PageMenu />
       </header>
     </div>
   );

@@ -13,8 +13,6 @@ type Props = {
 export default function Post({ post }: Props) {
   const isLarge: boolean = useIsLarge();
 
-  // 
-
   return (
     <div
       className="flex items-center justify-center px-5 md:px-0 pt-10 pb-10 

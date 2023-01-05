@@ -4,6 +4,9 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  daisyui: {
+    themes: [],
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -11,5 +14,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [require("daisyui")],
 };

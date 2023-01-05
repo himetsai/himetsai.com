@@ -54,8 +54,8 @@ export default function Blog({ posts }: Props) {
           style={
             isMedium && scrollRange >= viewportW ? { x: transform } : { x: 0 }
           }
-          className="relative flex flex-col w-full items-center py-[60px] gap-10
-          md:h-[100vh] md:py-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-[60px]"
+          className="relative flex flex-col w-full items-center pb-10 gap-10
+          md:h-[100vh] md:pb-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
           {/* Posts */}
           {posts.map((post) => (

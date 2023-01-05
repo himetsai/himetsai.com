@@ -3,16 +3,17 @@ import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { montserrat } from "../lib/loadFonts";
-import { useIsLarge } from "../lib/useMediaQuery";
+import { useIsMedium, useIsLarge } from "../lib/useMediaQuery";
 
 export default function App({ Component, pageProps }: AppProps) {
   const isLarge = useIsLarge();
+  const isMedium = useIsMedium();
   const router = useRouter();
   const showHeader: boolean = router.pathname.startsWith("/studio")
     ? false
     : true;
   const fixedHeader: "fixed" | "relative" =
-    router.pathname.endsWith("/blog") ||
+    (router.pathname.endsWith("/blog") && isMedium) ||
     (router.pathname.startsWith("/blog") && isLarge)
       ? "fixed"
       : "relative";

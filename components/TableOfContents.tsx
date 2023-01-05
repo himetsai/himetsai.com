@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContentTag from "./ContentTag";
+import { useScroll } from "framer-motion";
 import { slugify } from "../lib/slugify";
 
 type Props = {
@@ -15,10 +16,21 @@ export const getChildrenText = (heading: Heading): string =>
   heading.children.map((node) => node.text).join("");
 
 export default function TableOfContents({ headings }: Props) {
+  window.onscroll = () => {
+    var winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    var height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    var scrolled = Math.trunc((winScroll / height) * 100);
+    setScrollProgress(scrolled);
+  };
+
   /**
    * record heading positions
    */
   const contentTags: Position[] = [{ title: "Top", position: 0 }];
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
   /**
    * initializing contentTags
@@ -91,8 +103,10 @@ export default function TableOfContents({ headings }: Props) {
 
   return (
     <div className="relative tracking-wide">
-      <p className="text-xs opacity-60">Contents</p>
-      <div className="pt-2">
+      <p className="text-xs opacity-60">
+        Contents<span className="px-1">{`${scrollProgress}%`}</span>
+      </p>
+      <div className="pt-1">
         {headings.map((heading) => {
           const title: string = getChildrenText(heading);
           const active: boolean = slugify(title) === activeItem;

@@ -14,7 +14,10 @@ export default function PostCard({ post }: Props) {
             border-[#33272a] rounded-md shrink-0 bg-[#fffffe] 
             group-hover:bg-[#ff7777] group-hover:scale-105 transition duration-200 ease-in-out"
       >
-        <div className="h-full flex flex-col justify-between items-start px-2 py-4 md:vertical-title">
+        <div
+          className="h-full flex flex-col justify-between items-start px-2 py-4 text-[#33272a] 
+        group-hover:text-[#fffffe] md:vertical-title"
+        >
           {/* Date */}
           <p className="relative text-sm">
             {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
@@ -25,10 +28,7 @@ export default function PostCard({ post }: Props) {
           </p>
 
           {/* Title */}
-          <h2
-            className="text-3xl font-bold text-start text-[#33272a]
-                  group-hover:text-[#fffffe] px-4 py-4 md:py-9 mb-15"
-          >
+          <h2 className="text-3xl font-bold text-start px-4 py-4 md:py-9 mb-15">
             {post.title}
           </h2>
 

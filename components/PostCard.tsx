@@ -9,7 +9,7 @@ export default function PostCard({ post }: Props) {
   return (
     <div className="group">
       <Link
-        href={`/blog/post/${post.slug.current}`}
+        href={`/shitpost/${post.slug.current}`}
         className="relative flex flex-col cursor-pointer w-[90vw] md:w-auto md:h-[70vh] border-[1.5px]
             border-[#33272a] rounded-md shrink-0 bg-[#fffffe] 
             group-hover:bg-[#ff7777] group-hover:scale-105 transition duration-200 ease-in-out"

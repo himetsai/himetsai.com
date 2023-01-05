@@ -13,8 +13,8 @@ export default function App({ Component, pageProps }: AppProps) {
     ? false
     : true;
   const fixedHeader: "fixed" | "relative" =
-    (router.pathname.endsWith("/blog") && isMedium) ||
-    (router.pathname.startsWith("/blog") && isLarge)
+    (router.pathname.endsWith("/shitpost") && isMedium) ||
+    (router.pathname.startsWith("/shitpost") && isLarge)
       ? "fixed"
       : "relative";
 

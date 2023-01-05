@@ -1,10 +1,10 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { fetchPosts } from "../../../lib/fetchPosts";
-import { fetchPost } from "../../../lib/fetchPost";
-import { useIsLarge } from "../../../lib/useMediaQuery";
-import SideInfo from "../../../components/SideInfo";
-import PostContent from "../../../components/PostContent";
+import { fetchPosts } from "../../lib/fetchPosts";
+import { fetchPost } from "../../lib/fetchPost";
+import { useIsLarge } from "../../lib/useMediaQuery";
+import SideInfo from "../../components/SideInfo";
+import PostContent from "../../components/PostContent";
 
 type Props = {
   post: Post;

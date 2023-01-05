@@ -61,12 +61,12 @@ export default function HeaderMenu({}: Props) {
         </li>
         <li>
           <Link
-            href="/blog"
+            href="/shitpost"
             className="font-medium cursor-point transition ease-in-out duration-200 
             hover:bg-[#ff7777] hover:text-[#fffffe] border-[1.5px] border-[#33272a]
             border-opacity-0 hover:border-opacity-100"
           >
-            blog
+            shitpost
           </Link>
         </li>
       </ul>

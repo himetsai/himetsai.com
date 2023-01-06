@@ -5,6 +5,7 @@ import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../lib/useMediaQuery";
 import PostCard from "../../components/PostCard"
+import Head from "next/head";
 
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
@@ -45,6 +46,10 @@ export default function Blog({ posts }: Props) {
 
   return (
     <>
+      <Head>
+        <title>hime's shitposts</title>
+      </Head>
+
       <div
         className="flex w-full bg-[#faeee7] pt-5
         md:fixed md:w-auto md:right-0 md:flex-row-reverse md:will-change-transform"

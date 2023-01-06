@@ -9,5 +9,8 @@
     "not firefox <= 107",
     "not ios_saf <= 16.1",
     "not safari <= 16.1"
-  ]
+  ],
+  "hints": {
+    "apple-touch-icons": "off"
+  }
 }

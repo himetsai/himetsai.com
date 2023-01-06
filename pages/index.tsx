@@ -10,7 +10,6 @@ const Home = () => {
     <div className="bg-[#faeee7] text-[#33272a] h-screen">
       <Head>
         <title>himetsai</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero */}

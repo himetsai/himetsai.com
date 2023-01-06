@@ -20,7 +20,7 @@ export default function PageMenu({}: Props) {
         scale: 1,
       }}
       transition={{ duration: 1.5 }}
-      className="dropdown dropdown-hover dropdown-end -mt-1 group"
+      className="dropdown dropdown-hover dropdown-end group -mt-1"
     >
       <label
         tabIndex={0}

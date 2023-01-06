@@ -26,7 +26,9 @@ export default function Header({ position }: Props) {
             scale: 1,
           }}
           transition={{ duration: 1.5 }}
-          className="flex flex-row items-center py-1 rounded-md text-[#ff7777]"
+          className="flex flex-row items-center px-2 py-1 rounded-md text-[#ff7777] 
+          border-[1.5px] border-opacity-0 border-[#33272a]
+          hover:bg-[#ff7777] hover:border-opacity-100 hover:text-[#fffffe]"
         >
           <Link href="/" className="font-bold text-2xl cursor-pointer">
             himetsai

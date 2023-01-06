@@ -14,10 +14,18 @@ export default function Loader({}: Props) {
         className="z-0 fixed flex flex-col w-full h-full items-center justify-center
         text-center font-bold text-3xl text-[#ff7777] leading-10"
       >
-        <Image src="/loading.gif" alt="" width="250" height="250" />
+        <div>
+          <Image
+            src="/loading.gif"
+            alt=""
+            width="250"
+            height="250"
+            className="rounded-3xl object-cover border-[1.5px] border-[#33272a]"
+          />
+        </div>
         <h4 className="p-5 animate-pulse">loading...</h4>
       </motion.div>
-      
+
       {/* Putting this to prevent page transitino glitch */}
       <div className="h-[101vh]" />
     </>

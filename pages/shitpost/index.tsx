@@ -47,6 +47,7 @@ export default function Blog({ posts }: Props) {
   return (
     <>
       <Head>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>hime's shitposts</title>
       </Head>
 

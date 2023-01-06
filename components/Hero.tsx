@@ -30,11 +30,10 @@ export default function Hero({}: Props) {
 
       <div className="space-y-7 px-0 md:px-10">
         <h4 className="text-3xl font-semibold">
-          My name is{" "}
-          <span className="decoration-rose-400 underline">Ray Tsai</span>
+          Himesama
         </h4>
 
-        <p className="text-base">
+        {/* <p className="text-base">
           My friends also call me{" "}
           <span className="decoration-red-400 underline">Himesama</span>. I'm
           from Taipei, and I'm a heterosexual Asian cisgender man pursuing a
@@ -48,7 +47,7 @@ export default function Hero({}: Props) {
           leave some marks in this world as a proof of my existence before I
           leave. Therefore, I made this website to record random things in my
           fleeting life, and I hope the URL would be craved on my grave.
-        </p>
+        </p> */}
       </div>
     </motion.div>
   );

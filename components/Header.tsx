@@ -9,7 +9,7 @@ type Props = {
 
 export default function Header({ position }: Props) {
   return (
-    <div className={`${position} w-full z-30`}>
+    <div className={`${position} w-full z-30 left-0`}>
       <header
         className="top-0 md:top-4 flex items-start justify-between max-w-7xl 
     mx-auto px-10 py-5"

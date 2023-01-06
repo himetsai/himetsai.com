@@ -9,7 +9,7 @@ export default function Hero({}: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="bg-red-500 flex flex-col max-w-7xl md:flex-row relative items-center text-center md:text-left justify-evenly mx-auto px-10 py-5"
+      className="flex flex-col max-w-7xl md:flex-row relative items-center text-center md:text-left justify-evenly mx-auto px-10 py-5"
     >
       <motion.img
         initial={{

@@ -56,6 +56,8 @@ export default function TableOfContents({ headings }: Props) {
    * on our user's scroll depth
    */
   useEffect(() => {
+    // reset page scroll
+    scrollTo(0, 0);
     getAnchorPoints();
     const observer = new MutationObserver(getAnchorPoints);
     observer.observe(document.getElementById("root")!, {

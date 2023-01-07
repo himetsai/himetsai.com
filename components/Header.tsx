@@ -2,12 +2,15 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PageMenu from "./PageMenu";
+import { useRouter } from "next/router";
 
 type Props = {
   position: "fixed" | "relative";
 };
 
 export default function Header({ position }: Props) {
+  const router = useRouter();
+
   return (
     <div className={`${position} w-full z-30 left-0`}>
       <header
@@ -30,7 +33,17 @@ export default function Header({ position }: Props) {
           border-[1.5px] border-opacity-0 border-[#33272a]
           hover:bg-[#ff7777] hover:border-opacity-100 hover:text-[#fffffe]"
         >
-          <Link href="/" className="font-bold text-2xl cursor-pointer">
+          {/* scroll to top if page is home */}
+          <Link
+            href="/"
+            className="font-bold text-2xl cursor-pointer"
+            scroll={!(router.pathname === "/")}
+            onClick={() => {
+              if (router.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             himetsai
           </Link>
         </motion.div>

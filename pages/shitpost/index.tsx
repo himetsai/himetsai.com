@@ -4,7 +4,7 @@ import { fetchPosts } from "../../lib/fetchPosts";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../lib/useMediaQuery";
-import PostCard from "../../components/PostCard"
+import PostCard from "../../components/PostCard";
 import Head from "next/head";
 
 React.useLayoutEffect =
@@ -20,6 +20,15 @@ export default function Blog({ posts }: Props) {
   const [scrollRange, setScrollRange] = useState<number>(0);
   const [viewportW, setViewportW] = useState<number>(0);
   const isMedium: boolean = useIsMedium();
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
 
   useLayoutEffect(() => {
     setScrollRange(scrollRef.current!.scrollWidth);
@@ -60,6 +69,9 @@ export default function Blog({ posts }: Props) {
           style={
             isMedium && scrollRange >= viewportW ? { x: transform } : { x: 0 }
           }
+          variants={container}
+          initial="hidden"
+          whileInView="show"
           className="relative flex flex-col w-full items-center pb-10 gap-10
           md:h-[100vh] md:pb-0 md:flex-row-reverse md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >

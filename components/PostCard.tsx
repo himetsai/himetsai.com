@@ -1,13 +1,19 @@
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   post: Post;
 };
 
 export default function PostCard({ post }: Props) {
+  const item = {
+    hidden: { y: 400, opacity: 0 },
+    show: { y: 0, opacity: 1 },
+  };
+
   return (
-    <div className="group">
+    <motion.div variants={item} className="group">
       <Link
         href={`/shitpost/${post.slug.current}`}
         className="relative flex flex-col cursor-pointer w-[90vw] md:w-auto md:h-[70vh] border-[1.5px]
@@ -51,6 +57,6 @@ export default function PostCard({ post }: Props) {
           <p className="relative self-end text-sm">{`#${post.category.title}`}</p>
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }

@@ -19,6 +19,7 @@ export default function Post({ post }: Props) {
       <Head>
         <title>{post.title}</title>
       </Head>
+      
       <div
         className="flex items-center justify-center px-5 md:px-0 pt-10 pb-10 
         lg:pt-[100px] lg:pb-[350px] bg-[#faeee7] text-[#33272a]"

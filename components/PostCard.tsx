@@ -8,7 +8,7 @@ type Props = {
 
 export default function PostCard({ post }: Props) {
   const item = {
-    hidden: { y: 400, opacity: 0 },
+    hidden: { y: 200, opacity: 0 },
     show: { y: 0, opacity: 1 },
   };
 

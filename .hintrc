@@ -11,6 +11,7 @@
     "not safari <= 16.1"
   ],
   "hints": {
-    "apple-touch-icons": "off"
+    "apple-touch-icons": "off",
+    "no-inline-styles": "off"
   }
 }

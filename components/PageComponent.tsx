@@ -32,8 +32,9 @@ export default function PageComponent({
   useEffect(() => {
     isPresent &&
       setFixedHeader(
-        (router.pathname.endsWith("/shitpost") && isMedium) ||
-          (router.pathname.startsWith("/shitpost") && isLarge)
+        (router.pathname === "/shitpost" && isMedium) ||
+          (router.pathname.startsWith("/shitpost") && isLarge) ||
+          (router.pathname === "/")
           ? "fixed"
           : "relative"
       );

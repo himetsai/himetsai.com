@@ -15,9 +15,9 @@ export default function SideInfo({ post }: Props) {
       className="fixed left-0 top-60 py-7 pl-4 pr-8 space-y-5 bg-[#fffffe] 
     border-2 border-l-0 border-[#33272a] rounded-r-lg"
     >
-      {/* Published Date */}
+      {/* Publishing Date */}
       <div className="relative tracking-wide">
-        <p className="text-xs opacity-60">Published Time</p>
+        <p className="text-xs opacity-60">Publishing Date</p>
         <p className="relative text-sm font-medium">
           {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
             day: "2-digit",

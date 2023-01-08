@@ -9,10 +9,10 @@ export const config = {
   projectId,
   dataset,
   apiVersion,
-  useCdn: false,
+  useCdn: process.env.NODE_ENV === "production",
 };
 
 export const client = createClient(config);
 
-export const urlFor = (source: any) => 
+export const urlFor = (source: any) =>
   createImageUrlBuilder(config).image(source);

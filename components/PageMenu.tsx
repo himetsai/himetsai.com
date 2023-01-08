@@ -48,18 +48,29 @@ export default function PageMenu({}: Props) {
         className="dropdown-content space-y-1 menu p-2 shadow bg-[#fffffe] border-[1.5px] 
         border-[#33272a] rounded-box w-52"
       >
+        {/* putting a route checks to prevent page transition glitch */}
         <li>
-          <Link
-            href="/"
-            className="font-medium cursor-point transition ease-in-out duration-200 
+          {router.pathname === "/" ? (
+            <h4
+              className="font-medium cursor-point transition ease-in-out duration-200 
             hover:bg-[#ff7777] hover:text-[#fffffe] border-[1.5px] border-[#33272a]
             border-opacity-0 hover:border-opacity-100"
-          >
-            home
-          </Link>
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              home
+            </h4>
+          ) : (
+            <Link
+              href="/"
+              className="font-medium cursor-point transition ease-in-out duration-200 
+            hover:bg-[#ff7777] hover:text-[#fffffe] border-[1.5px] border-[#33272a]
+            border-opacity-0 hover:border-opacity-100"
+            >
+              home
+            </Link>
+          )}
         </li>
         <li>
-          {/* putting a route check to prevent page transition glitch */}
           {router.pathname === "/shitpost" ? (
             <h4
               className="font-medium cursor-point transition ease-in-out duration-200 

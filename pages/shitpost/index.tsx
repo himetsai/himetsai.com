@@ -14,7 +14,7 @@ type Props = {
   posts: Post[];
 };
 
-export default function Blog({ posts }: Props) {
+export default function Shitpost({ posts }: Props) {
   const scrollRef = useRef<null | HTMLDivElement>(null);
   const ghostRef = useRef<null | HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState<number>(0);
@@ -86,11 +86,11 @@ export default function Blog({ posts }: Props) {
       <div
         ref={ghostRef}
         style={
-          isMedium && scrollRange >= viewportW
+          scrollRange >= viewportW
             ? { height: scrollRange }
-            : { height: 0 }
+            : { height: "100vh" }
         }
-        className="w-full"
+        className="w-full -z-20 fixed md:relative"
       />
     </>
   );

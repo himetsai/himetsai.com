@@ -1,8 +1,11 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  title: string;
+  description: string;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({ title, description }: Props) {
   return (
     <div
       className="h-screen flex flex-col items-center justify-center 
@@ -12,10 +15,10 @@ export default function Hero({}: Props) {
         className="font-bold text-2xl md:text-4xl lg:text-5xl text-[#fffffe] bg-[#ff7777]
       p-5 rounded-md border-2 border-[#33272a]"
       >
-        Ray Tsai's personal website
+        {title}
       </h1>
       <h2 className="font-medium text-lg md:text-2xl text-[#33272a]">
-        I spam unsolicited content here.
+        {description}
       </h2>
     </div>
   );

@@ -16,13 +16,16 @@ export default function PostCard({ post }: Props) {
     <motion.div variants={item} className="group">
       <Link
         href={`/shitpost/${post.slug.current}`}
-        className="relative flex flex-col cursor-pointer w-[90vw] md:w-auto md:h-[70vh] border-[1.5px]
+        className="relative flex flex-col cursor-pointer w-[90vw]
+            md:w-auto md:h-[70vh] border-[1.5px]
             border-[#33272a] rounded-md shrink-0 bg-[#fffffe] 
-            group-hover:bg-[#ff7777] group-hover:scale-105 transition duration-200 ease-in-out"
+            group-hover:bg-[#ff7777] group-hover:scale-105 
+            transition duration-200 ease-in-out"
       >
         <div
-          className="h-full flex flex-col justify-between items-start px-2 py-4 text-[#33272a] 
-        group-hover:text-[#fffffe] md:vertical-title"
+          className="h-full flex flex-col justify-between items-start
+              px-2 py-4 text-[#33272a] group-hover:text-[#fffffe]
+              md:vertical-title"
         >
           {/* Date */}
           <div className="flex flex-row items-center gap-1">

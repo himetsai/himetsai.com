@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import { useState } from "react";
-import Head from "next/head";
 import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import Router, { useRouter } from "next/router";

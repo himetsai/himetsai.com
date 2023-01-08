@@ -6,9 +6,7 @@ type Data = {
   post: Post;
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const { slug } = req.query;
-  const query = groq`
+const query = groq`
   *[_type=='post' && slug.current == $slug][0] {
     ...,
     author->,
@@ -16,6 +14,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     "headings": body[length(style) == 2 && string::startsWith(style, "h")]
   }
 `;
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  const { slug } = req.query;
   const post: Post = await client.fetch(query, { slug });
   res.status(200).json({ post });
 };

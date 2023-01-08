@@ -6,6 +6,16 @@ type Base = {
   _updatedAt: string;
 };
 
+interface PageInfo extends Base {
+  achievements: Block[];
+  description: string;
+  image: Image;
+  name: string;
+  pageDescription: string;
+  pageTitle: string;
+  socials: Social[];
+}
+
 interface Post extends Base {
   author: Author;
   body: Block[];
@@ -28,6 +38,13 @@ interface Author extends Base {
 interface Category extends Base {
   title: string;
   description: string;
+}
+
+interface Social extends Base {
+  title: string;
+  url: string;
+  username: string;
+  image?: Image;
 }
 
 interface Image {

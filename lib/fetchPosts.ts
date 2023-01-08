@@ -1,8 +1,15 @@
+import { groq } from "next-sanity";
+import { client } from "../lib/sanity.client";
+
+const query = groq`
+  *[_type=='post'] {
+    ...,
+    author->,
+    category->
+  } | order(_createdAt desc)
+`;
+
 export const fetchPosts = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL}/api/getPosts`
-  );
-  const data = await res.json();
-  const posts: Post[] = data.posts;
+  const posts: Post[] = await client.fetch(query);
   return posts;
 };

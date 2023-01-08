@@ -1,10 +1,14 @@
+import { groq } from "next-sanity";
+import { client } from "../lib/sanity.client";
+
+const query = groq`
+  *[ _type == "pageInfo"][0] {
+  ...,
+  socials[]->
+}
+`;
+
 export const fetchPageInfo = async () => {
-  const res = await fetch(
-    `${
-      process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
-    }/api/getPageInfo`
-  );
-  const data = await res.json();
-  const pageInfo: PageInfo = data.pageInfo;
+  const pageInfo: PageInfo = await client.fetch(query);
   return pageInfo;
 };

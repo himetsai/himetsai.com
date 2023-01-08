@@ -10,6 +10,7 @@ type Props = {
 
 export default function Header({ position }: Props) {
   const router = useRouter();
+  const isHome = router.pathname === "/";
 
   return (
     <div className={`${position} w-full z-30 left-0`}>
@@ -34,20 +35,21 @@ export default function Header({ position }: Props) {
           hover:bg-[#ff7777] hover:border-opacity-100 hover:text-[#fffffe]"
         >
           {/* scroll to top if page is home */}
-          <Link
-            href="/"
-            className="font-bold text-2xl cursor-pointer"
-            scroll={!(router.pathname === "/")}
-            onClick={() => {
-              if (router.pathname === "/") {
+          {isHome ? (
+            <p
+              className="font-bold text-2xl cursor-pointer"
+              onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
-              }
-            }}
-          >
-            himetsai
-          </Link>
+              }}
+            >
+              himetsai
+            </p>
+          ) : (
+            <Link href="/" className="font-bold text-2xl cursor-pointer">
+              himetsai
+            </Link>
+          )}
         </motion.div>
-
         <PageMenu />
       </header>
     </div>

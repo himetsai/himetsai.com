@@ -1,5 +1,9 @@
 export const fetchPosts = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getPosts`);
+  const res = await fetch(
+    `${
+      process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_VERCEL_URL
+    }/api/getPosts`
+  );
   const data = await res.json();
   const posts: Post[] = data.posts;
   return posts;

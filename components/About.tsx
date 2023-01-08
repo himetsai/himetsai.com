@@ -10,13 +10,10 @@ type Props = {
 
 export default function About({ name, description, image }: Props) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
+    <div
       className="flex flex-col max-w-7xl bg-[#fffffe] rounded-xl
       border-2 border-[#33272a] md:flex-row relative items-center
-      text-center md:text-left justify-evenly mx-auto px-10 py-5"
+      text-center md:text-left justify-evenly mx-auto px-10 py-10"
     >
       <motion.img
         initial={{
@@ -42,6 +39,6 @@ export default function About({ name, description, image }: Props) {
 
         <p className="text-base text-[#594a4e] leading-8">{description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }

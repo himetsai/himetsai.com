@@ -35,13 +35,11 @@ const Home = ({
           content="Ray Tsai's personal website"
           key="desc"
         />
-        <meta property="og:title" content="himetsai" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:site_name" content="himetsai.com" />
+        <meta property="og:title" content="himetsai" />
+        <meta property="og:site_name" content="himetsai" />
         <meta property="og:type" content="home" />
         <meta property="og:image" content="/preview.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
       </Head>
 
       {/* Hero */}

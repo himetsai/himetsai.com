@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetStaticProps } from "next";
 import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
 import { fetchPosts } from "../../lib/fetchPosts";
@@ -5,7 +6,6 @@ import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../lib/useMediaQuery";
 import PostCard from "../../components/PostCard";
-import Head from "next/head";
 
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
@@ -58,6 +58,9 @@ export default function Shitpost({ posts }: Props) {
       <Head>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>hime's shitposts</title>
+        <meta name="description" content="Ray Tsai's shitposts" key="desc" />
+        <meta property="og:title" content="hime's shitpost" />
+        <meta property="og:image" content="/preview.png" />
       </Head>
 
       <div

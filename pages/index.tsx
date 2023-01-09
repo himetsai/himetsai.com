@@ -30,6 +30,13 @@ const Home = ({
     <div className="text-[#33272a] pb-[80px]">
       <Head>
         <title>himetsai</title>
+        <meta
+          name="description"
+          content="Ray Tsai's personal website"
+          key="desc"
+        />
+        <meta property="og:title" content="himetsai" />
+        <meta property="og:image" content="/preview.png" />
       </Head>
 
       {/* Hero */}

@@ -1,11 +1,12 @@
 import React from "react";
+import Head from "next/head";
 import { GetStaticProps } from "next";
 import { fetchPosts } from "../../lib/fetchPosts";
-import Head from "next/head";
 import { fetchPost } from "../../lib/fetchPost";
 import { useIsLarge } from "../../lib/useMediaQuery";
 import SideInfo from "../../components/SideInfo";
 import PostContent from "../../components/PostContent";
+import { urlFor } from "../../lib/sanity.client";
 
 type Props = {
   post: Post;
@@ -18,8 +19,10 @@ export default function Post({ post }: Props) {
     <>
       <Head>
         <title>{post.title}</title>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:image" content={urlFor(post.mainImage).url()} />
       </Head>
-      
+
       <div
         className="flex items-center justify-center px-5 md:px-0 pt-10 pb-10 
         lg:pt-[100px] lg:pb-[350px] bg-[#faeee7] text-[#33272a]"

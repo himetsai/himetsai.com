@@ -61,6 +61,8 @@ export default function Shitpost({ posts }: Props) {
         <meta name="description" content="Ray Tsai's shitposts" key="desc" />
         <meta property="og:title" content="hime's shitpost" />
         <meta property="og:image" content="/preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
 
       <div

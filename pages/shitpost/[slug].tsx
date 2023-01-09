@@ -21,6 +21,8 @@ export default function Post({ post }: Props) {
         <title>{post.title}</title>
         <meta property="og:title" content={post.title} />
         <meta property="og:image" content={urlFor(post.mainImage).url()} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
 
       <div

@@ -37,6 +37,8 @@ const Home = ({
         />
         <meta property="og:title" content="himetsai" />
         <meta property="og:image" content="/preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
 
       {/* Hero */}

@@ -19,7 +19,10 @@ export default function Post({ post }: Props) {
     <>
       <Head>
         <title>{post.title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content={post.title} />
+        <meta property="og:site_name" content="himetsai.com" />
+        <meta property="og:type" content="shitpost" />
         <meta property="og:image" content={urlFor(post.mainImage).url()} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

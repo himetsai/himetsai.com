@@ -30,7 +30,7 @@ export default function PostContent({ post }: Props) {
       {!isLarge && <InPostInfo post={post} />}
 
       {/* Main Image */}
-      <div className="relative w-full h-72 my-5 lg:my-8 sm:h-96">
+      <div className="relative w-full h-60 my-5 lg:my-8 sm:h-96">
         <Image
           className="object-cover object-center mx-auto border-[1.5px]
           border-[#33272a] rounded-lg"

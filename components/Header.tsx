@@ -16,7 +16,7 @@ export default function Header({ position }: Props) {
     <div className={`${position} w-full z-30 left-0`}>
       <header
         className="top-0 md:top-4 flex items-start justify-between max-w-7xl 
-    mx-auto px-10 py-5"
+    mx-auto px-5 md:px-10 py-5"
       >
         <motion.div
           initial={{
@@ -30,8 +30,8 @@ export default function Header({ position }: Props) {
             scale: 1,
           }}
           transition={{ duration: 1.5 }}
-          className="flex flex-row items-center px-2 py-1 rounded-md text-[#ff7777] 
-          border-[1.5px] border-opacity-0 border-[#33272a]
+          className="flex flex-row items-center px-2 py-1 rounded-md
+          text-[#ff7777] border-[1.5px] border-opacity-0 border-[#33272a]
           hover:bg-[#ff7777] hover:border-opacity-100 hover:text-[#fffffe]"
         >
           {/* scroll to top if page is home */}

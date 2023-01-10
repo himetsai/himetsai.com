@@ -51,7 +51,7 @@ export default function PostCard({ post }: Props) {
         </div>
 
         {/* Title */}
-        <h2 className="text-3xl font-bold text-start px-4 py-4 md:py-9 mb-15">
+        <h2 className="text-2xl font-bold text-start px-4 py-4 md:py-9 mb-15">
           {post.title}
         </h2>
 

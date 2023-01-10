@@ -13,52 +13,50 @@ export default function PostCard({ post }: Props) {
   };
 
   return (
-    <motion.div variants={item} viewport={{ once: true }} className="group">
+    <motion.div
+      variants={item}
+      viewport={{ once: true }}
+      className="flex group bg-[#fffffe] w-[90vw] md:w-auto md:h-[70vh]
+      md:vertical-title"
+    >
       <Link
         href={`/shitpost/${post.slug.current}`}
-        className="relative flex flex-col cursor-pointer w-[90vw]
-            md:w-auto md:h-[70vh] border-[1.5px]
-            border-[#33272a] rounded-md shrink-0 bg-[#fffffe] 
-            group-hover:bg-[#ff7777] group-hover:scale-105 
-            transition duration-200 ease-in-out"
+        className="flex flex-col shrink-0 w-full h-full px-2 py-4
+        group-hover:bg-[#ff7777] border-[1.5px] border-[#33272a] 
+        rounded-md transition text-[#33272a] duration-200 ease-in-out
+        group-hover:text-[#fffffe] group-hover:scale-105"
       >
-        <div
-          className="h-full flex flex-col justify-between items-start
-              px-2 py-4 text-[#33272a] group-hover:text-[#fffffe]
-              md:vertical-title"
-        >
-          {/* Date */}
-          <div className="flex flex-row items-center gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-4 h-4 md:rotate-90"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z"
-                clipRule="evenodd"
-              />
-            </svg>
+        {/* Date */}
+        <div className="flex flex-row items-center gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-4 h-4 md:rotate-90"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z"
+              clipRule="evenodd"
+            />
+          </svg>
 
-            <p className="relative text-sm">
-              {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
-            </p>
-          </div>
-
-          {/* Title */}
-          <h2 className="text-3xl font-bold text-start px-4 py-4 md:py-9 mb-15">
-            {post.title}
-          </h2>
-
-          {/* Catagory */}
-          <p className="relative self-end text-sm">{`#${post.category.title}`}</p>
+          <p className="relative text-sm">
+            {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </p>
         </div>
+
+        {/* Title */}
+        <h2 className="text-3xl font-bold text-start px-4 py-4 md:py-9 mb-15">
+          {post.title}
+        </h2>
+
+        {/* Catagory */}
+        <p className="relative self-end text-sm">{`#${post.category.title}`}</p>
       </Link>
     </motion.div>
   );

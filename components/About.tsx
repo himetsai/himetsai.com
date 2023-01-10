@@ -13,7 +13,7 @@ export default function About({ name, description, image }: Props) {
     <div
       className="flex flex-col max-w-7xl bg-[#fffffe] rounded-xl
       border-2 border-[#33272a] md:flex-row relative items-center
-      text-center md:text-left justify-evenly mx-auto px-10 py-10"
+      text-center md:text-left justify-evenly mx-auto p-7 sm:p-10"
     >
       <motion.img
         initial={{
@@ -28,7 +28,7 @@ export default function About({ name, description, image }: Props) {
           opacity: 1,
         }}
         className="mb-10 md:mb-0 mt-5 md:mt-0 h-48 w-48 rounded-full
-        object-cover  md:w-96 md:h-80 xl:w-[33vw] xl:h-[27.5vw] 
+        object-cover md:w-96 md:h-80 xl:w-[33vw] xl:h-[27.5vw] 
         md:rounded-lg z-0 border-[1.5px] border-[#33272a]"
         src={urlFor(image).url()}
         alt=""

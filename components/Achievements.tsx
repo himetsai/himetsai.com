@@ -11,9 +11,11 @@ export default function Achievements({ achivements }: Props) {
     <div
       className="flex flex-col max-w-7xl bg-[#fffffe] rounded-xl
       border-2 border-[#33272a] relative items-center
-      text-left justify-evenly mx-auto px-10 py-5"
+      text-left justify-evenly mx-auto px-5 md:px-10 py-5"
     >
-      <h4 className="font-semibold text-2xl text-center py-5">Achievements</h4>
+      <h4 className="font-semibold text-2xl text-center py-3 md:py-5">
+        Achievements
+      </h4>
 
       <PortableText value={achivements} components={RichTextComponent} />
     </div>

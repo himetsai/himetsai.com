@@ -78,9 +78,9 @@ export default function Shitpost({ posts }: Props) {
           variants={container}
           initial="hidden"
           whileInView="show"
-          className="relative flex flex-col w-full items-center pb-10 gap-10
-          md:h-[100vh] md:pb-0 md:flex-row-reverse md:w-auto md:max-w-max 
-          md:justify-end md:px-[60px]"
+          className="relative flex flex-col w-full items-center pb-10 
+          gap-5 sm:gap-10 md:h-[100vh] md:pb-0 md:flex-row-reverse
+          md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
           {/* Posts */}
           {posts.map((post) => (

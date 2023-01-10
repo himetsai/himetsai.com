@@ -52,7 +52,7 @@ const Home = ({
 
       <div className="h-screen" />
 
-      <div className="bg-[#faeee7] space-y-10 px-10">
+      <div className="bg-[#faeee7] space-y-5 sm:space-y-10 px-5 sm:px-10">
         {/* About */}
         <section id="about">
           <About name={name} description={description} image={image} />

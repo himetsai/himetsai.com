@@ -1,6 +1,12 @@
-This is a Ray Tsai's personal website [himetsai](himetsai.com)
+This is Ray Tsai's personal website [himetsai.com](himetsai.com)
 
 ## Getting Started
+
+Before you do anything, run:
+
+```bash
+npm install
+```
 
 Run the development server:
 
@@ -20,9 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 To deploy the website to vercel, simply push the code to the repository.
 
-Finally,
+## Finally
 
-## If you like me as a person, please give me a star.
+If you like me as a person, **please give me a star**.
 
 Thank you very much.
 

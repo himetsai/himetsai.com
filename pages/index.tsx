@@ -6,6 +6,7 @@ import About from "../components/About";
 import Achievements from "../components/Achievements";
 import Contact from "../components/Contact";
 import { fetchPageInfo } from "../lib/fetchPageInfo";
+import Link from "next/link";
 
 type Props = {
   pageTitle: string;
@@ -43,16 +44,17 @@ const Home = ({
       </Head>
 
       {/* Hero */}
-      <section
-        className="fixed -z-10 w-full h-screen
-      top-0 left-0"
-      >
+      <section className="fixed -z-10 w-full h-screen top-0 left-0">
         <Hero title={pageTitle} description={pageDescription} />
       </section>
 
       <div className="h-screen" />
 
-      <div className="bg-[#faeee7] space-y-5 sm:space-y-10 px-5 sm:px-10">
+      {/* Content */}
+      <div
+        className="bg-[#faeee7] space-y-5 sm:space-y-10 
+        px-5 sm:px-10"
+      >
         {/* About */}
         <section id="about">
           <About name={name} description={description} image={image} />
@@ -63,8 +65,25 @@ const Home = ({
           <Achievements achivements={achievements} />
         </section>
 
+        {/* Contact */}
         <section id="contact">
           <Contact socials={socials} />
+        </section>
+
+        {/* Link to Repo */}
+        <section
+          id="veiw-code"
+          className="w-full flex items-center justify-center
+          text-sm tracking-wider"
+        >
+          check out the code for this website
+          <Link
+            href="https://github.com/boogerman919/himetsai.com"
+            className="hover:underline decoration-[#ff7777] 
+            text-[#ff7777] pl-1 font-normal"
+          >
+            here
+          </Link>
         </section>
       </div>
     </div>

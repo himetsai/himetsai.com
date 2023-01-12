@@ -33,7 +33,7 @@ export default function Contact({ socials }: Props) {
           <Link
             key={social.title}
             href={social.url}
-            className="flex flex-row items-center justify-center
+            className="flex flex-row min-w-fit items-center justify-center
           lg:justify-start lg:pr-4 rounded-lg border-[1.5px]
           border-[#33272a] group hover:bg-[#ff7777] 
           hover:text-[#fffffe]"
@@ -44,7 +44,7 @@ export default function Contact({ socials }: Props) {
               url={social.url}
               className="text-[#33272a] group-hover:text-[#fffffe]"
             />
-            <h4 className="font-medium hidden lg:flex">{social.username}</h4>
+            {isLarge && <h4 className="font-medium">{social.username}</h4>}
           </Link>
         ))}
       </div>

@@ -7,9 +7,19 @@ type Props = {
   social: Social;
 };
 
+type ImageLoaderProps = {
+  src: string;
+  width: number;
+  quality?: number;
+  root?: string;
+};
+
 export default function SocialButton({ social }: Props) {
   const isLarge = useIsLarge();
   const btn = useRef<HTMLDivElement | null>(null);
+
+  const iconLoader = ({ src, width }: ImageLoaderProps): string =>
+    `https://cdn.simpleicons.org/${src}/?w=${width}`;
 
   /**
    * check if button is a link.
@@ -25,11 +35,12 @@ export default function SocialButton({ social }: Props) {
            hover:text-[#fffffe] transition ease-in-out duration-200"
     >
       <Image
+        loader={iconLoader}
         height="24"
         width="24"
-        src={`https://cdn.simpleicons.org/${social.slug.current}/black`}
-        alt={`${social.title}`}
-        className="group-hover:invert transition ease-in-out duration-200"
+        src={social.slug.current}
+        alt={social.title}
+        className="brightness-0 group-hover:invert transition ease-in-out duration-200"
       />
       {isLarge && <h4 className="font-medium">{social.username}</h4>}
     </Link>
@@ -47,10 +58,11 @@ export default function SocialButton({ social }: Props) {
         }}
       >
         <Image
+          loader={iconLoader}
           height="24"
           width="24"
-          src={`https://cdn.simpleicons.org/${social.slug.current}/black`}
-          alt={`${social.title}`}
+          src={social.slug.current}
+          alt={social.title}
           className="group-hover:invert transition ease-in-out duration-200"
         />
         {isLarge && <h4 className="font-medium">{social.username}</h4>}

@@ -42,9 +42,10 @@ interface Category extends Base {
 
 interface Social extends Base {
   title: string;
+  slug: Slug;
   url: string;
+  link: boolean;
   username: string;
-  image?: Image;
 }
 
 interface Image {

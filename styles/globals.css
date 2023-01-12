@@ -14,14 +14,39 @@ body {
   background-color: #faeee7;
 }
 
+/* highlight text */
 ::selection {
   color: #fafafa;
   background: #ff7777;
 }
 
+/* copied alert */
+.tooltip {
+  --tooltip-color: #ff7777;
+  --tooltip-text-color: #fffffe;
+}
+
+.tooltip:before,
+.tooltip:after {
+  transition-delay: 0ms;
+  transition-duration: 200ms;
+}
+
+.tooltip:hover:before,
+.tooltip:hover:after {
+  opacity: 0;
+}
+
+.tooltip.tooltip-open:before,
+.tooltip.tooltip-open:after {
+  opacity: 1;
+  transition-delay: 0ms;
+  transition-duration: 0ms;
+}
+
+/* vertical text */
 @layer components {
   .vertical-title {
     writing-mode: vertical-rl;
   }
 }
-

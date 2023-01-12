@@ -12,22 +12,29 @@ export default defineType({
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "username",
       title: "Username",
       type: "string",
+    },
+    {
+      name: "link",
+      title: "Link",
+      type: "boolean",
+      initialValue: true,
     },
     {
       name: "url",
       title: "Url",
       type: "url",
     },
-    defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
   ],
 });

@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost", "cdn.sanity.io"],
+    domains: ["localhost", "cdn.sanity.io", "cdn.simpleicons.org"],
   },
 };
 

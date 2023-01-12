@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* change background colors to match theme */
 html {
   background-color: #faeee7;
 }

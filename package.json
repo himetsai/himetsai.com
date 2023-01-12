@@ -32,7 +32,6 @@
     "react-markdown": "^8.0.4",
     "react-moment": "^1.1.2",
     "react-portable-text": "^0.5.1",
-    "react-social-icons": "^5.15.0",
     "resize-observer-polyfill": "^1.5.1",
     "sanity": "^3.0.0",
     "sharp": "^0.31.3",

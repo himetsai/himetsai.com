@@ -63,7 +63,7 @@ export default function SocialButton({ social }: Props) {
           width="24"
           src={social.slug.current}
           alt={social.title}
-          className="group-hover:invert transition ease-in-out duration-200"
+          className="brightness-0 group-hover:invert transition ease-in-out duration-200"
         />
         {isLarge && <h4 className="font-medium">{social.username}</h4>}
       </button>

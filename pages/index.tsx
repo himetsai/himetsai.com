@@ -44,29 +44,29 @@ const Home = ({
       </Head>
 
       {/* Hero */}
-      <section className="fixed -z-10 w-full h-screen top-0 left-0">
+      <section className="fixed w-full h-screen top-0 left-0 z-10">
         <Hero title={pageTitle} description={pageDescription} />
       </section>
 
-      <div className="h-screen" />
+      <div className="relative h-screen z-0" />
 
       {/* Content */}
       <div
-        className="bg-[#faeee7] space-y-5 sm:space-y-10 
-        px-5 sm:px-10"
+        className="relative bg-[#faeee7] space-y-5 sm:space-y-10 
+        px-5 sm:px-10 z-20"
       >
         {/* About */}
-        <section id="about">
+        <section id="#about">
           <About name={name} description={description} image={image} />
         </section>
 
         {/* Achievements */}
-        <section id="achievements">
+        <section id="#achievements">
           <Achievements achivements={achievements} />
         </section>
 
         {/* Contact */}
-        <section id="contact">
+        <section id="#contact">
           <Contact socials={socials} />
         </section>
 

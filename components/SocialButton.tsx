@@ -29,7 +29,7 @@ export default function SocialButton({ social }: Props) {
   return social.link ? (
     <Link
       href={social.url}
-      className="flex flex-row min-w-fit items-center justify-center
+      className="btn flex flex-row min-w-fit items-center justify-center
             lg:justify-start p-2 lg:px-3 gap-2 rounded-lg border-[1.5px]
            border-[#33272a] group hover:bg-[#ff7777]
            hover:text-[#fffffe] transition ease-in-out duration-200"
@@ -47,7 +47,7 @@ export default function SocialButton({ social }: Props) {
   ) : (
     <div ref={btn} className="tooltip" data-tip="copied!">
       <p
-        className="flex flex-row min-w-fit items-center justify-center
+        className="btn flex flex-row min-w-fit items-center justify-center
             lg:justify-start p-2 lg:px-3 gap-2 rounded-lg border-[1.5px]
            border-[#33272a] group hover:bg-[#ff7777]
            hover:text-[#fffffe] transition ease-in-out duration-200"

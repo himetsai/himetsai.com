@@ -30,17 +30,17 @@ export default function Header({ position }: Props) {
             scale: 1,
           }}
           transition={{ duration: 1.5 }}
-          className="flex flex-row items-center px-2 py-1 rounded-md
+          className="btn flex flex-row items-center px-2 py-1 rounded-md
           text-[#ff7777] border-[1.5px] border-opacity-0 border-[#33272a]
           hover:bg-[#ff7777] hover:border-opacity-100 hover:text-[#fffffe]"
+          onClick={() => {
+            if (isHome) window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
           {/* scroll to top if page is home */}
           {isHome ? (
             <p
               className="font-bold text-2xl cursor-pointer"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
             >
               himetsai
             </p>

@@ -24,7 +24,7 @@ export default function PageMenu({}: Props) {
     >
       <label
         tabIndex={0}
-        className="btn min-h-min h-10 px-2 m-1 transition ease-in-out duration-200 bg-[#fffffe] 
+        className="btn min-h-min h-10 px-2 py-[0.35rem] m-1 transition ease-in-out duration-200 bg-[#fffffe] 
             border-[1.5px] border-[#33272a] rounded-md 
            group-hover:bg-[#ff7777] group-hover:text-[#fffffe] hover:border-[1.5px] hover:border-[#33272a]"
       >

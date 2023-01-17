@@ -21,6 +21,20 @@ body {
   background: #ff7777;
 }
 
+.btn {
+  height: auto;
+  min-height: max-content;
+  text-transform: none;
+}
+
+.btn:hover,
+.btn-active {
+  --tw-border-opacity: 1;
+  border-color: #33272a;
+  --tw-bg-opacity: 1;
+  background-color: #ff7777;
+}
+
 /* copied alert */
 .tooltip {
   --tooltip-color: #ff7777;

@@ -25,7 +25,7 @@ interface Post extends Base {
   title: string;
   publishedAt: string;
   description: string;
-  comments?: Comment[];
+  comments: Comment[];
   headings: Headings[];
 }
 

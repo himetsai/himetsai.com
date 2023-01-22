@@ -25,14 +25,14 @@ interface Post extends Base {
   title: string;
   publishedAt: string;
   description: string;
+  comments?: Comment[];
   headings: Headings[];
 }
 
 interface Author extends Base {
-  bio: Block[];
-  image: Image;
   name: string;
   slug: Slug;
+  email: string;
 }
 
 interface Category extends Base {
@@ -46,6 +46,13 @@ interface Social extends Base {
   url: string;
   link: boolean;
   username: string;
+}
+
+interface Comment {
+  username: string;
+  text: string;
+  highlighted: boolean;
+  createdAt: string;
 }
 
 interface Image {

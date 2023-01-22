@@ -7,6 +7,7 @@ import { useIsLarge } from "../../lib/useMediaQuery";
 import SideInfo from "../../components/SideInfo";
 import PostContent from "../../components/PostContent";
 import { urlFor } from "../../lib/sanity.client";
+import CommentSection from "../../components/CommentSection";
 
 type Props = {
   post: Post;
@@ -27,14 +28,16 @@ export default function Post({ post }: Props) {
       </Head>
 
       <div
-        className="flex items-center justify-center px-5 pt-4 md:pt-10
-        pb-10 lg:pt-[100px] lg:pb-[350px] bg-[#faeee7] text-[#33272a]"
+        className="flex flex-col items-center justify-center px-5 pt-4 md:pt-10
+        pb-10 lg:pt-[100px] lg:pb-[350px] bg-[#faeee7] text-[#33272a] gap-10"
       >
         {/* Side Info */}
         {isLarge && <SideInfo post={post} />}
 
         {/* Content */}
         <PostContent post={post} />
+
+        <CommentSection post={post} />
       </div>
     </>
   );
@@ -59,6 +62,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   return {
     props: { post },
-    revalidate: 60,
+    revalidate: 10,
   };
 };

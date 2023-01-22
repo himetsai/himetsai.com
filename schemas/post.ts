@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "post",
@@ -48,6 +48,17 @@ export default defineType({
       name: "body",
       title: "Body",
       type: "blockContent",
+    }),
+    defineField({
+      name: "comments",
+      title: "Comments",
+      type: "array",
+      of: [
+        defineArrayMember({
+          title: "Comments",
+          type: "comment",
+        }),
+      ],
     }),
   ],
 });

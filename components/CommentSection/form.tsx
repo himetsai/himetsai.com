@@ -70,7 +70,9 @@ export default function CommentForm({ text, setText, onSubmit }: Props) {
       {isAuthenticated && (
         <button
           className="flex self-end text-[#33272a]/70 text-sm pt-2 pr-3"
-          onClick={() => logout()}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
         >
           Log out
         </button>

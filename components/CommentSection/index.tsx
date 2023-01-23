@@ -11,24 +11,20 @@ export default function CommentSection({ post }: Props) {
   const { text, setText, comments, onSubmit } = useComments(post);
 
   return (
-    <>
-      {comments && (
-        <div
-          className="flex flex-col w-full md:w-[768px] lg:ml-12 bg-[#fffffe] p-5
+    <div
+      className="flex flex-col w-full md:w-[768px] lg:ml-12 bg-[#fffffe] p-5
           md:p-10 border-2 border-[#33272a] rounded-lg z-20"
-        >
-          <h4
-            id="comments"
-            className="text-2xl leading-5 py-6 font-bold tracking-wider"
-          >
-            Comments
-          </h4>
+    >
+      <h4
+        id="comments"
+        className="text-2xl leading-5 py-6 font-bold tracking-wider"
+      >
+        Comments
+      </h4>
+      
+      {comments && <CommentList comments={comments} />}
 
-          <CommentList comments={comments} />
-
-          <CommentForm text={text} setText={setText} onSubmit={onSubmit} />
-        </div>
-      )}
-    </>
+      <CommentForm text={text} setText={setText} onSubmit={onSubmit} />
+    </div>
   );
 }

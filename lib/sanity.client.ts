@@ -10,12 +10,20 @@ export const config = {
   projectId,
   dataset,
   apiVersion,
+  useCdn: process.env.NODE_ENV === "production",
+};
+
+export const CommentConfig = {
+  projectId,
+  dataset,
+  apiVersion,
   token,
-  // useCdn: process.env.NODE_ENV === "production",
   useCdn: false,
 };
 
 export const client = createClient(config);
+
+export const commentClient = createClient(CommentConfig);
 
 export const urlFor = (source: any) =>
   createImageUrlBuilder(config).image(source);

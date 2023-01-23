@@ -41,6 +41,11 @@ export default function TableOfContents({ headings }: Props) {
     })
   );
 
+  contentTags.push({
+    title: "comments",
+    position: null,
+  });
+
   /**
    * Store the active menuItem in state to force update
    * when changed
@@ -76,6 +81,7 @@ export default function TableOfContents({ headings }: Props) {
 
     for (const key of contentTags) {
       let section = document.getElementById(key.title);
+      console.log(section);
       if (!section) continue;
       key.position = section.getBoundingClientRect()?.top + curScroll;
     }
@@ -115,6 +121,11 @@ export default function TableOfContents({ headings }: Props) {
             <ContentTag key={heading._key} title={title} active={active} />
           );
         })}
+        <ContentTag
+          key={"comments"}
+          title={"Comments"}
+          active={"comments" === activeItem}
+        />
       </div>
     </div>
   );

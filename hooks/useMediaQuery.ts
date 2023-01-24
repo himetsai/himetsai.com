@@ -18,7 +18,8 @@ export function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-export const useIsSmall = (): boolean => useMediaQuery("(min-width: 480px)");
+// export const useIsSmall = (): boolean => useMediaQuery("(min-width: 480px)");
+export const useIsSmall = (): boolean => useMediaQuery("(min-width: 640px)");
 export const useIsMedium = (): boolean => useMediaQuery("(min-width: 768px)");
 export const useIsLarge = (): boolean => useMediaQuery("(min-width: 1024px)");
 export const useIsExtraLarge = (): boolean => useMediaQuery("(min-width: 1080px)");

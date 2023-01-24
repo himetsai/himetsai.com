@@ -3,7 +3,7 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { fetchPosts } from "../../lib/fetchData/fetchPosts";
 import { fetchPost } from "../../lib/fetchData/fetchPost";
-import { useIsLarge } from "../../lib/useMediaQuery";
+import { useIsLarge } from "../../hooks/useMediaQuery";
 import SideInfo from "../../components/SideInfo";
 import PostContent from "../../components/PostContent";
 import { urlFor } from "../../lib/sanity.client";

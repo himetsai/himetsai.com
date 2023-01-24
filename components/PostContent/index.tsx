@@ -5,7 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../RichTextComponents";
 import InPostInfo from "./info";
 import { motion } from "framer-motion";
-import { useIsLarge } from "../../lib/useMediaQuery";
+import { useIsLarge } from "../../hooks/useMediaQuery";
 
 type Props = {
   post: Post;
@@ -24,7 +24,9 @@ export default function PostContent({ post }: Props) {
       md:p-10 border-2 border-[#33272a] rounded-lg z-20"
     >
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold tracking-wider mb-2">{post.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold tracking-wider mb-2">
+        {post.title}
+      </h1>
 
       {/* Info Under Title */}
       {!isLarge && <InPostInfo post={post} />}

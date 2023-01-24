@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect } from "react";
 import { NextComponentType, NextPageContext } from "next";
 import { useIsPresent } from "framer-motion";
 import router from "next/router";
-import { useIsMedium, useIsLarge } from "../lib/useMediaQuery";
+import { useIsMedium, useIsLarge } from "../hooks/useMediaQuery";
 
 type Props = {
   Component: NextComponentType<NextPageContext, any, any>;
@@ -34,7 +34,7 @@ export default function PageComponent({
       setFixedHeader(
         (router.pathname === "/shitpost" && isMedium) ||
           (router.pathname.startsWith("/shitpost") && isLarge) ||
-          (router.pathname === "/")
+          router.pathname === "/"
           ? "fixed"
           : "relative"
       );

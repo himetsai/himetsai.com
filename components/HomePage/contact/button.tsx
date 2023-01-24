@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useIsLarge } from "../../../lib/useMediaQuery";
+import { useIsLarge } from "../../../hooks/useMediaQuery";
 
 type Props = {
   social: Social;

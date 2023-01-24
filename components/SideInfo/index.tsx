@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import TableOfContents from "./TableOfContents";
+import TableOfContents from "./contentTable";
+import formatDate from "../../lib/formatDate";
 
 type Props = {
   post: Post;
@@ -17,15 +18,9 @@ export default function SideInfo({ post }: Props) {
     >
       {/* Publishing Date */}
       <div className="relative tracking-wide">
-        <p className="text-xs opacity-60">Publishing Date</p>
+        <p className="text-xs opacity-60">Published Time</p>
         <p className="relative text-sm font-medium">
-          {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
+          {formatDate(post.publishedAt)}
         </p>
       </div>
 

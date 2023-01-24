@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { slugify } from "../lib/slugify";
+import { slugify } from "../../../lib/slugify";
 
 type Props = {
   title: string;

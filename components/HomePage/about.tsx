@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { urlFor } from "../lib/sanity.client";
+import { urlFor } from "../../lib/sanity.client";
 
 type Props = {
   name: string;

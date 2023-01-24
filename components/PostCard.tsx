@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import formatDate from "../lib/formatDate";
 
 type Props = {
   post: Post;
@@ -42,11 +43,7 @@ export default function PostCard({ post }: Props) {
           </svg>
 
           <p className="relative text-sm">
-            {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-              day: "2-digit",
-              month: "2-digit",
-              year: "numeric",
-            })}
+            {formatDate(post.publishedAt, false)}
           </p>
         </div>
 

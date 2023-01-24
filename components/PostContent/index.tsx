@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import urlFor from "../lib/urlFor";
+import urlFor from "../../lib/urlFor";
 import { PortableText } from "@portabletext/react";
-import { RichTextComponent } from "./RichTextComponents";
-import InPostInfo from "./InPostInfo";
+import { RichTextComponent } from "../RichTextComponents";
+import InPostInfo from "./info";
 import { motion } from "framer-motion";
-import { useIsLarge } from "../lib/useMediaQuery";
+import { useIsLarge } from "../../lib/useMediaQuery";
 
 type Props = {
   post: Post;

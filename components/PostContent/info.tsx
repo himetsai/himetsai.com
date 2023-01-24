@@ -1,4 +1,5 @@
 import React from "react";
+import formatDate from "../../lib/formatDate";
 
 type Props = {
   post: Post;
@@ -21,11 +22,7 @@ export default function InPostInfo({ post }: Props) {
           />
         </svg>
         <p className="relative text-sm font-medium tracking-wide">
-          {new Date(post.publishedAt).toLocaleDateString("ja-JP", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
+          {formatDate(post.publishedAt, false)}
         </p>
       </div>
 

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
-import { fetchPosts } from "../../lib/fetchPosts";
+import { fetchPosts } from "../../lib/fetchData/fetchPosts";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../lib/useMediaQuery";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContentTag from "./ContentTag";
-import { slugify } from "../lib/slugify";
+import { slugify } from "../../../lib/slugify";
 
 type Props = {
   headings: Heading[];

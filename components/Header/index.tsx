@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import PageMenu from "./PageMenu";
+import PageMenu from "./menu";
 import { useRouter } from "next/router";
 
 type Props = {

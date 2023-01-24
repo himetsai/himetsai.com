@@ -1,6 +1,6 @@
 import React from "react";
 import { PortableText } from "@portabletext/react";
-import { RichTextComponent } from "./RichTextComponents";
+import { RichTextComponent } from "../RichTextComponents";
 
 type Props = {
   achivements: Block[];

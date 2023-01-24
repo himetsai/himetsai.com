@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { client } from "../lib/sanity.client";
+import { client } from "../sanity.client";
 
 const query = groq`
   *[ _type == "pageInfo"][0] {

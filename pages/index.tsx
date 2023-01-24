@@ -1,34 +1,16 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import Hero from "../components/Hero";
 import Head from "next/head";
-import About from "../components/About";
-import Achievements from "../components/Achievements";
-import Contact from "../components/Contact";
-import { fetchPageInfo } from "../lib/fetchPageInfo";
-import Link from "next/link";
+import { fetchPageInfo } from "../lib/fetchData/fetchPageInfo";
+import HomePage from "../components/HomePage";
 
 type Props = {
-  pageTitle: string;
-  pageDescription: string;
-  name: string;
-  description: string;
-  image: Image;
-  achievements: Block[];
-  socials: Social[];
+  pageInfo: PageInfo;
 };
 
-const Home = ({
-  pageTitle,
-  pageDescription,
-  name,
-  description,
-  image,
-  achievements,
-  socials,
-}: Props) => {
+const Home = ({ pageInfo }: Props) => {
   return (
-    <div className="text-[#33272a] pb-[80px]">
+    <div>
       <Head>
         <title>himetsai</title>
         <meta
@@ -43,49 +25,15 @@ const Home = ({
         <meta property="og:image" content="/preview.png" />
       </Head>
 
-      {/* Hero */}
-      <section className="fixed w-full h-screen top-0 left-0 z-10">
-        <Hero title={pageTitle} description={pageDescription} />
-      </section>
-
-      <div className="relative h-screen z-0" />
-
-      {/* Content */}
-      <div
-        className="relative bg-[#faeee7] space-y-5 sm:space-y-10 
-        px-5 sm:px-10 z-20"
-      >
-        {/* About */}
-        <section id="#about">
-          <About name={name} description={description} image={image} />
-        </section>
-
-        {/* Achievements */}
-        <section id="#achievements">
-          <Achievements achivements={achievements} />
-        </section>
-
-        {/* Contact */}
-        <section id="#contact">
-          <Contact socials={socials} />
-        </section>
-
-        {/* Link to Repo */}
-        <section
-          id="veiw-code"
-          className="w-full flex items-center justify-center
-          text-sm tracking-wider"
-        >
-          check out the code for this website
-          <Link
-            href="https://github.com/boogerman919/himetsai.com"
-            className="hover:underline decoration-[#ff7777] 
-            text-[#ff7777] pl-1 font-normal"
-          >
-            here
-          </Link>
-        </section>
-      </div>
+      <HomePage
+        pageTitle={pageInfo.pageTitle}
+        pageDescription={pageInfo.pageDescription}
+        name={pageInfo.name}
+        description={pageInfo.description}
+        image={pageInfo.image}
+        achievements={pageInfo.achievements}
+        socials={pageInfo.socials}
+      />
     </div>
   );
 };
@@ -95,13 +43,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      pageTitle: pageInfo.pageTitle,
-      pageDescription: pageInfo.pageDescription,
-      name: pageInfo.name,
-      description: pageInfo.description,
-      image: pageInfo.image,
-      achievements: pageInfo.achievements,
-      socials: pageInfo.socials,
+      pageInfo,
     },
     revalidate: 10,
   };

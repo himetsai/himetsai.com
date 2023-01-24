@@ -11,10 +11,8 @@ export default function CommentForm({ text, setText, onSubmit }: Props) {
   const { isAuthenticated, logout, loginWithPopup } = useAuth0();
   const form = useRef<null | HTMLFormElement>(null);
 
-  const onEnterPress = (e: React.KeyboardEvent) => {
-    if (e.key == "Enter") {
-      onSubmit(e);
-    }
+  const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key == "Enter") e.preventDefault();
   };
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

@@ -81,7 +81,6 @@ export default function TableOfContents({ headings }: Props) {
 
     for (const key of contentTags) {
       let section = document.getElementById(key.title);
-      console.log(section);
       if (!section) continue;
       key.position = section.getBoundingClientRect()?.top + curScroll;
     }

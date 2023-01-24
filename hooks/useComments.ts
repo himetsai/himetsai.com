@@ -46,10 +46,13 @@ export default function useComments(post: Post) {
         };
         setText("");
 
-        await commentClient
+        const updatedPost = await commentClient
           .patch(post._id)
+          .setIfMissing({ comments: [] })
           .append("comments", [newComment])
           .commit({ autoGenerateArrayKeys: true });
+
+        setComments(updatedPost.comments);
       } catch (err) {
         console.log(err);
       }

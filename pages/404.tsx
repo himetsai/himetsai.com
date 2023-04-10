@@ -4,15 +4,15 @@ import Link from "next/link";
 
 type Props = {};
 
-export default function index({}: Props) {
+export default function NotFound({}: Props) {
   return (
     <div
-      className="z-0 w-full h-full fixed flex flex-col items-center justify-center
+      className="z-0 top-0 w-full h-full fixed flex flex-col items-center justify-center
         text-center"
     >
       <div className="relative w-64 h-64 my-5 mx-auto">
         <Image
-          src="/422.gif"
+          src="/404.gif"
           alt=""
           fill
           className="rounded-3xl object-cover object-center mx-auto border-[1.5px] 
@@ -21,19 +21,19 @@ export default function index({}: Props) {
       </div>
       <div className="flex w-[420px] flex-col justify-center text-center">
         <h2 className="p-1 font-extrabold text-5xl text-[#ff7777] leading-none">
-          Error 422
+          Error 404
         </h2>
         <h2 className="pt-2 font-normal text-[#594a4e] leading-7 tracking-wider mb-5">
-          Unable to process content. Check{" "}
+          Page not found. Click{" "}
           <Link
-            href={"/status"}
+            href={"/"}
             rel={"noreferrer noopener"}
             className="hover:underline decoration-[#ff7777] text-[#ff7777]
           font-normal tracking-wider"
           >
-            status page
+            here
           </Link>{" "}
-          for more information.
+          to go back home.
         </h2>
       </div>
     </div>

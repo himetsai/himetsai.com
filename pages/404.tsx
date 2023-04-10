@@ -8,7 +8,7 @@ export default function NotFound({}: Props) {
   return (
     <div
       className="z-0 top-0 w-full h-full fixed flex flex-col items-center justify-center
-        text-center"
+        text-center p-5"
     >
       <div className="relative w-64 h-64 my-5 mx-auto">
         <Image

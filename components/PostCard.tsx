@@ -8,6 +8,7 @@ type Props = {
 };
 
 export default function PostCard({ post }: Props) {
+  // animation
   const item = {
     hidden: { y: 200, opacity: 0 },
     show: { y: 0, opacity: 1 },
@@ -15,8 +16,8 @@ export default function PostCard({ post }: Props) {
 
   return (
     <motion.div
-      variants={item}
-      viewport={{ once: true }}
+      // variants={item}
+      // viewport={{ once: true }}
       className="flex group bg-[#fffffe] w-[90vw] md:w-auto md:h-[70vh]
       md:vertical-title"
     >

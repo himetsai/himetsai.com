@@ -10,9 +10,9 @@ type Props = {
 export default function SideInfo({ post }: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -500 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
+      // initial={{ opacity: 0, x: -500 }}
+      // animate={{ opacity: 1, x: 0 }}
+      // transition={{ duration: 1 }}
       className="fixed left-0 top-60 py-7 pl-4 pr-8 space-y-5 bg-[#fffffe] 
     border-2 border-l-0 border-[#33272a] rounded-r-lg"
     >

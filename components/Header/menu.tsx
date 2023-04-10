@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 type Props = {};
@@ -8,20 +7,7 @@ type Props = {};
 export default function PageMenu({}: Props) {
   const router = useRouter();
   return (
-    <motion.div
-      initial={{
-        x: 500,
-        opacity: 0,
-        scale: 0.5,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-        scale: 1,
-      }}
-      transition={{ duration: 1.5 }}
-      className="dropdown dropdown-hover dropdown-end group -mt-1"
-    >
+    <div className="dropdown dropdown-hover dropdown-end group -mt-1">
       <label
         tabIndex={0}
         className="btn min-h-min h-10 px-2 py-[0.35rem] m-1 transition ease-in-out duration-200 bg-[#fffffe] 
@@ -91,6 +77,6 @@ export default function PageMenu({}: Props) {
           )}
         </li>
       </ul>
-    </motion.div>
+    </div>
   );
 }

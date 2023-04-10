@@ -5,6 +5,17 @@ const nextConfig = {
       {
         source: "/oodball",
         destination: "/422",
+        permanent: false,
+      },
+      {
+        source: "/youtube",
+        destination: "https://www.youtube.com/@boogerman919",
+        permanent: true,
+      },
+      {
+        source: "/ratings",
+        destination:
+          "https://docs.google.com/spreadsheets/d/1-abD9VOIdw7rFbcEGPZMrkQViWG8E48fF4J45Pku0gA/edit?usp=sharing",
         permanent: true,
       },
     ];

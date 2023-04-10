@@ -19,7 +19,7 @@ export default function index({}: Props) {
           border-[#33272a]"
         />
       </div>
-      <div className="flex md:w-[420px] w-full md:p-0 p-10 flex-col justify-center text-center">
+      <div className="flex md:w-[420px] w-full md:px-0 px-10 flex-col justify-center text-center">
         <h2 className="p-1 font-extrabold text-5xl text-[#ff7777] leading-none">
           Error 422
         </h2>

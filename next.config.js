@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/oodball",
+        destination: "/422",
+        permanent: true,
+      },
+    ];
+  },
   reactStrictMode: true,
   images: {
     loader: "default",

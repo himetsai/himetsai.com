@@ -34,7 +34,8 @@ export default function PageComponent({
       setFixedHeader(
         (router.pathname === "/shitpost" && isMedium) ||
           (router.pathname.startsWith("/shitpost") && isLarge) ||
-          router.pathname === "/"
+          router.pathname === "/" ||
+          router.pathname.startsWith("/422")
           ? "fixed"
           : "relative"
       );

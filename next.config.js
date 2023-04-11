@@ -18,6 +18,11 @@ const nextConfig = {
           "https://docs.google.com/spreadsheets/d/1-abD9VOIdw7rFbcEGPZMrkQViWG8E48fF4J45Pku0gA/edit?usp=sharing",
         permanent: true,
       },
+      {
+        source: "/sad",
+        destination: "https://youtu.be/tYzMYcUty6s",
+        permanent: false,
+      },
     ];
   },
   reactStrictMode: true,

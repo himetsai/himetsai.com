@@ -23,6 +23,11 @@ const nextConfig = {
         destination: "https://youtu.be/tYzMYcUty6s",
         permanent: false,
       },
+      {
+        source: "/benson",
+        destination: "https://youtu.be/tEjQV5KeTsI",
+        permanent: false,
+      },
     ];
   },
   reactStrictMode: true,

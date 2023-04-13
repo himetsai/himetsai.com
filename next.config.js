@@ -43,7 +43,7 @@ const links = [
     permanent: true,
   },
   {
-    source: "/courses",
+    source: "/classes",
     destination:
       "https://docs.google.com/spreadsheets/d/15ltOsAzq2ovoPDI_aYEtmuI9VoM3W5TinbQ1UwTtB8g/edit?usp=sharing",
     permanent: true,

@@ -1,4 +1,4 @@
-This is Ray Tsai's personal website [himetsai.com](himetsai.com)
+This is Ray Tsai's personal website [himetsai.com](https://himetsai.com)
 
 ## Getting Started
 

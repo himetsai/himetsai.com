@@ -1,12 +1,12 @@
-import React from 'react'
-import StatusBar from '../../components/StatusBar'
+import React from "react";
+import StatusTable from "../../components/StatusTable";
 
-type Props = {}
+type Props = {};
 
 export default function index({}: Props) {
   return (
     <div>
-      <StatusBar />
+      <StatusTable />
     </div>
-  )
+  );
 }

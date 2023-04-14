@@ -31,6 +31,7 @@
     "qs": "^6.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-draggable": "^4.4.5",
     "react-markdown": "^8.0.4",
     "react-moment": "^1.1.2",
     "react-portable-text": "^0.5.1",

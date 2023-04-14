@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { useRef, KeyboardEvent } from "react";
+import React, { useRef } from "react";
 
 type Props = {
   text: string;

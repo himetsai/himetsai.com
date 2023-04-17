@@ -59,6 +59,64 @@ body {
   transition-duration: 0ms;
 }
 
+/* Status Node */
+.status-node {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%
+}
+.status-node:hover .status-node-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.status-node-tooltip {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 200px;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 15px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(203, 213, 225);
+  border-radius: 3px;
+
+  /* Hide the tooltip by default */
+  visibility: hidden;
+  opacity: 0;
+
+  /* Prettify */
+  text-align: left;
+}
+
+/* The bordered part of the triangle */
+
+.status-node-tooltip::before,
+.status-node-tooltip::after {
+  content: "";
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.status-node-tooltip::before {
+  border-top: 10px solid rgba(203, 213, 225);
+  /* margin-top: 5px; */
+}
+
+/* The white fill of the triangle */
+.status-node-tooltip::after {
+  border-top: 10px solid white;
+  margin-top: -2px;
+  z-index: 10;
+}
+
 /* vertical text */
 @layer components {
   .vertical-title {

@@ -1,7 +1,6 @@
 import React from "react";
 import StatusNode from "./node";
 import { useIsSmall, useIsLarge } from "../../../hooks/useMediaQuery";
-import { uptime } from "process";
 
 type Props = {
   barType: "Relationship" | "Himesama" | "Oodball";
@@ -44,7 +43,7 @@ export default function StatusBar({ startDate, endDate, barType }: Props) {
   return (
     <div className="flex flex-col w-full sm:p-5 p-3 justify-center">
       <h4 className="font-medium py-2 text-[#33272a]">{barType}</h4>
-      <ul className="flex flex-row-reverse list-none w-full">
+      <ul className="flex flex-row-reverse list-none w-full overflow-x-hidden">
         {[...Array(nodeNum)].map((x, i) => (
           <StatusNode key={i} endDate={endDate} day={i} barType={barType} />
         ))}

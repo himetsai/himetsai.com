@@ -24,7 +24,7 @@ export default function PostContent({ post }: Props) {
       md:p-10 border-2 border-[#33272a] rounded-lg z-20"
     >
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold tracking-wider mb-2">
+      <h1 className="text-3xl md:text-4xl font-bold tracking-wider mb-2 text-[#33272a]">
         {post.title}
       </h1>
 

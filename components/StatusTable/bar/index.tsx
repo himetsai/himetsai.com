@@ -21,7 +21,8 @@ export default function StatusBar({ startDate, endDate, barType }: Props) {
       day: "numeric",
     });
 
-  const anniversary = new Date("2022-4-22");
+  // 4/22/2022
+  const anniversary = new Date(2022, 3, 22);
   const timeDiff =
     endDate.getTime() - Math.max(startDate.getTime(), anniversary.getTime());
   const uptime = Math.ceil(

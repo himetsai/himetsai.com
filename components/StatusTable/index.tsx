@@ -14,7 +14,8 @@ export default function StatusTable({}: Props) {
   const isSmall = useIsSmall();
   const isLarge = useIsLarge();
   const dateRange = isLarge ? 90 : isSmall ? 60 : 30;
-  const initialDate = new Date("2022-03-13T00:00:00.000-08:00");
+  // 3/13/2022
+  const initialDate = new Date(2022, 2, 13);
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [startDate, setStartDate] = useState<Date>(new Date());
 
@@ -50,8 +51,8 @@ export default function StatusTable({}: Props) {
   }, [endDate, dateRange]);
 
   return (
-    <div className="flex sm:flex-row flex-col w-full h-full items-center justify-center">
-      {isSmall && (
+    <div className="flex lg:flex-row flex-col w-full h-full items-center justify-center">
+      {isLarge && (
         <button title="left" className="flex mr-2" onClick={onClickLeft}>
           <ChevronLeftIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
         </button>
@@ -79,13 +80,13 @@ export default function StatusTable({}: Props) {
         <StatusBar barType="Oodball" startDate={startDate} endDate={endDate} />
       </div>
 
-      {isSmall && (
+      {isLarge && (
         <button title="right" className="flex ml-2" onClick={onClickRight}>
           <ChevronRightIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
         </button>
       )}
 
-      {!isSmall && (
+      {!isLarge && (
         <div className="flex flex-row justify-between w-full pt-2 px-1">
           <button title="left" className="flex mr-2" onClick={onClickLeft}>
             <ArrowLeftIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />

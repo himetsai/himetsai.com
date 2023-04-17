@@ -29,13 +29,18 @@ export default function StatusNode({ barType, endDate, day }: Props) {
   let nodeColor = green;
   let message = "Active";
 
+  // 3/29/2022
+  const oodballConfess = new Date(2022, 2, 29);
+  // 4/22/2022
+  const anniversary = new Date(2022, 3, 22);
+
   switch (barType) {
     case "Relationship":
-      if (date < new Date("2022-4-22")) {
+      if (date < anniversary) {
         nodeColor = yellow;
         message = "Semi-active: Pending response from Oodball with hope";
       }
-      if (date < new Date("2022-3-29")) {
+      if (date < oodballConfess) {
         nodeColor = gray;
         message = "Inactive: Pending response from Oodball";
       }
@@ -43,7 +48,7 @@ export default function StatusNode({ barType, endDate, day }: Props) {
     case "Himesama":
       nodeColor = red;
       message = "Error 422: don't know why she likes me";
-      if (date < new Date("2022-3-29")) {
+      if (date < oodballConfess) {
         message = "Error 404: Answer not found";
       }
       break;

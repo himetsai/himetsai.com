@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  barType: "relationship" | "himesama" | "oodball";
+  barType: "Relationship" | "Himesama" | "Oodball";
   endDate: Date;
   day: number;
 };
@@ -13,15 +13,54 @@ export default function StatusNode({ barType, endDate, day }: Props) {
     month: "short",
     day: "numeric",
   });
+
+  // get a random color by hashing date
+  const randColor = (): string => {
+    const seedrandom = require("seedrandom");
+    const rng = seedrandom(formattedDate);
+    return "#" + Math.floor(rng() * Math.pow(16, 6)).toString(16);
+  };
+
+  const green = "#3ba55c";
+  const yellow = "#fde047";
+  const red = "#ed4245";
+  const gray = "#b3bac5";
+
+  let nodeColor = green;
+  let message = "Active";
+
+  switch (barType) {
+    case "Relationship":
+      if (date < new Date("2022-4-22")) {
+        nodeColor = yellow;
+        message = "Semi-active: Pending response from Oodball with hope";
+      }
+      if (date < new Date("2022-3-29")) {
+        nodeColor = gray;
+        message = "Inactive: Pending response from Oodball";
+      }
+      break;
+    case "Himesama":
+      nodeColor = red;
+      message = "Error 422: why does she like me??";
+      if (date < new Date("2022-3-29")) {
+        message = "Error 404: Answer not found";
+      }
+      break;
+    default:
+      nodeColor = randColor();
+      message = "idk bro.";
+  }
+
   return (
     <li
-      className="flex w-full h-9 my-auto ml-[5.5px] sm:ml-[3.5px] 
-      last-of-type:ml-0 bg-green-600"
+      className="flex w-full h-9 my-auto ml-[3.5px] last-of-type:ml-0"
+      style={{ backgroundColor: nodeColor }}
     >
       <div className="status-node">
         <div className="status-node-tooltip">
           <h4 className="font-semibold text-sm mb-2">{formattedDate}</h4>
-          <h4 className="font-normal text-sm">Active</h4>
+          <h4 className="font-normal text-sm">{message}</h4>
         </div>
       </div>
     </li>

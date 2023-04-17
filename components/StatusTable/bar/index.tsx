@@ -41,7 +41,7 @@ export default function StatusBar({ startDate, endDate, barType }: Props) {
   }
 
   return (
-    <div className="flex flex-col w-full p-5 justify-center">
+    <div className="flex flex-col w-full sm:p-5 p-3 justify-center">
       <h4 className="font-medium py-2 text-[#33272a]">{barType}</h4>
       <ul className="flex flex-row-reverse list-none w-full">
         {[...Array(nodeNum)].map((x, i) => (

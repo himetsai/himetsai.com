@@ -1,7 +1,12 @@
-import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import StatusBar from "./bar";
 import { useIsLarge, useIsSmall } from "../../hooks/useMediaQuery";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 
 type Props = {};
 
@@ -45,14 +50,16 @@ export default function StatusTable({}: Props) {
   }, [endDate, dateRange]);
 
   return (
-    <div className="flex felx-row w-full h-full items-center justify-center">
-      <button title="left" className="flex mr-2" onClick={onClickLeft}>
-        <ChevronLeftIcon className="h-12 w-12 text-gray-400/40" />
-      </button>
+    <div className="flex sm:flex-row flex-col w-full h-full items-center justify-center">
+      {isSmall && (
+        <button title="left" className="flex mr-2" onClick={onClickLeft}>
+          <ChevronLeftIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
+        </button>
+      )}
 
       <div
         className="flex flex-col w-full max-w-[850px] items-center
-       border-gray-400/20 border-[1px] rounded-md"
+       border-gray-400 border-[1px] rounded-md"
       >
         {/* relationship */}
         <StatusBar
@@ -61,23 +68,33 @@ export default function StatusTable({}: Props) {
           endDate={endDate}
         />
 
-        <rect className="h-[1px] w-full bg-gray-400/20" />
+        <rect className="h-[1px] w-full bg-gray-400" />
 
         {/* himesama */}
         <StatusBar barType="Himesama" startDate={startDate} endDate={endDate} />
 
-        <rect className="h-[1px] w-full bg-gray-400/20" />
+        <rect className="h-[1px] w-full bg-gray-400" />
 
         {/* oodball */}
         <StatusBar barType="Oodball" startDate={startDate} endDate={endDate} />
       </div>
 
-      <button title="right" className="flex ml-2" onClick={onClickRight}>
-        <ChevronRightIcon
-          className="h-12 w-12 text-gray-400/60 
-          hover:text-gray-400"
-        />
-      </button>
+      {isSmall && (
+        <button title="right" className="flex ml-2" onClick={onClickRight}>
+          <ChevronRightIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
+        </button>
+      )}
+
+      {!isSmall && (
+        <div className="flex flex-row justify-between w-full pt-2 px-1">
+          <button title="left" className="flex mr-2" onClick={onClickLeft}>
+            <ArrowLeftIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
+          </button>
+          <button title="right" className="flex ml-2" onClick={onClickRight}>
+            <ArrowRightIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

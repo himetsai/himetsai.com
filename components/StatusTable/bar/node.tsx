@@ -42,7 +42,7 @@ export default function StatusNode({ barType, endDate, day }: Props) {
       break;
     case "Himesama":
       nodeColor = red;
-      message = "Error 422: why does she like me??";
+      message = "Error 422: don't know why she likes me";
       if (date < new Date("2022-3-29")) {
         message = "Error 404: Answer not found";
       }

@@ -1,5 +1,5 @@
-import React, { useRef, useLayoutEffect, useEffect } from "react";
-import { useWindowWidth } from "../../../hooks/useWindowSize";
+import React, { useRef, useLayoutEffect } from "react";
+import { useIntersectionRect } from "../../../hooks/useIntersectionRect";
 
 type Props = {
   barType: "Relationship" | "Himesama" | "Oodball";
@@ -18,7 +18,7 @@ export default function StatusNode({ barType, endDate, day, bar }: Props) {
     day: "numeric",
   });
 
-  const windowWidth = useWindowWidth();
+  const intersectRect = useIntersectionRect(tooltip);
 
   // get a random color by hashing date
   const randColor = (): string => {
@@ -64,18 +64,18 @@ export default function StatusNode({ barType, endDate, day, bar }: Props) {
   }
 
   useLayoutEffect(() => {
-    if (rect) {
-      if (rect.right > windowWidth) {
-        const offset = rect.right - windowWidth;
-        tooltip.current?.style.setProperty("--offset", `${offset}px`);
-      }
+    if (rect && intersectRect) {
       if (rect.left < 0) {
         tooltip.current?.style.setProperty("--offset", `${rect.left}px`);
       }
+      if (rect.right > intersectRect.right) {
+        const offset = rect.right - intersectRect.right;
+        tooltip.current?.style.setProperty("--offset", `${offset}px`);
+      }
     }
-  }, [windowWidth]);
+  }, [intersectRect]);
 
-  // if (day === 0) console.log(rect?.right, windowWidth);
+  // if (day === 0) console.log(intersectRect);
 
   return (
     <li

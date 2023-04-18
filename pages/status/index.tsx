@@ -26,13 +26,6 @@ export default function Index({}: Props) {
 
         {/* Status Table */}
         <StatusTable />
-
-        <h1
-          className="text-2xl md:text-3xl font-bold tracking-wider 
-          md:mb-5 mb-2 text-[#33272a]"
-        >
-          {width}
-        </h1>
       </div>
     </div>
   );

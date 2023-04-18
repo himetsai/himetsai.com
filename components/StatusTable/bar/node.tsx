@@ -75,7 +75,7 @@ export default function StatusNode({ barType, endDate, day, bar }: Props) {
     }
   }, [windowWidth]);
 
-  if (day === 0) console.log(rect?.right, windowWidth);
+  // if (day === 0) console.log(rect?.right, windowWidth);
 
   return (
     <li

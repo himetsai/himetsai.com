@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import StatusNode from "./node";
 import { useIsSmall, useIsLarge } from "../../../hooks/useMediaQuery";
 
@@ -12,6 +12,7 @@ export default function StatusBar({ startDate, endDate, barType }: Props) {
   const isSmall = useIsSmall();
   const isLarge = useIsLarge();
   const nodeNum = isLarge ? 90 : isSmall ? 60 : 30;
+  const bar = useRef<HTMLUListElement | null>(null);
 
   const formatDate = (date: Date): string =>
     date.toLocaleDateString("en-US", {
@@ -43,9 +44,15 @@ export default function StatusBar({ startDate, endDate, barType }: Props) {
   return (
     <div className="flex flex-col w-full sm:p-5 p-3 justify-center">
       <h4 className="font-medium py-2 text-[#33272a]">{barType}</h4>
-      <ul className="flex flex-row-reverse list-none w-full overflow-x-hidden">
+      <ul ref={bar} className="flex flex-row-reverse relative list-none w-full">
         {[...Array(nodeNum)].map((x, i) => (
-          <StatusNode key={i} endDate={endDate} day={i} barType={barType} />
+          <StatusNode
+            key={i}
+            endDate={endDate}
+            day={i}
+            barType={barType}
+            bar={bar.current!}
+          />
         ))}
       </ul>
 

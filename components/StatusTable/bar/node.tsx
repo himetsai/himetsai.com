@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useRef, useLayoutEffect, useEffect } from "react";
+import { useWindowWidth } from "../../../hooks/useWindowSize";
 
 type Props = {
   barType: "Relationship" | "Himesama" | "Oodball";
   endDate: Date;
   day: number;
+  bar?: HTMLUListElement;
 };
 
-export default function StatusNode({ barType, endDate, day }: Props) {
+export default function StatusNode({ barType, endDate, day, bar }: Props) {
+  const tooltip = useRef<HTMLDivElement | null>(null);
+  const rect = tooltip.current?.getBoundingClientRect();
   const date = new Date(endDate.getTime() - day * 24 * 60 * 60 * 1000);
   const formattedDate = date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+
+  const windowWidth = useWindowWidth();
 
   // get a random color by hashing date
   const randColor = (): string => {
@@ -57,13 +63,27 @@ export default function StatusNode({ barType, endDate, day }: Props) {
       message = "idk bro.";
   }
 
+  useLayoutEffect(() => {
+    if (rect) {
+      if (rect.right > windowWidth) {
+        const offset = rect.right - windowWidth;
+        tooltip.current?.style.setProperty("--offset", `${offset}px`);
+      }
+      if (rect.left < 0) {
+        tooltip.current?.style.setProperty("--offset", `${rect.left}px`);
+      }
+    }
+  }, [windowWidth]);
+
+  if (day === 0) console.log(rect?.right, windowWidth);
+
   return (
     <li
       className="flex w-full h-9 my-auto ml-[3.5px] last-of-type:ml-0"
       style={{ backgroundColor: nodeColor }}
     >
       <div className="status-node">
-        <div className="status-node-tooltip">
+        <div ref={tooltip} className="status-node-tooltip">
           <h4 className="font-semibold text-sm mb-2">{formattedDate}</h4>
           <h4 className="font-normal text-sm">{message}</h4>
         </div>

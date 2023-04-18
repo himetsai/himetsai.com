@@ -5,10 +5,9 @@ type Props = {
   barType: "Relationship" | "Himesama" | "Oodball";
   endDate: Date;
   day: number;
-  bar?: HTMLUListElement;
 };
 
-export default function StatusNode({ barType, endDate, day, bar }: Props) {
+export default function StatusNode({ barType, endDate, day }: Props) {
   const tooltip = useRef<HTMLDivElement | null>(null);
   const rect = tooltip.current?.getBoundingClientRect();
   const date = new Date(endDate.getTime() - day * 24 * 60 * 60 * 1000);
@@ -64,18 +63,16 @@ export default function StatusNode({ barType, endDate, day, bar }: Props) {
   }
 
   useLayoutEffect(() => {
+    tooltip.current?.style.setProperty("--offset", `0px`);
     if (rect && intersectRect) {
       if (rect.left < 0) {
         tooltip.current?.style.setProperty("--offset", `${rect.left}px`);
-      }
-      if (rect.right > intersectRect.right) {
+      } else if (rect.right > intersectRect.right) {
         const offset = rect.right - intersectRect.right;
         tooltip.current?.style.setProperty("--offset", `${offset}px`);
       }
     }
   }, [intersectRect]);
-
-  // if (day === 0) console.log(intersectRect);
 
   return (
     <li

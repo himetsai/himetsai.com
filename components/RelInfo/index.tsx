@@ -5,6 +5,7 @@ type Props = {};
 export default function RelInfo({}: Props) {
   // 4/22/2022
   const anniversary = new Date("2022-04-22T02:00:00.000-08:00");
+  // const anniversary = new Date(2022, 3, 22);
   const dateDays = Math.floor(
     (Date.now() - anniversary.getTime()) / (24 * 60 * 60 * 1000)
   );

@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 
 export function useIntersectionRect(
-  ref: React.RefObject<HTMLDivElement | null>
+  ref: React.RefObject<HTMLDivElement | HTMLUListElement | null>
 ) {
   const [intersectRect, setIntersectRect] = useState<DOMRect | null>(null);
+  let observerRefValue: HTMLDivElement | HTMLUListElement | null = null;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersectRect(entry.intersectionRect)
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      setIntersectRect(entry.intersectionRect);
+    });
 
-    observer.observe(ref.current!);
+    if (ref.current) {
+      observer.observe(ref.current);
+      observerRefValue = ref.current;
+    }
 
     return () => {
-      observer.disconnect();
+      if (observerRefValue) observer.unobserve(observerRefValue);
     };
   }, [ref]);
 

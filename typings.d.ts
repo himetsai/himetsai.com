@@ -55,6 +55,10 @@ interface Incident extends Base {
   image?: Image;
 }
 
+interface StatusImage extends Base {
+  image: Image;
+}
+
 interface Comment {
   username: string;
   text: string;

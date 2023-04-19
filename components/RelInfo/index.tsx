@@ -17,7 +17,7 @@ export default function RelInfo({}: Props) {
   });
 
   return (
-    <div className="flex flex-col w-full max-w-[850px] my-10">
+    <div className="flex flex-col w-full max-w-[850px] md:my-10 my-5">
       <h4 className="font-medium text-[#33272a] p-2">Stats</h4>
       <div
         className="flex flex-row relative w-full h-fit border-gray-400 

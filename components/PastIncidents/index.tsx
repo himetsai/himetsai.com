@@ -7,7 +7,7 @@ type Props = {
 
 export default function index({ incidents }: Props) {
   return (
-    <div className="flex flex-col w-full max-w-[850px] my-10 text-[#33272a]">
+    <div className="flex flex-col w-full max-w-[850px] md:my-10 my-5 text-[#33272a]">
       <h4 className="font-medium p-2">Past Incidents</h4>
 
       {incidents.map((incident) => (

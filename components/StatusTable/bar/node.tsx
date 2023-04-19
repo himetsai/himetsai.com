@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useLayoutEffect } from "react";
 import { useIntersectionRect } from "../../../hooks/useIntersectionRect";
 
@@ -18,6 +19,7 @@ export default function StatusNode({ barType, endDate, day }: Props) {
   });
 
   const intersectRect = useIntersectionRect(tooltip);
+  const width = intersectRect?.right;
 
   // get a random color by hashing date
   const randColor = (): string => {
@@ -63,16 +65,16 @@ export default function StatusNode({ barType, endDate, day }: Props) {
   }
 
   useLayoutEffect(() => {
-    tooltip.current?.style.setProperty("--offset", `0px`);
-    if (rect && intersectRect) {
+    // tooltip.current?.style.setProperty("--offset", `0px`);
+    if (rect && width) {
       if (rect.left < 0) {
         tooltip.current?.style.setProperty("--offset", `${rect.left}px`);
-      } else if (rect.right > intersectRect.right) {
-        const offset = rect.right - intersectRect.right;
+      } else if (rect.right > width) {
+        const offset = rect.right - width;
         tooltip.current?.style.setProperty("--offset", `${offset}px`);
       }
     }
-  }, [intersectRect]);
+  }, [width]);
 
   return (
     <li

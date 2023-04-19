@@ -1,10 +1,15 @@
 import React from "react";
 import StatusTable from "../../components/StatusTable";
 import RelInfo from "../../components/RelInfo";
+import PastIncidents from "../../components/PastIncidents";
+import { GetStaticProps } from "next";
+import { fetchIncidents } from "../../lib/fetchData/fetchIncidents";
 
-type Props = {};
+type Props = {
+  incidents: Incident[];
+};
 
-export default function index({}: Props) {
+export default function index({ incidents }: Props) {
   return (
     <div
       id="status-container"
@@ -27,7 +32,21 @@ export default function index({}: Props) {
 
         {/* Status Table */}
         <StatusTable />
+
+        {/* Past Incidents */}
+        <PastIncidents incidents={incidents} />
       </div>
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const incidents: Incident[] = await fetchIncidents();
+
+  return {
+    props: {
+      incidents,
+    },
+    revalidate: 10,
+  };
+};

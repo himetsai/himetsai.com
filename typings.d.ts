@@ -48,6 +48,13 @@ interface Social extends Base {
   username: string;
 }
 
+interface Incident extends Base {
+  title: string;
+  date: string;
+  description: string;
+  image?: Image;
+}
+
 interface Comment {
   username: string;
   text: string;

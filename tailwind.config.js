@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
       },
+      aspectRatio: {
+        "4/5": "4 / 5",
+      },
     },
   },
   plugins: [

@@ -13,11 +13,12 @@ export default function RelInfo({}: Props) {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "America/New_York",
   });
 
   return (
     <div className="flex flex-col w-full max-w-[850px] my-10">
-      <h4 className="font-medium text-[#33272a] p-2">Relationship Info</h4>
+      <h4 className="font-medium text-[#33272a] p-2">Stats</h4>
       <div
         className="flex flex-row relative w-full h-fit border-gray-400 
       border-[1px] rounded-md md:p-5 p-3 text-[#33272a] 

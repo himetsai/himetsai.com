@@ -5,6 +5,7 @@ import post from "./post";
 import author from "./author";
 import pageInfo from "./pageInfo";
 import social from "./social";
+import incident from "./incident";
 
 export const schemaTypes = [
   post,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   comment,
   pageInfo,
   social,
+  incident,
 ];

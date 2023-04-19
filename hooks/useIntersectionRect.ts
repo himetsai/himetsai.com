@@ -17,7 +17,8 @@ export function useIntersectionRect(
     }
 
     return () => {
-      if (observerRefValue) observer.unobserve(observerRefValue);
+      // if (observerRefValue) observer.unobserve(observerRefValue);
+      if (observerRefValue) observer.disconnect();
     };
   }, [ref]);
 

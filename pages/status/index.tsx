@@ -5,7 +5,6 @@ import RelInfo from "../../components/RelInfo";
 import PastIncidents from "../../components/PastIncidents";
 import { GetStaticProps } from "next";
 import { fetchIncidents } from "../../lib/fetchData/fetchIncidents";
-import { fetchStatusImage } from "../../lib/fetchData/fetchStatusImage";
 
 type Props = {
   incidents: Incident[];
@@ -56,11 +55,9 @@ export default function index({ incidents }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const incidents: Incident[] = await fetchIncidents();
-  const statusImage: StatusImage = await fetchStatusImage();
 
   return {
     props: {
-      statusImage,
       incidents,
     },
     revalidate: 10,

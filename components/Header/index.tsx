@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import PageMenu from "./menu";
+import Menu from "./menu";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -34,7 +34,7 @@ export default function Header({ position }: Props) {
             </Link>
           )}
         </div>
-        <PageMenu />
+        <Menu />
       </header>
     </div>
   );

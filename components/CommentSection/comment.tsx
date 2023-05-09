@@ -16,7 +16,7 @@ export default function Comment({ comment, index }: Props) {
         <div className="flex font-medium text-[#33272a]">
           {`${comment.username}:`}
         </div>
-        <p className="flex h-auto font-normal text-[#594a4e] break-all">
+        <p className="flex h-auto font-normal text-[#594a4e]">
           {comment.text}
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function Comment({ comment, index }: Props) {
           {formatDate(comment.createdAt)}
         </time>
       </div>
-      <p className="flex h-auto font-normal text-[#594a4e] break-all">
+      <p className="flex h-auto font-normal text-[#594a4e]">
         {comment.text}
       </p>
     </div>

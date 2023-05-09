@@ -4,7 +4,6 @@ import urlFor from "../../lib/urlFor";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../RichTextComponents";
 import InPostInfo from "./info";
-import { motion } from "framer-motion";
 import { useIsLarge } from "../../hooks/useMediaQuery";
 
 type Props = {
@@ -15,11 +14,8 @@ export default function PostContent({ post }: Props) {
   const isLarge: boolean = useIsLarge();
 
   return (
-    <motion.article
+    <article
       id="post-content"
-      // initial={{ y: 100 }}
-      // animate={{ y: 0 }}
-      // transition={{ duration: 0.75 }}
       className="w-full md:w-[768px] lg:ml-12 bg-[#fffffe] pt-7 p-5
       md:p-10 border-2 border-[#33272a] rounded-lg z-20"
     >
@@ -44,6 +40,6 @@ export default function PostContent({ post }: Props) {
 
       {/* Post Content */}
       <PortableText value={post.body} components={RichTextComponent} />
-    </motion.article>
+    </article>
   );
 }

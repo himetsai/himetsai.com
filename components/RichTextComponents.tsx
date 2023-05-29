@@ -63,7 +63,7 @@ export const RichTextComponent = {
     h4: ({ children }: any) => (
       <h4
         id={slugify(children)}
-        className="text-2xl leading-5 py-6 font-bold tracking-wider"
+        className="text-2xl py-6 font-bold tracking-wider"
       >
         {children}
       </h4>

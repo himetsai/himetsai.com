@@ -25,6 +25,9 @@ export default function Post({ post }: Props) {
         <meta property="og:site_name" content="himetsai" />
         <meta property="og:type" content="shitpost" />
         <meta property="og:image" content={urlFor(post.mainImage).url()} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
 
       <div

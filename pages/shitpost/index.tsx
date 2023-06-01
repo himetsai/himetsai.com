@@ -64,14 +64,22 @@ export default function Shitpost({ posts }: Props) {
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>hime's shitposts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Ray Tsai's shitposts" key="desc" />
         <meta property="og:site_name" content="himetsai" />
         <meta property="og:type" content="shitposts page" />
-        <meta name="description" content="Ray Tsai's shitposts" key="desc" />
         <meta property="og:title" content="hime's shitpost" />
         <meta property="og:image" content="/preview.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:title" content="hime's shitpost" />
+        <meta name="twitter:description" content="Ray Tsai's shitposts" />
+        <meta name="twitter:image" content="/preview.png" />
+        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
       <div

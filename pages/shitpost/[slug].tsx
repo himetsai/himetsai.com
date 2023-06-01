@@ -28,6 +28,13 @@ export default function Post({ post }: Props) {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:image" content={urlFor(post.mainImage).url()} />
+        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
       <div

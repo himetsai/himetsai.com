@@ -7,7 +7,7 @@ export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full md:h-96 aspect-[5/4] 
+        <div className="relative w-full md:h-96 aspect-[4/3] 
         md:aspect-auto my-5 mx-auto">
           <Image
             className="object-cover object-center mx-auto 

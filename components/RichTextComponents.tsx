@@ -2,13 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import urlFor from "../lib/urlFor";
 import { slugify } from "../lib/slugify";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full md:h-96 aspect-[4/3] 
-        md:aspect-auto my-5 mx-auto">
+        <div
+          className="relative w-full md:h-96 aspect-[4/3] 
+        md:aspect-auto my-5 mx-auto"
+        >
           <Image
             className="object-cover object-center mx-auto 
             border-[1.5px] border-[#33272a] rounded-lg"
@@ -17,6 +21,28 @@ export const RichTextComponent = {
             fill
           />
         </div>
+      );
+    },
+    code: ({ value }: any) => {
+      return (
+        <SyntaxHighlighter
+          useInlineStyles={true}
+          language={value.language}
+          style={monokaiSublime}
+          wrapLongLines={true}
+          customStyle={{
+            borderRadius: "8px",
+            backgroundColor: "rgba(0, 0, 0, 0.82)",
+            padding: "10px",
+            borderWidth: "1.5px",
+            borderColor: "#33272a",
+            fontSize: "14px",
+            lineHeight: "20px",
+            marginBottom: "20px",
+          }}
+        >
+          {value.code}
+        </SyntaxHighlighter>
       );
     },
   },
@@ -92,5 +118,10 @@ export const RichTextComponent = {
         </Link>
       );
     },
+    code: ({ children }: any) => (
+      <span className="bg-black/80 text-sm text-white rounded-md p-[3px]">
+        {children}
+      </span>
+    ),
   },
 };

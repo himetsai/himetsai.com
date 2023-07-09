@@ -38,6 +38,7 @@ export default defineType({
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          { title: "Code", value: "code" },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -62,6 +63,11 @@ export default defineType({
     defineArrayMember({
       type: "image",
       options: { hotspot: true },
+    }),
+    defineArrayMember({
+      name: "code",
+      title: "Code Block",
+      type: "code",
     }),
   ],
 });

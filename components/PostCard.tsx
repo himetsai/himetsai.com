@@ -18,8 +18,8 @@ export default function PostCard({ post }: Props) {
     <motion.div
       // variants={item}
       // viewport={{ once: true }}
-      className="flex group bg-[#fffffe] w-[90vw] md:w-auto md:h-[70vh]
-      md:vertical-title"
+      className="flex group bg-[#fffffe] w-[90vw] rounded-md md:w-auto 
+      md:h-[70vh] md:vertical-title"
     >
       <Link
         href={`/shitpost/${post.slug.current}`}

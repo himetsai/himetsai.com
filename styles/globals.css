@@ -9,6 +9,9 @@ html {
 
 body {
   background-color: #faeee7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;  
+  -webkit-text-stroke: .025em;
 }
 
 .canvas {

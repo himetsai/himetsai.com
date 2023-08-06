@@ -22,7 +22,7 @@ export default function Hero({ title, description }: Props) {
     gap-5 md:gap-10 px-10 text-center"
     >
       <h1
-        className="btn font-bold text-2xl md:text-4xl lg:text-5xl text-[#fffffe] 
+        className="btn font-bold text-4xl md:text-5xl text-[#fffffe] 
         bg-[#ff7777] p-5 rounded-md border-2 border-[#33272a] cursor-pointer"
         onClick={handleClick}
       >

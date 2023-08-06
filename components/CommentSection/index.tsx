@@ -12,7 +12,7 @@ export default function CommentSection({ post }: Props) {
 
   return (
     <div
-      className="flex flex-col w-full md:w-[768px] lg:ml-12 bg-[#fffffe] p-5
+      className="flex flex-col w-full max-w-[800px] lg:ml-12 bg-[#fffffe] p-5
           md:p-10 border-2 border-[#33272a] rounded-lg z-20"
     >
       <h4

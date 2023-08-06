@@ -16,7 +16,7 @@ export default function PostContent({ post }: Props) {
   return (
     <article
       id="post-content"
-      className="w-full md:w-[768px] lg:ml-12 bg-[#fffffe] pt-7 p-5
+      className="w-full max-w-[768px] lg:ml-12 bg-[#fffffe] pt-7 p-5
       md:p-10 border-2 border-[#33272a] rounded-lg z-20"
     >
       {/* Title */}

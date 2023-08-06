@@ -11,27 +11,30 @@ type Props = {
 export default function About({ name, description, image }: Props) {
   return (
     <div
-      className="flex flex-col max-w-7xl bg-[#fffffe] rounded-xl
-      border-2 border-[#33272a] md:flex-row relative items-center
-      text-center md:text-left justify-evenly mx-auto p-7 sm:p-10"
+      className="flex flex-col relative max-w-[768px] bg-[#fffffe] rounded-xl
+      border-2 border-[#33272a] items-center text-left justify-evenly mx-auto p-7 sm:p-10"
     >
       <div
-        className="relative mb-10 md:mb-0 mt-5 md:mt-0 h-48 w-48
-        md:w-96 md:h-80 xl:w-[33vw] xl:h-[27.5vw] shrink-0"
+        className="relative w-full h-60 sm:h-96 aspect-[4/3] 
+        md:aspect-auto mb-5 mx-auto mt-2"
       >
         <Image
-          className="rounded-full object-cover md:rounded-lg z-0 
-          border-[1.5px] border-[#33272a]"
+          className="object-cover object-center mx-auto 
+            border-[1.5px] border-[#33272a] rounded-lg"
           src={urlFor(image).url()}
           alt=""
           fill
         />
       </div>
 
-      <div className="space-y-7 px-0 md:px-10">
-        <h4 className="text-3xl font-semibold">{name}</h4>
+      <div className="w-full relative">
+        <h4 className="text-3xl font-bold tracking-wider sm:my-5 my-3 text-[#33272a]">
+          {name}
+        </h4>
 
-        <p className="text-base text-[#594a4e] leading-8">{description}</p>
+        <p className="font-normal text-[#594a4e] leading-7 tracking-wider mb-2">
+          {description}
+        </p>
       </div>
     </div>
   );

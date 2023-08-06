@@ -9,14 +9,12 @@ type Props = {
 export default function Achievements({ achivements }: Props) {
   return (
     <div
-      className="flex flex-col max-w-7xl bg-[#fffffe] rounded-xl
-      border-2 border-[#33272a] relative items-center
-      text-left justify-evenly mx-auto px-5 md:px-10 py-5"
+      className="flex flex-col relative max-w-[768px] bg-[#fffffe] rounded-xl border-2
+      border-[#33272a] items-center text-left justify-evenly mx-auto p-7 sm:p-10"
     >
-      <h4 className="font-semibold text-2xl text-center py-3 md:py-5">
+      <h4 className="text-2xl font-bold tracking-wider sm:my-5 my-3 text-[#33272a]">
         Achievements
       </h4>
-
       <PortableText value={achivements} components={RichTextComponent} />
     </div>
   );

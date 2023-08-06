@@ -35,7 +35,7 @@ export default function HomePage({
 
       {/* Content */}
       <div
-        className="relative bg-[#faeee7] space-y-5 sm:space-y-10 
+        className="relative w-full items-center bg-[#faeee7] space-y-5 sm:space-y-10 
         px-5 sm:px-10 z-20"
       >
         {/* About */}

@@ -48,6 +48,12 @@ const links = [
       "https://docs.google.com/spreadsheets/d/15ltOsAzq2ovoPDI_aYEtmuI9VoM3W5TinbQ1UwTtB8g/edit?usp=sharing",
     permanent: true,
   },
+  {
+    source: "/resume",
+    destination:
+      "https://docs.google.com/document/d/1Hhj37nuguQssM2X-eGh6tOY5DgZR4oe0IKrQ23EzHKc/edit?usp=sharing",
+    permanent: true,
+  },
 ];
 
 module.exports = nextConfig;

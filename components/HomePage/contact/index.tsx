@@ -14,7 +14,7 @@ export default function Contact({ socials }: Props) {
       <h4 className="text-2xl font-bold tracking-wider sm:mb-5 mb-3 text-[#33272a]">
         Find Me Here
       </h4>
-      <div className="grid grid-cols-4 md:grid-cols-3 gap-4 text-[#33272a]">
+      <div className="grid grid-cols-4 lg:grid-cols-3 gap-4 text-[#33272a]">
         {socials.map((social) => (
           <SocialButton key={social.slug.current} social={social} />
         ))}

@@ -9,7 +9,7 @@ export default function Hero({ title, description }: Props) {
   const [anchorTarget, setAnchorTarget] = useState<null | HTMLElement>(null);
 
   useEffect(() => {
-    setAnchorTarget(document.getElementById("#about"));
+    setAnchorTarget(document.getElementById("about-image"));
   }, [title]);
 
   const handleClick = () => {

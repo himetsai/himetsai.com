@@ -17,6 +17,7 @@ export default function About({ name, description, image }: Props) {
       <div
         className="relative w-full h-60 sm:h-96 aspect-[4/3] 
         md:aspect-auto mb-5 mx-auto mt-2"
+        id="about-image"
       >
         <Image
           className="object-cover object-center mx-auto 

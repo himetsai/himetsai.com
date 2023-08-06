@@ -30,7 +30,7 @@ export default function RelInfo({}: Props) {
           <h4 className="font-medium">{formattedDate}</h4>
         </div>
 
-        <rect className="absolute w-[1px] top-0 bottom-0 right-1/2 bg-gray-500" />
+        <rect className="absolute w-[1px] top-0 bottom-0 right-1/2 bg-gray-400" />
 
         {/* Uptime */}
         <div className="flex flex-col w-full md:pl-8 pl-6">

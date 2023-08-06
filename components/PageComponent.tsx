@@ -33,6 +33,7 @@ export default function PageComponent({
     isPresent &&
       setFixedHeader(
         (router.pathname === "/shitpost" && isMedium) ||
+          (router.pathname === "/status" && isLarge) ||
           (router.pathname.startsWith("/shitpost") && isLarge) ||
           router.pathname === "/" ||
           router.pathname.startsWith("/422")

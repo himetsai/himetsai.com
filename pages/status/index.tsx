@@ -25,10 +25,10 @@ export default function index({ incidents }: Props) {
 
       <div
         id="status-container"
-        className="flex flex-col w-full h-full md:p-10 p-5 items-center"
+        className="flex flex-col w-full h-full mt-0 lg:mt-20 md:p-10 p-5 items-center"
       >
         <div
-          className="flex flex-col w-full max-w-[1200px] items-center
+          className="flex flex-col w-full max-w-[800px] items-center
         bg-white sm:p-10 p-3 border-2 border-[#33272a] rounded-lg"
         >
           {/* Title */}

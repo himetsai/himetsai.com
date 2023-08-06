@@ -51,13 +51,7 @@ export default function StatusTable({}: Props) {
   }, [endDate, dateRange]);
 
   return (
-    <div className="flex lg:flex-row flex-col w-full h-full items-center justify-center">
-      {isLarge && (
-        <button title="left" className="flex mr-2" onClick={onClickLeft}>
-          <ChevronLeftIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
-        </button>
-      )}
-
+    <div className="flex flex-col w-full h-full items-center justify-center">
       <div
         className="flex flex-col w-full max-w-[850px] items-center
        border-gray-400 border-[1px] rounded-md"
@@ -80,22 +74,14 @@ export default function StatusTable({}: Props) {
         <StatusBar barType="Oodball" startDate={startDate} endDate={endDate} />
       </div>
 
-      {isLarge && (
-        <button title="right" className="flex ml-2" onClick={onClickRight}>
-          <ChevronRightIcon className="h-12 w-12 text-gray-400/80 hover:text-gray-400" />
+      <div className="flex flex-row justify-between w-full pt-2 px-1">
+        <button title="left" className="flex mr-2" onClick={onClickLeft}>
+          <ArrowLeftIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
         </button>
-      )}
-
-      {!isLarge && (
-        <div className="flex flex-row justify-between w-full pt-2 px-1">
-          <button title="left" className="flex mr-2" onClick={onClickLeft}>
-            <ArrowLeftIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
-          </button>
-          <button title="right" className="flex ml-2" onClick={onClickRight}>
-            <ArrowRightIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
-          </button>
-        </div>
-      )}
+        <button title="right" className="flex ml-2" onClick={onClickRight}>
+          <ArrowRightIcon className="h-8 w-8 text-gray-400/80 hover:text-gray-400" />
+        </button>
+      </div>
     </div>
   );
 }

@@ -54,6 +54,12 @@ const links = [
       "https://docs.google.com/document/d/1Hhj37nuguQssM2X-eGh6tOY5DgZR4oe0IKrQ23EzHKc/edit?usp=sharing",
     permanent: true,
   },
+  {
+    source: "/albert",
+    destination:
+      "https://r9-museum.acgn-stock.com/company/detail/tbne4qG4k2u2t4jAd",
+    permanent: true,
+  },
 ];
 
 module.exports = nextConfig;

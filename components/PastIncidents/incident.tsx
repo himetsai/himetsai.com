@@ -24,7 +24,7 @@ export default function Incident({ incident }: Props) {
       <div className="flex md:flex-row flex-col w-full items-center justify-between mb-2">
         <div className="flex flex-col p-2">
           <h4 className="font-medium text-lg">{incident.title}</h4>
-          <p className="font-normal text-[#594a4e] leading-7 tracking-wider mt-2 md:max-w-[90%]">
+          <p className="font-normal text-[#594a4e] leading-7 tracking-wider mt-2 md:max-w-[90%] text-justify">
             {incident.description}
           </p>
         </div>

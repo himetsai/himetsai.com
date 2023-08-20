@@ -10,8 +10,8 @@ export const RichTextComponent = {
     image: ({ value }: any) => {
       return (
         <div
-          className="relative w-full md:h-96 aspect-[4/3] 
-        md:aspect-auto my-5 mx-auto"
+          className="relative w-full aspect-[3/2] 
+         my-5 mx-auto"
         >
           <Image
             className="object-cover object-center mx-auto 

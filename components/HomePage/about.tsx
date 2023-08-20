@@ -15,7 +15,7 @@ export default function About({ name, description, image }: Props) {
       border-2 border-[#33272a] items-center text-left justify-evenly mx-auto p-7 sm:p-10"
     >
       <div
-        className="relative w-full aspect-[3/2] mb-5 mx-auto mt-2"
+        className="relative w-full h-60 sm:h-auto aspect-[3/2] mb-5 mx-auto mt-2"
         id="about-image"
       >
         <Image

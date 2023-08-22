@@ -32,7 +32,7 @@ export default function About({ name, description, image }: Props) {
           {name}
         </h4>
 
-        <p className="font-normal text-[#594a4e] leading-7 tracking-wider mb-2 text-justify">
+        <p className="font-normal text-[#594a4e] leading-7 tracking-wider mb-2">
           {description}
         </p>
       </div>

@@ -123,5 +123,11 @@ export const RichTextComponent = {
         {children}
       </span>
     ),
+
+    underline: ({ children }: any) => (
+      <span className="underline decoration-[#ff7777] font-normal tracking-wider">
+        {children}
+      </span>
+    ),
   },
 };

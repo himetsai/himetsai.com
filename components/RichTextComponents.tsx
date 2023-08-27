@@ -111,7 +111,7 @@ export const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="hover:underline decoration-[#ff7777] text-[#ff7777]
+          className="hover:underline decoration-[#ff7777] decoration-2 text-[#ff7777]
           font-normal tracking-wider"
         >
           {children}
@@ -125,7 +125,7 @@ export const RichTextComponent = {
     ),
 
     underline: ({ children }: any) => (
-      <span className="underline decoration-[#ff7777] font-normal tracking-wider">
+      <span className="underline decoration-[#ff7777] decoration-2 font-normal tracking-wider">
         {children}
       </span>
     ),

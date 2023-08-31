@@ -30,7 +30,7 @@ export default function index({}: Props) {
             rel={"noreferrer noopener"}
             className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
           font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
-          duration-200"
+          duration-200 ease-out"
           >
             status page
           </Link>{" "}

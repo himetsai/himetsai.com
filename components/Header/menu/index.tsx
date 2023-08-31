@@ -12,9 +12,9 @@ export default function Menu({}: Props) {
       {/* Icon */}
       <label
         tabIndex={0}
-        className="btn min-h-min h-10 px-2 py-[0.35rem] m-1 transition ease-in-out duration-200 bg-[#fffffe] 
-            border-[1.5px] border-[#33272a] rounded-md 
-           group-hover:bg-[#ff7777] group-hover:text-[#fffffe] hover:border-[1.5px] hover:border-[#33272a]"
+        className="btn min-h-min h-10 px-2 py-[0.35rem] m-1 transition ease-in-out duration-200 
+        bg-[#fffffe] border-[1.5px] border-[#33272a] rounded-md group-hover:bg-[#ff7777] 
+        group-hover:text-[#fffffe]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

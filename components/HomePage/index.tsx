@@ -59,17 +59,19 @@ export default function HomePage({
           className="w-full flex items-center justify-center
           text-sm tracking-wider"
         >
-          check out the code for this website{" "}
-          <a
-            target="_blank"
-            rel="noreferrer noopener"
-            href="https://github.com/boogerman919/himetsai.com"
-            className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
-          font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
-          duration-200 pl-1"
-          >
-            here
-          </a>
+          <p>
+            check out the code for this website{" "}
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://github.com/boogerman919/himetsai.com"
+              className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
+              font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
+              duration-200 ease-out"
+            >
+              here
+            </a>
+          </p>
         </section>
       </div>
     </div>

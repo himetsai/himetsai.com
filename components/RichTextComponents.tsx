@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import urlFor from "../lib/urlFor";
 import { slugify } from "../lib/slugify";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -115,7 +114,7 @@ export const RichTextComponent = {
           rel={rel}
           className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
           font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
-          duration-200"
+          duration-200 ease-out"
         >
           {children}
         </a>

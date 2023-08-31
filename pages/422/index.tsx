@@ -28,8 +28,9 @@ export default function index({}: Props) {
           <Link
             href={"/status"}
             rel={"noreferrer noopener"}
-            className="hover:underline decoration-[#ff7777] text-[#ff7777]
-          font-normal tracking-wider"
+            className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
+          font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
+          duration-200"
           >
             status page
           </Link>{" "}

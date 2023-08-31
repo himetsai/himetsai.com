@@ -108,7 +108,9 @@ export const RichTextComponent = {
         : undefined;
 
       return (
-        <Link
+        // eslint-disable-next-line react/jsx-no-target-blank
+        <a
+          target="_blank"
           href={value.href}
           rel={rel}
           className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
@@ -116,7 +118,7 @@ export const RichTextComponent = {
           duration-200"
         >
           {children}
-        </Link>
+        </a>
       );
     },
     code: ({ children }: any) => (

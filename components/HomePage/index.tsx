@@ -59,15 +59,17 @@ export default function HomePage({
           className="w-full flex items-center justify-center
           text-sm tracking-wider"
         >
-          check out the code for this website {" "}
-          <Link
+          check out the code for this website{" "}
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
             href="https://github.com/boogerman919/himetsai.com"
             className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
           font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
           duration-200 pl-1"
           >
             here
-          </Link>
+          </a>
         </section>
       </div>
     </div>

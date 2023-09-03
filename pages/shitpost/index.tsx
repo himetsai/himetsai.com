@@ -1,11 +1,6 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import React, {
-  useRef,
-  useState,
-  useLayoutEffect,
-  useCallback,
-} from "react";
+import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
 import { fetchPosts } from "../../lib/fetchData/fetchPosts";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -99,9 +94,12 @@ export default function Shitpost({ posts }: Props) {
           md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
           {/* Posts */}
-          {posts.map((post) => (
-            <PostCard key={post._id} post={post} />
-          ))}
+          {posts.map(
+            (post) =>
+              post.category.title != "工作" && (
+                <PostCard key={post._id} post={post} />
+              )
+          )}
         </motion.section>
       </div>
 

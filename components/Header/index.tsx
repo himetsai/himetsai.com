@@ -27,10 +27,10 @@ export default function Header({ position }: Props) {
         >
           {/* scroll to top if page is home */}
           {isHome ? (
-            <p className="font-bold text-2xl cursor-pointer">himetsai</p>
+            <p className="font-bold text-2xl cursor-pointer">台北啟聰學校</p>
           ) : (
             <Link href="/" className="font-bold text-2xl cursor-pointer">
-              himetsai
+              台北啟聰學校
             </Link>
           )}
         </div>

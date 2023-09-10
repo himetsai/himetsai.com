@@ -57,7 +57,7 @@ export const RichTextComponent = {
   },
   block: {
     normal: ({ children }: any) => (
-      <p className="font-normal text-[#594a4e] leading-7 tracking-wider mb-5 text-justify">
+      <p className="font-normal text-[#594a4e] leading-8 tracking-wider mb-8 text-justify">
         {children}
       </p>
     ),
@@ -88,7 +88,7 @@ export const RichTextComponent = {
     h4: ({ children }: any) => (
       <h4
         id={slugify(children)}
-        className="text-2xl py-6 font-bold tracking-wider"
+        className="text-2xl py-7 font-bold tracking-wider"
       >
         {children}
       </h4>

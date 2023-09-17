@@ -18,7 +18,7 @@ export default function SocialButton({ social }: Props) {
   const btn = useRef<HTMLDivElement | null>(null);
 
   const iconLoader = ({ src, width }: ImageLoaderProps): string =>
-    `https://cdn.simpleicons.org/${src}/?w=${width}`;
+    `https://cdn.simpleicons.org/${src}?w=${width}`;
 
   /**
    * check if button is a link.

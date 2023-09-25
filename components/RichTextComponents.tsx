@@ -112,7 +112,7 @@ export const RichTextComponent = {
           href={value.href}
           rel={rel}
           className="underline decoration-[#ff7777] decoration-2 text-[#ff7777]
-          font-normal tracking-wider hover:no-underline hover:blur-[1px] transition
+          tracking-wider hover:no-underline hover:blur-[1px] transition
           duration-200 ease-out"
         >
           {children}

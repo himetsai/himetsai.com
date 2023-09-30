@@ -8,9 +8,7 @@ export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div
-          className="relative w-full aspect-[3/2] mt-4 mb-9 mx-auto"
-        >
+        <div className="relative w-full aspect-[3/2] mt-4 mb-9 mx-auto">
           <Image
             className="object-cover object-center mx-auto 
             border-[1.5px] border-[#33272a] rounded-lg"
@@ -46,7 +44,7 @@ export const RichTextComponent = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="ml-5 sm:ml-10 py-5 list-disc space-y-3 sm:space-y-5">
+      <ul className="ml-5 sm:ml-10 py-5 text-[#594a4e] list-disc space-y-3 sm:space-y-5">
         {children}
       </ul>
     ),

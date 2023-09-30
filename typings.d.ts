@@ -20,6 +20,7 @@ interface Post extends Base {
   author: Author;
   body: Block[];
   category: Category;
+  location: Location
   mainImage: Image;
   slug: Slug;
   title: string;
@@ -57,6 +58,11 @@ interface Incident extends Base {
 
 interface StatusImage extends Base {
   image: Image;
+}
+
+interface Location extends Base {
+  city: string;
+  country: string;
 }
 
 interface Comment {

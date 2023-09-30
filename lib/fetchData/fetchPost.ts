@@ -6,6 +6,7 @@ const query = groq`
     ...,
     author->,
     category->,
+    location->,
     "headings": body[length(style) == 2 && string::startsWith(style, "h")]
   }
 `;

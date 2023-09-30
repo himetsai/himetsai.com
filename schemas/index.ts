@@ -7,15 +7,17 @@ import pageInfo from "./pageInfo";
 import social from "./social";
 import incident from "./incident";
 import statusImage from "./statusImage";
+import location from "./location";
 
 export const schemaTypes = [
   post,
-  author,
-  category,
   blockContent,
   comment,
   pageInfo,
   social,
   incident,
   statusImage,
+  author,
+  category,
+  location,
 ];

@@ -9,6 +9,7 @@ type Props = {
 
 export default function SideInfo({ post }: Props) {
   const height = window.innerHeight;
+  console.log(post.location);
   return (
     <motion.div
       // initial={{ opacity: 0, x: -500 }}
@@ -23,6 +24,14 @@ export default function SideInfo({ post }: Props) {
         <p className="text-xs opacity-60">Published Time</p>
         <p className="relative text-sm font-medium">
           {formatDate(post.publishedAt)}
+        </p>
+      </div>
+
+      {/* Location */}
+      <div className="relative tracking-wide">
+        <p className="text-xs opacity-60">Location</p>
+        <p className="relative text-sm font-medium">
+          {`${post.location.city}, ${post.location.country}`}
         </p>
       </div>
 

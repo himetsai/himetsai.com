@@ -54,7 +54,7 @@ export const RichTextComponent = {
   },
   block: {
     normal: ({ children }: any) => (
-      <p className="font-normal text-[#594a4e] leading-8 tracking-wider mb-8 text-justify">
+      <p className="font-normal text-[#594a4e] leading-8 tracking-wider mb-8">
         {children}
       </p>
     ),

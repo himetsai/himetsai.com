@@ -94,12 +94,9 @@ export default function Shitpost({ posts }: Props) {
           md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
           {/* Posts */}
-          {posts.map(
-            (post) =>
-              post.category.title != "工作" && (
-                <PostCard key={post._id} post={post} />
-              )
-          )}
+          {posts.map((post) => (
+            <PostCard key={post._id} post={post} />
+          ))}
         </motion.section>
       </div>
 

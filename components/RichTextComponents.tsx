@@ -49,7 +49,9 @@ export const RichTextComponent = {
       </ul>
     ),
     number: ({ children }: any) => (
-      <ol className="ml-lg list-decimal">{children}</ol>
+      <ol className="ml-5 -mt-4 mb-5 sm:ml-10 font-normal text-[#594a4e] space-y-3 sm:space-y-5 list-decimal">
+        {children}
+      </ol>
     ),
   },
   block: {

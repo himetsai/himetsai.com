@@ -55,6 +55,12 @@ const links = [
     permanent: true,
   },
   {
+    source: "/cv",
+    destination:
+      "https://himetsai.com/cv.pdf",
+    permanent: true,
+  },
+  {
     source: "/albert",
     destination:
       "https://r9-museum.acgn-stock.com/company/detail/tbne4qG4k2u2t4jAd",

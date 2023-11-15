@@ -44,7 +44,7 @@ export const RichTextComponent = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="ml-5 sm:ml-10 py-5 text-[#594a4e] list-disc space-y-3 sm:space-y-5">
+      <ul className="ml-5 -mt-4 mb-5 sm:ml-10 py-5 text-[#594a4e] list-disc space-y-3 sm:space-y-5">
         {children}
       </ul>
     ),

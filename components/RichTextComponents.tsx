@@ -8,14 +8,21 @@ export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full aspect-[3/2] mt-4 mb-9 mx-auto">
-          <Image
-            className="object-cover object-center mx-auto 
+        <div className="mt-4 mb-9">
+          <div className="relative w-full aspect-[3/2] mx-auto">
+            <Image
+              className="object-cover object-center mx-auto 
             border-[1.5px] border-[#33272a] rounded-lg"
-            src={urlFor(value).url()}
-            alt="Blog Post Image"
-            fill
-          />
+              src={urlFor(value).url()}
+              alt="Blog Post Image"
+              fill
+            />
+          </div>
+          {value.caption && (
+            <p className="px-2 mt-2 text-center text-sm text-[#594a4e]/75">
+              {value.caption}
+            </p>
+          )}
         </div>
       );
     },

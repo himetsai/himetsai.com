@@ -11,13 +11,13 @@ import location from "./location";
 
 export const schemaTypes = [
   post,
-  blockContent,
-  comment,
   pageInfo,
-  social,
   incident,
-  statusImage,
-  author,
   category,
   location,
+  social,
+  statusImage,
+  comment,
+  author,
+  blockContent,
 ];

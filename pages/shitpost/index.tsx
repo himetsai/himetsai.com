@@ -10,6 +10,8 @@ import PostCard from "../../components/PostCard";
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
+const HIDE_WORK = true;
+
 type Props = {
   posts: Post[];
 };
@@ -94,9 +96,12 @@ export default function Shitpost({ posts }: Props) {
           md:w-auto md:max-w-max md:justify-end md:px-[60px]"
         >
           {/* Posts */}
-          {posts.map((post) => (
-            <PostCard key={post._id} post={post} />
-          ))}
+          {posts.map(
+            (post) =>
+              (post.category.title != "工作" || !HIDE_WORK) && (
+                <PostCard key={post._id} post={post} />
+              )
+          )}
         </motion.section>
       </div>
 

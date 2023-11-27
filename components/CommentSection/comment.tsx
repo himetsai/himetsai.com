@@ -9,14 +9,14 @@ type Props = {
 
 export default function Comment({ comment, index }: Props) {
   const isSmall = useIsSmall();
-  
+
   return isSmall ? (
     <div className="flex flex-row tracking-wider mb-5 justify-between">
       <div className="flex w-full flex-row gap-1">
         <div className="flex font-medium text-[#33272a]">
           {`${comment.username}:`}
         </div>
-        <p className="flex h-auto font-normal text-[#594a4e]">
+        <p className="flex h-auto font-normal text-[#594a4e] [overflow-wrap:anywhere]">
           {comment.text}
         </p>
       </div>
@@ -38,7 +38,7 @@ export default function Comment({ comment, index }: Props) {
           {formatDate(comment.createdAt)}
         </time>
       </div>
-      <p className="flex h-auto font-normal text-[#594a4e]">
+      <p className="flex h-auto font-normal text-[#594a4e] [overflow-wrap:anywhere]">
         {comment.text}
       </p>
     </div>

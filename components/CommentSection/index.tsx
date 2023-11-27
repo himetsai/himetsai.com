@@ -21,7 +21,7 @@ export default function CommentSection({ post }: Props) {
       >
         Comments
       </h4>
-      
+
       {comments && <CommentList comments={comments} />}
 
       <CommentForm text={text} setText={setText} onSubmit={onSubmit} />

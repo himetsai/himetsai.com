@@ -8,6 +8,7 @@ import { montserrat } from "../lib/loadFonts";
 import { motion, AnimatePresence } from "framer-motion";
 import PageComponent from "../components/PageComponent";
 import Loader from "../components/Loader";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   /**
@@ -79,6 +80,7 @@ export default function App({ Component, pageProps }: AppProps) {
               />
             </motion.div>
           )}
+          <Analytics />
         </AnimatePresence>
       </main>
     </Auth0Provider>

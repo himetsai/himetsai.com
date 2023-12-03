@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useLayoutEffect } from "react";
 import StatusBar from "./bar";
 import { useIsLarge, useIsSmall } from "../../hooks/useMediaQuery";

@@ -1,16 +1,14 @@
-import React from "react";
 import Head from "next/head";
 import StatusTable from "../../components/StatusTable";
 import RelInfo from "../../components/RelInfo";
 import PastIncidents from "../../components/PastIncidents";
-import { GetStaticProps } from "next";
 import { fetchIncidents } from "../../lib/fetchData/fetchIncidents";
 
-type Props = {
-  incidents: Incident[];
-};
+export const revalidate = 10;
 
-export default function index({ incidents }: Props) {
+export default async function Status() {
+  const incidents: Incident[] = await fetchIncidents();
+
   return (
     <>
       <Head>
@@ -52,14 +50,3 @@ export default function index({ incidents }: Props) {
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const incidents: Incident[] = await fetchIncidents();
-
-  return {
-    props: {
-      incidents,
-    },
-    revalidate: 10,
-  };
-};

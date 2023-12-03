@@ -1,11 +1,9 @@
 import React from "react";
-import { useRouter } from "next/router";
 import MenuItem from "./menuItem";
 
 type Props = {};
 
 export default function Menu({}: Props) {
-  const router = useRouter();
   const paths = ["home", "shitpost", "CV", "oodball"];
   return (
     <div className="dropdown dropdown-hover dropdown-end group -mt-1">

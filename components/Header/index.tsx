@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Menu from "./menu";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 type Props = {
   position: "fixed" | "relative";
 };
 
 export default function Header({ position }: Props) {
-  const router = useRouter();
-  const isHome = router.pathname === "/";
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
     <div className={`${position} w-full z-30 left-0`}>

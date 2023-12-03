@@ -1,24 +1,20 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
-import { NextComponentType, NextPageContext } from "next";
+import React, { Dispatch, SetStateAction, use, useEffect } from "react";
 import { useIsPresent } from "framer-motion";
-import router from "next/router";
+import { usePathname } from "next/navigation";
 import { useIsMedium, useIsLarge } from "../hooks/useMediaQuery";
 
 type Props = {
-  Component: NextComponentType<NextPageContext, any, any>;
-  pageProps: any;
+  children: React.ReactNode;
   setFixedHeader: Dispatch<SetStateAction<"fixed" | "relative">>;
 };
 
-export default function PageComponent({
-  Component,
-  pageProps,
-  setFixedHeader,
-}: Props) {
+export default function PageComponent({ children, setFixedHeader }: Props) {
   /**
    * Page change check
    */
   const isPresent = useIsPresent();
+
+  const pathname = usePathname();
 
   /**
    * Screen size checks
@@ -32,16 +28,16 @@ export default function PageComponent({
   useEffect(() => {
     isPresent &&
       setFixedHeader(
-        (router.pathname === "/shitpost" && isMedium) ||
-          (router.pathname === "/status" && isLarge) ||
-          (router.pathname.startsWith("/shitpost") && isLarge) ||
-          router.pathname === "/" ||
-          router.pathname.startsWith("/422")
+        (pathname === "/shitpost" && isMedium) ||
+          (pathname === "/status" && isLarge) ||
+          (pathname.startsWith("/shitpost") && isLarge) ||
+          pathname === "/" ||
+          pathname.startsWith("/422")
           ? "fixed"
           : "relative"
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPresent, isMedium, isLarge]);
 
-  return <Component {...pageProps} />;
+  return <>{children}</>;
 }

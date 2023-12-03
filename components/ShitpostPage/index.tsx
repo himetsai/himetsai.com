@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -56,28 +55,6 @@ export default function ShitpostPage({ posts }: Props) {
 
   return (
     <>
-      <Head>
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <title>hime's shitposts</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Ray Tsai's shitposts" key="desc" />
-        <meta property="og:site_name" content="himetsai" />
-        <meta property="og:type" content="shitposts page" />
-        <meta property="og:title" content="hime's shitpost" />
-        <meta property="og:image" content="/preview.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <meta name="twitter:title" content="hime's shitpost" />
-        <meta name="twitter:description" content="Ray Tsai's shitposts" />
-        <meta name="twitter:image" content="/preview.png" />
-        <meta name="twitter:image:type" content="image/png" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-
       <div
         className="flex w-full bg-[#faeee7] pt-5
         md:fixed md:w-auto md:right-0 md:flex-row-reverse md:will-change-transform"
@@ -103,7 +80,6 @@ export default function ShitpostPage({ posts }: Props) {
           )}
         </motion.section>
       </div>
-
       <div
         ref={ghostRef}
         style={

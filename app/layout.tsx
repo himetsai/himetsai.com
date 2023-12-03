@@ -1,5 +1,4 @@
 import AppWrapper from "../components/AppWrapper";
-import { Suspense } from "react";
 
 export const metadata = {
   icons: {

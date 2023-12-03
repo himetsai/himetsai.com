@@ -27,17 +27,15 @@ export const revalidate = 10;
 const Home = async () => {
   const pageInfo = await fetchPageInfo();
   return (
-    <div>
-      <HomePage
-        pageTitle={pageInfo.pageTitle}
-        pageDescription={pageInfo.pageDescription}
-        name={pageInfo.name}
-        description={pageInfo.description}
-        image={pageInfo.image}
-        achievements={pageInfo.achievements}
-        socials={pageInfo.socials}
-      />
-    </div>
+    <HomePage
+      pageTitle={pageInfo.pageTitle}
+      pageDescription={pageInfo.pageDescription}
+      name={pageInfo.name}
+      description={pageInfo.description}
+      image={pageInfo.image}
+      achievements={pageInfo.achievements}
+      socials={pageInfo.socials}
+    />
   );
 };
 

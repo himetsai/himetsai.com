@@ -1,14 +1,13 @@
 "use client";
 import "../../styles/globals.css";
-import { Suspense, useState } from "react";
+import { useState, useEffect } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { montserrat } from "../../lib/loadFonts";
-import { motion, AnimatePresence } from "framer-motion";
-import PageComponent from "../../components/PageComponent";
-import Loader from "../../components/Loader";
+import { useIsPresent } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../Header";
+import { useIsLarge, useIsMedium } from "../../hooks/useMediaQuery";
 
 export const metadata = {
   icons: {
@@ -36,6 +35,34 @@ export default function AppWrapper({
     "relative"
   );
 
+  /**
+   * Page change check
+   */
+  const isPresent = useIsPresent();
+
+  /**
+   * Screen size checks
+   */
+  const isLarge = useIsLarge();
+  const isMedium = useIsMedium();
+
+  /**
+   * Decide header position when page or screen size changes
+   */
+  useEffect(() => {
+    isPresent &&
+      setFixedHeader(
+        (pathname === "/shitpost" && isMedium) ||
+          (pathname === "/status" && isLarge) ||
+          (pathname.startsWith("/shitpost") && isLarge) ||
+          pathname === "/" ||
+          pathname.startsWith("/422")
+          ? "fixed"
+          : "relative"
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPresent, isMedium, isLarge]);
+
   return (
     <Auth0Provider
       domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN!}
@@ -47,31 +74,8 @@ export default function AppWrapper({
             ${montserrat.variable} font-montserrat h-screen bg-[#faeee7]`}
       >
         {showHeader && <Header position={fixedHeader} />}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={pathname}
-            initial="initialState"
-            animate="animateState"
-            exit="exitState"
-            transition={{ duration: 0.1 }}
-            variants={{
-              initialState: {
-                opacity: 0,
-              },
-              animateState: {
-                opacity: 1,
-              },
-              exitState: {
-                opacity: 0,
-              },
-            }}
-          >
-            <PageComponent setFixedHeader={setFixedHeader}>
-              {children}
-            </PageComponent>
-          </motion.div>
-          <Analytics />
-        </AnimatePresence>
+        {children}
+        <Analytics />
       </main>
     </Auth0Provider>
   );

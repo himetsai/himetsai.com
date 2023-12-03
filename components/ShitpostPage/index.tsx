@@ -1,7 +1,6 @@
+"use client";
 import Head from "next/head";
-import { GetStaticProps } from "next";
 import React, { useRef, useState, useLayoutEffect, useCallback } from "react";
-import { fetchPosts } from "../../lib/fetchData/fetchPosts";
 import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../hooks/useMediaQuery";
@@ -16,7 +15,7 @@ type Props = {
   posts: Post[];
 };
 
-export default function Shitpost({ posts }: Props) {
+export default function ShitpostPage({ posts }: Props) {
   const scrollRef = useRef<null | HTMLDivElement>(null);
   const ghostRef = useRef<null | HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState<number>(0);
@@ -117,12 +116,3 @@ export default function Shitpost({ posts }: Props) {
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts: Post[] = await fetchPosts();
-
-  return {
-    props: { posts },
-    revalidate: 10,
-  };
-};

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import useComments from "../../hooks/useComments";
 import CommentForm from "./form";

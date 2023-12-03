@@ -1,20 +1,21 @@
 import React from "react";
 import Head from "next/head";
-import { GetStaticProps } from "next";
-import { fetchPosts } from "../../lib/fetchData/fetchPosts";
-import { fetchPost } from "../../lib/fetchData/fetchPost";
-import { useIsLarge } from "../../hooks/useMediaQuery";
-import SideInfo from "../../components/SideInfo";
-import PostContent from "../../components/PostContent";
-import { urlFor } from "../../lib/sanity.client";
-import CommentSection from "../../components/CommentSection";
+import { fetchPosts } from "../../../lib/fetchData/fetchPosts";
+import { fetchPost } from "../../../lib/fetchData/fetchPost";
+import SideInfo from "../../../components/SideInfo";
+import PostContent from "../../../components/PostContent";
+import { urlFor } from "../../../lib/sanity.client";
+import CommentSection from "../../../components/CommentSection";
 
 type Props = {
-  post: Post;
+  params: { slug: string };
 };
 
-export default function Post({ post }: Props) {
-  const isLarge: boolean = useIsLarge();
+const revalidate = 60;
+
+export default async function Post({ params }: Props) {
+  const { slug } = params;
+  const post: Post = await fetchPost(slug);
 
   return (
     <>
@@ -42,7 +43,7 @@ export default function Post({ post }: Props) {
         pb-10 lg:pt-[100px] lg:pb-[350px] bg-[#faeee7] text-[#33272a] gap-10"
       >
         {/* Side Info */}
-        {isLarge && <SideInfo post={post} />}
+        <SideInfo post={post} />
 
         {/* Content */}
         <PostContent post={post} />
@@ -53,25 +54,9 @@ export default function Post({ post }: Props) {
   );
 }
 
-export const getStaticPaths = async () => {
+export async function generateStaticParams() {
   const res: Post[] = await fetchPosts();
-  const paths = res.map((post) => {
-    return {
-      params: { slug: post.slug.current.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const post: Post = await fetchPost(params?.slug);
-
-  return {
-    props: { post },
-    revalidate: 60,
-  };
-};
+  return res.map((post) => ({
+    slug: post.slug.current.toString(),
+  }));
+}

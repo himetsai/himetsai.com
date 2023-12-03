@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
+import { cache } from "react";
 
 const query = groq`
   *[_type=='post' && slug.current == $slug][0] {
@@ -11,7 +12,7 @@ const query = groq`
   }
 `;
 
-export const fetchPost = async (slug: string | string[] | undefined) => {
+export const fetchPost = cache(async (slug: string | string[] | undefined) => {
   const post: Post = await client.fetch(query, { slug });
   return post;
-};
+});

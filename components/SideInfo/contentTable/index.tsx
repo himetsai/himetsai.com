@@ -65,10 +65,14 @@ export default function TableOfContents({ headings }: Props) {
     scrollTo(0, 0);
     getAnchorPoints();
     const observer = new MutationObserver(getAnchorPoints);
-    observer.observe(document.getElementById("root")!, {
-      childList: true,
-      subtree: true,
-    });
+    const root = document.getElementById("root");
+    if (root) {
+      observer.observe(root, {
+        childList: true,
+        subtree: true,
+      });
+    }
+    
     window.addEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

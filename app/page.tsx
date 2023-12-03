@@ -6,6 +6,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "himetsai",
   description: "Ray Tsai's personal website",
+  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "himetsai",
     siteName: "himetsai",

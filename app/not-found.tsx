@@ -2,9 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = {};
-
-export default function NotFound({}: Props) {
+export default function NotFound() {
   return (
     <div
       className="z-0 top-0 w-full h-full fixed flex flex-col items-center justify-center

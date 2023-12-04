@@ -13,6 +13,9 @@ const query = groq`
 `;
 
 export const fetchPost = cache(async (slug: string | string[] | undefined) => {
+
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const post: Post = await client.fetch(query, { slug });
   return post;
 });

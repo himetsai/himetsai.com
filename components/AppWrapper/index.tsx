@@ -1,5 +1,4 @@
 "use client";
-import "../../styles/globals.css";
 import { useState, useEffect } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { usePathname } from "next/navigation";
@@ -8,13 +7,6 @@ import { useIsPresent } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../Header";
 import { useIsLarge, useIsMedium } from "../../hooks/useMediaQuery";
-
-export const metadata = {
-  icons: {
-    icon: "/favicon-32x32.png",
-    apple: "/apple-touch-icon.png",
-  },
-};
 
 export default function AppWrapper({
   children,

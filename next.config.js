@@ -3,6 +3,9 @@ const nextConfig = {
   async redirects() {
     return links;
   },
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: true,
   images: {
     loader: "default",
@@ -51,8 +54,7 @@ const links = [
   },
   {
     source: "/cv",
-    destination:
-      "https://himetsai.com/cv.pdf",
+    destination: "https://himetsai.com/cv.pdf",
     permanent: true,
   },
   {

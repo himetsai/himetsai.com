@@ -11,6 +11,7 @@ React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
 const HIDE_WORK = true;
+const HIDE_FALL23 = true;
 
 type Props = {
   posts: Post[];
@@ -98,7 +99,8 @@ export default function Shitpost({ posts }: Props) {
           {/* Posts */}
           {posts.map(
             (post) =>
-              (post.category.title != "工作" || !HIDE_WORK) && (
+              (post.category.title != "工作" || !HIDE_WORK) &&
+              (post.slug.current != "fall23_review" || !HIDE_FALL23) && (
                 <PostCard key={post._id} post={post} />
               )
           )}

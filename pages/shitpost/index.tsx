@@ -11,7 +11,7 @@ React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
 const HIDE_WORK = true;
-const HIDE_FALL23 = true;
+const HIDE_FALL23 = false;
 
 type Props = {
   posts: Post[];

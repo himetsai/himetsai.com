@@ -10,7 +10,7 @@ import PostCard from "../../components/PostCard";
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
-const HIDE_WORK = true;
+const HIDE_WORK = false;
 const HIDE_FALL23 = false;
 
 type Props = {

@@ -56,6 +56,10 @@ export default defineType({
               },
             ],
           },
+          {
+            type: "latex",
+            title: "Inline math",
+          },
         ],
       },
     }),
@@ -72,6 +76,10 @@ export default defineType({
           title: "Caption",
         },
       ],
+    }),
+    defineArrayMember({
+      type: "latex",
+      title: "Math block",
     }),
     defineArrayMember({
       name: "code",

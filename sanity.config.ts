@@ -4,6 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { codeInput } from "@sanity/code-input";
 import { schemaTypes } from "./schemas";
 import { myTheme } from "./theme";
+import { latexInput } from "sanity-plugin-latex-input";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -16,7 +17,7 @@ export default defineConfig({
   projectId,
   dataset,
 
-  plugins: [deskTool(), visionTool(), codeInput()],
+  plugins: [deskTool(), visionTool(), codeInput(), latexInput()],
 
   schema: {
     types: schemaTypes,

@@ -3,6 +3,9 @@ import urlFor from "../lib/urlFor";
 import { slugify } from "../lib/slugify";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import "katex/dist/katex.min.css";
+import { InlineMath, BlockMath } from "react-katex";
+import "react";
 
 export const RichTextComponent = {
   types: {
@@ -46,6 +49,13 @@ export const RichTextComponent = {
         >
           {value.code}
         </SyntaxHighlighter>
+      );
+    },
+    latex: ({ value }: any) => {
+      return (
+        <h3>
+          <BlockMath math={value.body} />
+        </h3>
       );
     },
   },
@@ -131,11 +141,13 @@ export const RichTextComponent = {
         {children}
       </span>
     ),
-
     underline: ({ children }: any) => (
       <span className="underline decoration-[#ff7777] decoration-2 font-normal tracking-wider">
         {children}
       </span>
     ),
+    latex: ({ children }: any) => {
+      return <InlineMath math={children[0]} />;
+    },
   },
 };

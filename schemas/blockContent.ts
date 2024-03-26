@@ -41,6 +41,10 @@ export default defineType({
           { title: "Code", value: "code" },
           { title: "Underline", value: "underline" },
           { title: "Strike", value: "strike-through" },
+          {
+            value: "latex",
+            title: "Inline math",
+          },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -55,10 +59,6 @@ export default defineType({
                 type: "url",
               },
             ],
-          },
-          {
-            type: "latex",
-            title: "Inline math",
           },
         ],
       },

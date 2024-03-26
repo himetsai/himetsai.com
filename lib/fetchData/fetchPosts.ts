@@ -10,7 +10,6 @@ const query = groq`
 `;
 
 export const fetchPosts = cache(async () => {
-
   // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const posts: Post[] = await client.fetch(query);

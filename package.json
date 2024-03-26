@@ -52,7 +52,7 @@
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
     "@types/node": "18.11.3",
-    "@types/react": "18.0.21",
+    "@types/react": "^18.2.6",
     "@types/react-dom": "18.0.6",
     "@types/react-katex": "^3.0.4",
     "@types/react-syntax-highlighter": "^15.5.7",

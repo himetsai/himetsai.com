@@ -18,7 +18,7 @@ export default function PostCard({ post }: Props) {
         href={`/shitpost/${post.slug.current}`}
         className="flex flex-col shrink-0 w-full h-full px-2 py-2 md:py-4 bg-[#fffffe]
         group-hover:bg-[#ff7777] border-[1.5px] border-[#33272a] 
-        rounded-md transition text-[#33272a] duration-200 ease-in-out
+        rounded-md transition text-[#33272a] duration-100 ease-in-out
         group-hover:text-[#fffffe] group-hover:scale-105 group-active:scale-95"
       >
         {/* Date */}

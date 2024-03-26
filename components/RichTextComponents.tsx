@@ -53,7 +53,7 @@ export const RichTextComponent = {
     },
     latex: ({ value }: any) => {
       return (
-        <h3>
+        <h3 className="text-[#594a4e]">
           <BlockMath math={value.body} />
         </h3>
       );

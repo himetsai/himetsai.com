@@ -2,12 +2,7 @@
 import React, { useState, useLayoutEffect } from "react";
 import StatusBar from "./bar";
 import { useIsLarge, useIsSmall } from "../../hooks/useMediaQuery";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type Props = {};
 

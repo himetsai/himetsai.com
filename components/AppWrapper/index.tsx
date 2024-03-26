@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { usePathname } from "next/navigation";
 import { montserrat } from "../../lib/loadFonts";
-import { useIsPresent } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "../Header";
 import { useIsLarge, useIsMedium } from "../../hooks/useMediaQuery";
@@ -26,7 +25,7 @@ export default function AppWrapper({
   const [fixedHeader, setFixedHeader] = useState<"fixed" | "relative">(
     "relative"
   );
-  
+
   /**
    * Screen size checks
    */

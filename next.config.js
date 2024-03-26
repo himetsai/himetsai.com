@@ -3,9 +3,6 @@ const nextConfig = {
   async redirects() {
     return links;
   },
-  experimental: {
-    appDir: true,
-  },
   reactStrictMode: true,
   images: {
     loader: "default",

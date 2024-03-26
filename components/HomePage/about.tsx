@@ -24,6 +24,7 @@ export default function About({ name, description, image }: Props) {
           src={urlFor(image).url()}
           alt=""
           fill
+          priority
         />
       </div>
 

@@ -36,6 +36,7 @@ export default function PostContent({ post }: Props) {
           src={urlFor(post.mainImage).url()}
           alt={post.author.name}
           fill
+          priority
         />
       </div>
 

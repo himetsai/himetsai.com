@@ -48,8 +48,6 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-// export const viewport = "width=device-width, initial-scale=1";
-
 export default async function Post({ params }: Props) {
   const { slug } = params;
   const post: Post = await fetchPost(slug);

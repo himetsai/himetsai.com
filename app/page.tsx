@@ -21,8 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-// export const viewport = "width=device-width, initial-scale=1";
-
 export const revalidate = 10;
 
 const Home = async () => {

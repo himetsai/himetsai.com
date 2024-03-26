@@ -4,7 +4,6 @@ import Hero from "./hero";
 import About from "./about";
 import Achievements from "./achievements";
 import Contact from "./contact";
-import Link from "next/link";
 
 type Props = {
   pageTitle: string;

@@ -26,10 +26,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 To deploy the website to vercel, simply push the code to the repository.
 
-## Finally
-
-If you like me as a person, **please give me a star**.
-
-Thank you very much.
-
 

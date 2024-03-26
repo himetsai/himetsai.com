@@ -18,7 +18,7 @@ export default function AppWrapper({
   /**
    * hide header on the sanity backend page
    */
-  const showHeader: boolean = pathname.startsWith("/studio") ? false : true;
+  const showHeader = pathname.startsWith("/studio") ? false : true;
 
   /**
    * header position state
@@ -26,12 +26,7 @@ export default function AppWrapper({
   const [fixedHeader, setFixedHeader] = useState<"fixed" | "relative">(
     "relative"
   );
-
-  /**
-   * Page change check
-   */
-  const isPresent = useIsPresent();
-
+  
   /**
    * Screen size checks
    */
@@ -42,18 +37,17 @@ export default function AppWrapper({
    * Decide header position when page or screen size changes
    */
   useEffect(() => {
-    isPresent &&
-      setFixedHeader(
-        (pathname === "/shitpost" && isMedium) ||
-          (pathname === "/status" && isLarge) ||
-          (pathname.startsWith("/shitpost") && isLarge) ||
-          pathname === "/" ||
-          pathname.startsWith("/422")
-          ? "fixed"
-          : "relative"
-      );
+    setFixedHeader(
+      (pathname === "/shitpost" && isMedium) ||
+        (pathname === "/status" && isLarge) ||
+        (pathname.startsWith("/shitpost") && isLarge) ||
+        pathname === "/" ||
+        pathname.startsWith("/422")
+        ? "fixed"
+        : "relative"
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPresent, isMedium, isLarge]);
+  }, [pathname, isMedium, isLarge]);
 
   return (
     <Auth0Provider

@@ -10,6 +10,7 @@ const query = groq`
 `;
 
 export const fetchPageInfo = cache(async () => {
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   const pageInfo: PageInfo = await client.fetch(query);
   return pageInfo;
 });

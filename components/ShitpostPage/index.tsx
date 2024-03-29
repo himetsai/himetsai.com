@@ -19,7 +19,7 @@ export default function ShitpostPage({ posts }: Props) {
   const ghostRef = useRef<null | HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState<number>(0);
   const [viewportW, setViewportW] = useState<number>(0);
-  const isMedium: boolean = useIsMedium();
+  const isMedium = useIsMedium();
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -40,9 +40,7 @@ export default function ShitpostPage({ posts }: Props) {
     ])
   );
 
-  if (cat && !categories.has(cat)) {
-    notFound();
-  }
+  cat && !categories.has(cat) && notFound();
 
   useLayoutEffect(() => {
     setScrollRange(scrollRef.current!.scrollWidth);
@@ -69,6 +67,7 @@ export default function ShitpostPage({ posts }: Props) {
 
   return (
     <>
+      {/* Filter Indicator */}
       {cat && (
         <div
           className="z-10 flex md:fixed items-center md:justify-center px-8 pt-2 
@@ -87,6 +86,7 @@ export default function ShitpostPage({ posts }: Props) {
           </p>
         </div>
       )}
+      {/* Post Container */}
       <div
         className="flex w-full bg-[#faeee7] pt-5
         md:fixed md:w-auto md:right-0 md:flex-row-reverse md:will-change-transform"
@@ -112,6 +112,7 @@ export default function ShitpostPage({ posts }: Props) {
           )}
         </motion.section>
       </div>
+      {/* Ghost Scroll */}
       <div
         ref={ghostRef}
         style={

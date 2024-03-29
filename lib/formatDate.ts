@@ -23,7 +23,7 @@ export default function formatDate(
   const diffTime = currTime.getTime() - dateTime.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays > 7
-    ? dateTime.toLocaleDateString("ja-JP", format)
+    ? dateTime.toLocaleDateString("en-US", format)
     : formatDistanceToNowStrict(dateTime, {
         addSuffix: true,
       });

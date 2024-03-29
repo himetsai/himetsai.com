@@ -4,7 +4,7 @@ import MenuItem from "./menuItem";
 type Props = {};
 
 export default function Menu({}: Props) {
-  const paths = ["home", "shitpost", "CV", "oodball"];
+  const paths = ["home", "shitpost", "oodball"];
   return (
     <div className="dropdown dropdown-hover dropdown-end group -mt-1">
       {/* Icon */}

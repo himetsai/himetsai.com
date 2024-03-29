@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { motion } from "framer-motion";
 import formatDate from "../lib/formatDate";
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 
 export default function PostCard({ post }: Props) {
   return (
-    <motion.div
+    <div
       className="flex group  w-[90vw] rounded-md md:w-auto 
       md:h-[70vh] md:vertical-title"
     >
@@ -50,6 +49,6 @@ export default function PostCard({ post }: Props) {
         {/* Catagory */}
         <p className="relative self-end text-sm">{`#${post.category.title}`}</p>
       </Link>
-    </motion.div>
+    </div>
   );
 }

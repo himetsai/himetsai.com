@@ -38,6 +38,7 @@ interface Author extends Base {
 
 interface Category extends Base {
   title: string;
+  slug: Slug;
   description: string;
 }
 

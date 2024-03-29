@@ -4,11 +4,10 @@ import ResizeObserver from "resize-observer-polyfill";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../hooks/useMediaQuery";
 import PostCard from "../../components/PostCard";
+import { useSearchParams, notFound } from "next/navigation";
 
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
-
-const HIDE_WORK = true;
 
 type Props = {
   posts: Post[];
@@ -29,6 +28,18 @@ export default function ShitpostPage({ posts }: Props) {
       },
     },
   };
+
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
+  if (category) {
+    const categories = new Set(
+      posts.map((post) => post.category.slug.current.toString())
+    );
+
+    if (!categories.has(category))
+      notFound();
+  }
 
   useLayoutEffect(() => {
     setScrollRange(scrollRef.current!.scrollWidth);
@@ -74,9 +85,8 @@ export default function ShitpostPage({ posts }: Props) {
           {/* Posts */}
           {posts.map(
             (post) =>
-              (post.category.title != "工作" || !HIDE_WORK) && (
-                <PostCard key={post._id} post={post} />
-              )
+              (post.category.slug.current.toString() === category ||
+                !category) && <PostCard key={post._id} post={post} />
           )}
         </motion.section>
       </div>

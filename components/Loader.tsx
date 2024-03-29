@@ -21,6 +21,7 @@ export default function Loader({}: Props) {
             alt=""
             width="250"
             height="250"
+            priority
             className="rounded-3xl object-cover border-[1.5px] border-[#33272a]"
           />
         </div>

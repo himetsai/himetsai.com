@@ -232,6 +232,7 @@
       rgba(var(--callout-rgb), 0.5)
     );
     background-clip: padding-box;
+    -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
   }
 

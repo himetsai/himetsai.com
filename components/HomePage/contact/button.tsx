@@ -43,11 +43,11 @@ export default function SocialButton({ social }: Props) {
         alt={social.title}
         className="brightness-0 group-hover:invert transition ease-in-out duration-200"
       />
-      {isLarge && <h4 className="font-medium">{social.username}</h4>}
+      {isLarge && <p className="font-medium">{social.username}</p>}
     </a>
   ) : (
     <div ref={btn} className="tooltip" data-tip="copied!">
-      <p
+      <div
         className="btn flex flex-row min-w-fit items-center justify-center
             lg:justify-start p-2 lg:px-3 gap-2 rounded-lg border-[1.5px]
            border-[#33272a] group hover:bg-[#ff7777]
@@ -66,8 +66,8 @@ export default function SocialButton({ social }: Props) {
           alt={social.title}
           className="brightness-0 group-hover:invert transition ease-in-out duration-200"
         />
-        {isLarge && <h4 className="font-medium">{social.username}</h4>}
-      </p>
+        {isLarge && <p className="font-medium">{social.username}</p>}
+      </div>
     </div>
   );
 }

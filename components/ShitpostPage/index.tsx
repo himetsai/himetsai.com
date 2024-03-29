@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMedium } from "../../hooks/useMediaQuery";
 import PostCard from "../../components/PostCard";
 import { useSearchParams, notFound } from "next/navigation";
+import Link from "next/link";
 
 React.useLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
@@ -30,20 +31,22 @@ export default function ShitpostPage({ posts }: Props) {
   };
 
   const searchParams = useSearchParams();
-  const category = searchParams.get("category");
+  const cat = searchParams.get("cat");
 
-  if (category) {
-    const categories = new Set(
-      posts.map((post) => post.category.slug.current.toString())
-    );
+  const categories = new Map(
+    posts.map((post) => [
+      post.category.slug.current.toString(),
+      post.category.title,
+    ])
+  );
 
-    if (!categories.has(category))
-      notFound();
+  if (cat && !categories.has(cat)) {
+    notFound();
   }
 
   useLayoutEffect(() => {
     setScrollRange(scrollRef.current!.scrollWidth);
-  }, [scrollRef]);
+  }, [scrollRef, cat, isMedium]);
 
   const onResize = useCallback((entries: ResizeObserverEntry[]) => {
     for (let entry of entries) {
@@ -66,6 +69,24 @@ export default function ShitpostPage({ posts }: Props) {
 
   return (
     <>
+      {cat && (
+        <div
+          className="z-10 flex md:fixed items-center md:justify-center px-8 pt-2 
+          md:px-0 md:py-0 md:right-[60px] md:bottom-0 md:h-[10%]"
+        >
+          <p className="md:text-lg">
+            Filter:{" "}
+            <span
+              className="rounded-sm border border-[#33272a] text-[#33272a] 
+              bg-[#fffffe] p-1 hover:line-through"
+            >
+              <Link href="/shitpost" className="">
+                #{categories.get(cat)}
+              </Link>
+            </span>
+          </p>
+        </div>
+      )}
       <div
         className="flex w-full bg-[#faeee7] pt-5
         md:fixed md:w-auto md:right-0 md:flex-row-reverse md:will-change-transform"
@@ -85,8 +106,9 @@ export default function ShitpostPage({ posts }: Props) {
           {/* Posts */}
           {posts.map(
             (post) =>
-              (post.category.slug.current.toString() === category ||
-                !category) && <PostCard key={post._id} post={post} />
+              (post.category.slug.current.toString() === cat || !cat) && (
+                <PostCard key={post._id} post={post} />
+              )
           )}
         </motion.section>
       </div>

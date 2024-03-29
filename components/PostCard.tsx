@@ -9,7 +9,7 @@ type Props = {
 export default function PostCard({ post }: Props) {
   return (
     <div
-      className="flex group  w-[90vw] rounded-md md:w-auto 
+      className="flex group w-[90vw] rounded-md md:w-auto 
       md:h-[70vh] md:vertical-title"
     >
       <Link
@@ -32,7 +32,7 @@ export default function PostCard({ post }: Props) {
               clipRule="evenodd"
             />
           </svg>
-          
+
           <p className="relative text-sm">
             {formatDate(post.publishedAt, false)}
           </p>
@@ -47,7 +47,12 @@ export default function PostCard({ post }: Props) {
         </h2>
 
         {/* Catagory */}
-        <p className="relative self-end text-sm">{`#${post.category.title}`}</p>
+        <Link
+          className="relative self-end text-sm"
+          href={`/shitpost/?cat=${post.category.slug.current}`}
+        >
+          #<span className="hover:underline">{post.category.title}</span>
+        </Link>
       </Link>
     </div>
   );

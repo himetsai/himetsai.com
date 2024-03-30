@@ -14,8 +14,8 @@ export default function Header({ position }: Props) {
   return (
     <div className={`${position} w-full z-30 left-0`}>
       <header
-        className="top-0 md:top-4 flex items-start justify-between max-w-7xl 
-    mx-auto px-5 md:px-10 py-5"
+        className="top-0 md:top-4 flex items-start justify-between max-w-7xl 2xl:max-w-[85%]
+          mx-auto px-5 md:px-10 py-5"
       >
         <div
           className="btn flex flex-row items-center px-2 py-1 rounded-md

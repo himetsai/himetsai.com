@@ -1,4 +1,5 @@
 import { defineType, defineArrayMember } from "sanity";
+import { mathIcon } from "./icons";
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -43,6 +44,7 @@ export default defineType({
           { title: "Strike", value: "strike-through" },
           {
             value: "latex",
+            icon: mathIcon,
             title: "Inline math",
           },
         ],
@@ -78,12 +80,26 @@ export default defineType({
       ],
     }),
     defineArrayMember({
-      type: "latex",
-      title: "Math block",
+      type: "object",
+      name: "latexblock",
+      icon: mathIcon,
+      title: "LaTeX",
+      fields: [
+        {
+          name: "code",
+          type: "latex",
+          title: "LaTeX",
+        },
+        {
+          name: "caption",
+          type: "string",
+          title: "Caption",
+        },
+      ],
     }),
     defineArrayMember({
       name: "code",
-      title: "Code Block",
+      title: "Code",
       type: "code",
     }),
   ],

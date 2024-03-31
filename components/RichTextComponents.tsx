@@ -51,11 +51,16 @@ export const RichTextComponent = {
         </SyntaxHighlighter>
       );
     },
-    latex: ({ value }: any) => {
+    latexblock: ({ value }: any) => {
       return (
-        <h3 className="text-[#594a4e]">
-          <BlockMath math={value.body} />
-        </h3>
+        <div className="text-[#594a4e]">
+          <BlockMath math={value.code.body} />
+          {value.caption && (
+            <p className="px-2 text-center text-sm text-[#594a4e]/75 mb-5">
+              {value.caption}
+            </p>
+          )}
+        </div>
       );
     },
   },

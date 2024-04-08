@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import TableOfContents from "./contentTable";
 import formatDate from "../../lib/formatDate";
 import { useIsLarge } from "../../hooks/useMediaQuery";
+import Link from "next/link";
 
 type Props = {
   post: Post;
@@ -39,9 +40,12 @@ export default function SideInfo({ post }: Props) {
           {/* Category */}
           <div className="relative tracking-wide">
             <p className="text-xs opacity-60">Category</p>
-            <p className="relative text-sm font-medium">
-              {`#${post.category.title}`}
-            </p>
+            <Link
+              className="relative text-sm font-medium"
+              href={`/shitpost/?cat=${post.category.slug.current}`}
+            >
+              #<span className="hover:underline">{post.category.title}</span>
+            </Link>
           </div>
 
           {/* Table of Contents */}

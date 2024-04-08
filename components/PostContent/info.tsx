@@ -1,5 +1,6 @@
 import React from "react";
 import formatDate from "../../lib/formatDate";
+import Link from "next/link";
 
 type Props = {
   post: Post;
@@ -48,9 +49,12 @@ export default function InPostInfo({ post }: Props) {
         </div>
       </div>
       {/* Category */}
-      <p className="relative text-sm font-medium tracking-wide pt-2">
-        {`#${post.category.title}`}
-      </p>
+      <Link
+        className="relative text-sm font-medium tracking-wide pt-2"
+        href={`/shitpost/?cat=${post.category.slug.current}`}
+      >
+        #<span className="hover:underline">{post.category.title}</span>
+      </Link>
     </div>
   );
 }

@@ -151,6 +151,11 @@ export const RichTextComponent = {
         {children}
       </span>
     ),
+    "strike-through": ({ children }: any) => (
+      <span className="line-through decoration-2 font-normal tracking-wider">
+        {children}
+      </span>
+    ),
     latex: ({ children }: any) => {
       return <InlineMath math={children[0]} />;
     },

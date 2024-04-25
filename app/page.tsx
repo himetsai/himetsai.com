@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 10;
+export const revalidate = 300;
 
 const Home = async () => {
   const pageInfo = await fetchPageInfo();

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 10;
+export const revalidate = 300;
 
 export default async function Shitpost() {
   const posts: Post[] = await fetchPosts();

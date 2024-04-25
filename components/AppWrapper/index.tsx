@@ -4,6 +4,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { usePathname } from "next/navigation";
 import { montserrat } from "../../lib/loadFonts";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "../Header";
 import { useIsLarge, useIsMedium } from "../../hooks/useMediaQuery";
 
@@ -61,6 +62,7 @@ export default function AppWrapper({
         {showHeader && <Header position={fixedHeader} />}
         {children}
         <Analytics />
+        <SpeedInsights />
       </main>
     </Auth0Provider>
   );

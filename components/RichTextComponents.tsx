@@ -53,7 +53,7 @@ export const RichTextComponent = {
     },
     latexblock: ({ value }: any) => {
       return (
-        <div className="text-[#594a4e]">
+        <div className="text-[#594a4e] overflow-auto">
           <BlockMath math={value.code.body} />
           {value.caption && (
             <p className="px-2 text-center text-sm text-[#594a4e]/75 mb-5">
